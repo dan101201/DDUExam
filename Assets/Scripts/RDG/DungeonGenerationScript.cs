@@ -10,10 +10,19 @@ public class DungeonGenerationScript : MonoBehaviour
     void Start()
     {
         var testRoom = Instantiate(RoomPrefabs[0]);
-        Debug.Log(room.GetComponent<Room>().doors[1].transform.position);
-        Debug.Log(testRoom.GetComponent<Room>().doors[1].transform.localPosition);
-        testRoom.transform.position = (room.GetComponent<Room>().doors[1].transform.position + testRoom.GetComponent<Room>().doors[1].transform.position) - new Vector3(0, testRoom.GetComponent<Room>().doors[1].transform.position.y*2, 0);
+        Debug.Log(room.GetComponent<Room>().doors[0].transform.position);
+        Debug.Log(testRoom.GetComponent<Room>().doors[0].transform.localPosition);
+        testRoom.transform.position = (room.GetComponent<Room>().doors[0].transform.position + testRoom.GetComponent<Room>().doors[0].transform.position) - new Vector3(0, testRoom.GetComponent<Room>().doors[0].transform.position.y*2, 0);
         //GenerateDungeon(room,10,10);
+        /*
+        var testRoom = Instantiate(RoomPrefabs[0], room.GetComponent<Room>().doors[0].transform.position, new Quaternion());
+        testRoom.GetComponent<Room>().doors[1].transform.parent = null;
+        testRoom.transform.parent = testRoom.GetComponent<Room>().doors[1].transform;
+        
+        testRoom.GetComponent<Room>().doors[1].transform.position = room.GetComponent<Room>().doors[0].transform.position;
+        testRoom.GetComponent<Room>().doors[1].transform.rotation = Quaternion.Euler(0,room.transform.rotation.eulerAngles.y + 180,0);
+        //GenerateDungeon(room,10,10);
+        */
     }
 
     public void GenerateDungeon(GameObject startingRoom,int seed, int roomsWanted)
