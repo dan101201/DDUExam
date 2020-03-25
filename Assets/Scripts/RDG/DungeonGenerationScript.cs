@@ -9,20 +9,8 @@ public class DungeonGenerationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var testRoom = Instantiate(RoomPrefabs[0]);
-        Debug.Log(room.GetComponent<Room>().doors[0].transform.position);
-        Debug.Log(testRoom.GetComponent<Room>().doors[0].transform.localPosition);
-        testRoom.transform.position = (room.GetComponent<Room>().doors[0].transform.position + testRoom.GetComponent<Room>().doors[0].transform.position) - new Vector3(0, testRoom.GetComponent<Room>().doors[0].transform.position.y*2, 0);
+        PlaceRoom(room,RoomPrefabs[0],room.GetComponent<Room>().doors[0]);
         //GenerateDungeon(room,10,10);
-        /*
-        var testRoom = Instantiate(RoomPrefabs[0], room.GetComponent<Room>().doors[0].transform.position, new Quaternion());
-        testRoom.GetComponent<Room>().doors[1].transform.parent = null;
-        testRoom.transform.parent = testRoom.GetComponent<Room>().doors[1].transform;
-        
-        testRoom.GetComponent<Room>().doors[1].transform.position = room.GetComponent<Room>().doors[0].transform.position;
-        testRoom.GetComponent<Room>().doors[1].transform.rotation = Quaternion.Euler(0,room.transform.rotation.eulerAngles.y + 180,0);
-        //GenerateDungeon(room,10,10);
-        */
     }
 
     public void GenerateDungeon(GameObject startingRoom,int seed, int roomsWanted)
@@ -59,26 +47,56 @@ public class DungeonGenerationScript : MonoBehaviour
                     }
                     roomsTried.Add(newRoom);
 
-                    var roomObject = Instantiate(newRoom);
-                    var roomObjectRoom = roomObject.GetComponent<Room>();
-                    var newRoomDoorsTried = new List<GameObject>();
-                    bool newRoomDoorFound = false;
-                    while (!newRoomDoorFound)
+                    if (PlaceRoom(currentRoom.gameObject,door, newRoom))
                     {
-                        rnd = Random.Range(0, roomObjectRoom.doors.Length - 1);
-                        var newRoomDoor = roomObjectRoom.doors[rnd];
-                        if (newRoomDoorsTried.Contains(door))
-                        {
-                            continue;
-                        }
-                        newRoomDoorsTried.Add(door);
-
-                        roomObject.transform.position = door.transform.position - newRoomDoor.transform.localPosition;
+                        roomFits = true;
+                        done = true;
                     }
                 }
             }
             
         }
+    }
+
+    private bool PlaceRoom(GameObject startingRoom, GameObject newRoom, GameObject door)
+    {
+        List<int> doorsTried = new List<int>();
+        bool done = false;
+        var boxCollider = startingRoom.GetComponent<BoxCollider>();
+        var startingRoomScript = startingRoom.GetComponent<Room>();
+        //while (!doorFits)
+        {
+
+            newRoom = Instantiate(newRoom, startingRoomScript.doors[0].transform.position,new Quaternion());
+            var newRoomScript = newRoom.GetComponent<Room>();
+            int rnd = Random.Range(0,newRoomScript.doors.Length);
+            if (doorsTried.Contains(rnd))
+            {
+                if (doorsTried.Count == newRoomScript.doors.Length)
+                {
+                    done = true;
+                }
+            }
+            doorsTried.Add(rnd);
+
+            newRoomScript.doors[rnd].transform.parent = null;
+            newRoom.transform.parent = newRoomScript.doors[rnd].transform;
+            newRoomScript.doors[rnd].transform.position = door.transform.position;
+            
+            newRoomScript.doors[rnd].transform.rotation = Quaternion.Euler(0, room.transform.rotation.eulerAngles.y + 180, 0);
+
+            bool roomFits = newRoom.GetComponent<Room>().roomFits;
+            Debug.Log(roomFits);
+            if (roomFits)
+            {   
+                return true;
+            }
+            else
+            {
+                Destroy(newRoom);
+            }
+        }
+        return false;
     }
 
 }
