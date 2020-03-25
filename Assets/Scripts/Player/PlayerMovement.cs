@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-
     public float movementSpeed;
+    new Rigidbody rigidbody;
 
-    // Use this for initialization
     void Start()
     {
-
+        rigidbody = GetComponent<Rigidbody>();
+        GameObject.FindGameObjectWithTag("MainCamera").transform.LookAt(transform);
     }
 
-    //Update is called once per frame
+    //Update is called once per 'tick'
     void FixedUpdate()
     {
+        rigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, 0, Input.GetAxis("Vertical") * movementSpeed);
 
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey("w"))
-        {
-            transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed * 2.5f;
-        }
-        else if (Input.GetKey("w") && !Input.GetKey(KeyCode.LeftShift))
+        //Debug.Log(rigidbody.velocity);
+        /*if (Input.GetKey("w"))
         {
             transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
         }
@@ -37,6 +35,6 @@ public class Movement : MonoBehaviour
         else if (Input.GetKey("d") && !Input.GetKey("a"))
         {
             transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
-        }
+        }*/
     }
 }
