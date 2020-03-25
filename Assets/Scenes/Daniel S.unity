@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -147,7 +147,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &50649749
 MonoBehaviour:
@@ -5541,7 +5541,7 @@ PrefabInstance:
     - target: {fileID: 3336255228252716456, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_Name
-      value: Room 01 (1)
+      value: Room 01
       objectReference: {fileID: 0}
     - target: {fileID: 3552133947999302299, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
@@ -5597,21 +5597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4435343246256622730, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646481323752541213, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.62392473
-      objectReference: {fileID: 0}
-    - target: {fileID: 6646481323752541213, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.31196237
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}
