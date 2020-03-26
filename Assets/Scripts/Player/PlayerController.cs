@@ -6,23 +6,21 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
     new Rigidbody rigidbody;
-    InputControl InputControl;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         GameObject.FindGameObjectWithTag("MainCamera").transform.LookAt(transform);
-        InputControl = new InputControl();
     }
 
     //Update is called once per 'tick'
     void FixedUpdate()
     {
-        if (InputControl.GetInputState() == InputControl.eInputState.MouseKeyboard)
+        if (GetInputState() == eInputState.MouseKeyboard)
         {
             Debug.Log("MouseKeyboard");
         }
-        else if (InputControl.GetInputState() == InputControl.eInputState.Controller)
+        else if (GetInputState() == eInputState.Controller)
         {
             Debug.Log("Controller");
         }
@@ -53,11 +51,8 @@ public class PlayerController : MonoBehaviour
             transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
         }*/
     }
-}
 
-//https://answers.unity.com/questions/131899/how-do-i-check-what-input-device-is-currently-beei.html
-public class InputControl : MonoBehaviour
-{
+    //https://answers.unity.com/questions/131899/how-do-i-check-what-input-device-is-currently-beei.html
     //*********************//
     // Public member data  //
     //*********************//
@@ -157,14 +152,14 @@ public class InputControl : MonoBehaviour
         }
 
         // joystick axis
-        if (Input.GetAxis("XC Left Stick X") != 0.0f ||
+        /*if (Input.GetAxis("XC Left Stick X") != 0.0f ||
            Input.GetAxis("XC Left Stick Y") != 0.0f ||
            Input.GetAxis("XC Triggers") != 0.0f ||
            Input.GetAxis("XC Right Stick X") != 0.0f ||
            Input.GetAxis("XC Right Stick Y") != 0.0f)
         {
             return true;
-        }
+        }*/
 
         return false;
     }
