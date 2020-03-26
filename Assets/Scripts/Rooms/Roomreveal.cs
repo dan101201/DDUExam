@@ -6,13 +6,18 @@ public class Roomreveal : MonoBehaviour
 {
     public GameObject roof;
 
+    int colliderCount;
     void OnTriggerEnter(Collider col)
     {
         roof.SetActive(false);
+        colliderCount++;
     }
     void OnTriggerExit(Collider col)
     {
-        Debug.Log("wow");
-        roof.SetActive(true);
+        colliderCount--;
+        if(colliderCount==0)
+        {
+            roof.SetActive(true);
+        }
     }
 }
