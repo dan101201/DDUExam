@@ -1066,7 +1066,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &1035293969
 BoxCollider:
@@ -1348,7 +1348,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &680187753
 BoxCollider:
@@ -1912,7 +1912,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &446574535
 BoxCollider:
@@ -3047,7 +3047,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &134626160
 BoxCollider:
