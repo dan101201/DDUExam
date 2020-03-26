@@ -5,19 +5,28 @@ using UnityEngine;
 public class Roomreveal : MonoBehaviour
 {
     public GameObject roof;
+    public static bool isPlayerInRoom;
 
     int colliderCount;
     void OnTriggerEnter(Collider col)
     {
-        roof.SetActive(false);
-        colliderCount++;
+        if (col.CompareTag("Player"))
+        {
+            isPlayerInRoom = true;
+            roof.SetActive(false);
+            colliderCount++;
+        }
     }
     void OnTriggerExit(Collider col)
     {
-        colliderCount--;
-        if(colliderCount==0)
+        if (col.CompareTag("Player"))
         {
-            roof.SetActive(true);
+            colliderCount--;
+            if (colliderCount == 0)
+            {
+                isPlayerInRoom = false;
+                roof.SetActive(true);
+            }
         }
     }
 }
