@@ -69,7 +69,6 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\RDG\DungeonGenerationScript.cs" />
     <Compile Include="Assets\Scripts\RDG\Room.cs" />
-    <Compile Include="Assets\Scripts\Rooms\Roofreveal.cs" />
     <Compile Include="Assets\Scripts\Rooms\Roomreveal.cs" />
     <Compile Include="Assets\Scripts\Saving&amp;Loading\PlayerSaveData.cs" />
     <Compile Include="Assets\Scripts\Saving&amp;Loading\SavingFunctionality.cs" />
@@ -78,28 +77,28 @@
     <Compile Include="Assets\Scripts\UI\SaveSlotElement.cs" />
     <Compile Include="Assets\Scripts\UI\ScrollableButNotDraggableScrollRect.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/OneDrive/Skole/ZBC/DDU/Eksamensprojekt/DDUExam/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity/Project/DDUExam/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

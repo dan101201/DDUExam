@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Roomreveal : MonoBehaviour
 {
-    public Roofreveal Roof;
+    public GameObject roof;
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
-        {
-            Roof.ChangeRoofState();
-        }
+        roof.SetActive(false);
+    }
+    void OnTriggerExit(Collider col)
+    {
+        Debug.Log("wow");
+        roof.SetActive(true);
     }
 }
