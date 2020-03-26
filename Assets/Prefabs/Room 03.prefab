@@ -506,7 +506,6 @@ GameObject:
   - component: {fileID: 2025706340289210567}
   - component: {fileID: 894544713}
   - component: {fileID: 894544714}
-  - component: {fileID: 894544715}
   m_Layer: 0
   m_Name: Door_01
   m_TagString: Untagged
@@ -587,7 +586,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.0000038146973, y: 0, z: -0.0000009536743}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &894544714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,20 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roof: {fileID: 5221278864507545155}
---- !u!114 &894544715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2872472691724846704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roof: {fileID: 0}
+  Roof: {fileID: 9025328931688984000}
 --- !u!1 &2982440837662239928
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +930,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.000000059590093}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1589297078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roof: {fileID: 5221278864507545155}
+  Roof: {fileID: 9025328931688984000}
 --- !u!1 &3517733767742569372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roof: {fileID: 5221278864507545155}
+  Roof: {fileID: 9025328931688984000}
 --- !u!1 &4076113930644005591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,6 +1432,7 @@ GameObject:
   - component: {fileID: 8758396149652106545}
   - component: {fileID: 3165278066631804470}
   - component: {fileID: 159161063218082005}
+  - component: {fileID: 9025328931688984000}
   m_Layer: 0
   m_Name: Roof
   m_TagString: Untagged
@@ -1514,6 +1501,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &9025328931688984000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221278864507545155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73668cdf1afc0649bb975215b54ad1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoofState: 0
 --- !u!1 &5768749186405888730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,7 +2586,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.0000009536743}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &553041921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2599,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roof: {fileID: 5221278864507545155}
+  Roof: {fileID: 9025328931688984000}
 --- !u!1 &9135861772090837581
 GameObject:
   m_ObjectHideFlags: 0
