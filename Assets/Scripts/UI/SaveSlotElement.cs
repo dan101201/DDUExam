@@ -7,35 +7,30 @@ using UnityEngine.EventSystems;
 public class SaveSlotElement : MonoBehaviour
 {
     public Canvas canvas;
-    public byte saveSlot;
+    public byte SaveSlot;
+    Text SaveText;
+
+    void Start()
+    {
+        Text[] texts = GetComponentsInChildren<Text>();
+        texts[0].text = SaveSlot.ToString();
+        SaveText = texts[1];
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        canvas.GetComponent<SaveLoadUI>().SaveToSelected(saveSlot);
+        PlayerData playerData = new PlayerData(2);
+        SavingFunctionality.SavePlayer(playerData, SaveSlot);
+        UpdateData(playerData);
     }
 
-    public void UpdateData(PlayerSave save)
+    public void DisplayEmptySlot()
     {
+        SaveText.text = "Empty";
+    }
 
+    public void UpdateData(PlayerData playerData)
+    {
+        SaveText.text = playerData.ToString();
     }
 }
-
-/*
-#region EditorStuff
-[CustomEditor(typeof(SaveSlotElement))]
-public class SaveSlotEditor : ButtonEditor
-{
-    public override void OnInspectorGUI()
-    {
-        // Show default inspector property editor
-        base.OnInspectorGUI();
-
-        SaveSlotElement targetSaveSlot = (SaveSlotElement)target;
-
-        targetSaveSlot.canvas = (Canvas)EditorGUILayout.ObjectField(targetSaveSlot.canvas, typeof(Canvas), true);
-
-        targetSaveSlot.saveSlot = (byte)EditorGUILayout.IntField(targetSaveSlot.saveSlot);
-    }
-}
-#endregion
-*/

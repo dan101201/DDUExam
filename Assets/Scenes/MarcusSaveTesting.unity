@@ -240,6 +240,9 @@ MonoBehaviour:
   Save1: {fileID: 123683835}
   Save2: {fileID: 275025935}
   Save3: {fileID: 579167220}
+  currentPlayer:
+    Health: 0
+    HelperString: 
 --- !u!1 &73282622
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 6021321}
-  saveSlot: 1
+  SaveSlot: 1
 --- !u!1 &275025930
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 6021321}
-  saveSlot: 2
+  SaveSlot: 2
 --- !u!1 &475907583
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 6021321}
-  saveSlot: 3
+  SaveSlot: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Security.Cryptography;
+
 [Serializable]
-public class PlayerSave
+class PlayerSaveWrapper
 {
     public PlayerData PlayerSaveData;
     public byte SaveSlot;
 
-    public PlayerSave(int health, byte saveSlot)
-    {
-        PlayerSaveData = new PlayerData(health);
-        this.SaveSlot = saveSlot;
-    }
-    public PlayerSave(PlayerData player, byte saveSlot)
+    public PlayerSaveWrapper(PlayerData player, byte saveSlot)
     {
         PlayerSaveData = player;
         this.SaveSlot = saveSlot;
@@ -22,7 +18,13 @@ public class PlayerSave
 public class PlayerData
 {
     public int Health;
-    public string location = "";
+    public string HelperString = "";
+    public PlayerData(int health, string helperString)
+    {
+        this.Health = health;
+        this.HelperString = helperString;
+    }
+
     public PlayerData(int health)
     {
         this.Health = health;
@@ -31,7 +33,7 @@ public class PlayerData
         rNGCryptoServiceProvider.GetBytes(vs);
         foreach (byte item in vs)
         {
-            location += Convert.ToChar(vs);
+            HelperString += Convert.ToChar(vs).ToString();
         }
     }
 

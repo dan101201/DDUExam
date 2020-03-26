@@ -1,15 +1,17 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 using UnityEngine;
 
 public static class SavingFunctionality
 {
     public static string settingsDestination = Application.persistentDataPath + "/settings.bin";
     public static string playerSaveDestination = Application.persistentDataPath + "/save0.bin";
+    public static byte LatestSlot;
 
-    public static PlayerSave[] GetSaves()
+    public static PlayerData[] GetSaves()
     {
-        PlayerSave[] saves =
+        PlayerData[] saves =
             {
             LoadPlayer(1),
             LoadPlayer(2),
@@ -32,34 +34,17 @@ public static class SavingFunctionality
         {
             fileStream = File.Create(playerSaveDestination);
         }
-        PlayerSave playerSave = new PlayerSave(playerData, saveSlot);
+        PlayerSaveWrapper playerSave = new PlayerSaveWrapper(playerData, saveSlot);
         BinaryFormatter bf = new BinaryFormatter();
         bf.Serialize(fileStream, playerSave);
         fileStream.Close();
+        LatestSlot = saveSlot;
     }
 
-    public static void SavePlayer(PlayerSave playerSave)
-    {
-        FileStream fileStream;
-        playerSaveDestination = Application.persistentDataPath + $"/save{playerSave.SaveSlot}.bin";
-
-        if (File.Exists(playerSaveDestination))
-        {
-            fileStream = File.OpenWrite(playerSaveDestination);
-        }
-        else
-        {
-            fileStream = File.Create(playerSaveDestination);
-        }
-
-        BinaryFormatter bf = new BinaryFormatter();
-        bf.Serialize(fileStream, playerSave);
-        fileStream.Close();
-    }
-
-    public static PlayerSave LoadLatestPlayer()
+    public static PlayerData LoadLatestPlayer()
     {
         FileStream file;
+        playerSaveDestination = Application.persistentDataPath + $"/save{LatestSlot}.bin";
 
         if (File.Exists(playerSaveDestination))
         {
@@ -72,18 +57,21 @@ public static class SavingFunctionality
         }
 
         BinaryFormatter bf = new BinaryFormatter();
-        PlayerSave data = (PlayerSave)bf.Deserialize(file);
+        PlayerSaveWrapper data = (PlayerSaveWrapper)bf.Deserialize(file);
         file.Close();
 
-        return data;
+        return data.PlayerSaveData;
     }
 
-    public static PlayerSave LoadPlayer(byte saveSlot)
+    public static PlayerData LoadPlayer(byte saveSlot)
     {
         FileStream file;
         playerSaveDestination = Application.persistentDataPath + $"/save{saveSlot}.bin";
 
-        if (File.Exists(playerSaveDestination)) file = File.OpenRead(playerSaveDestination);
+        if (File.Exists(playerSaveDestination))
+        {
+            file = File.OpenRead(playerSaveDestination);
+        }
         else
         {
             Debug.LogError("File not found");
@@ -91,17 +79,17 @@ public static class SavingFunctionality
         }
 
         BinaryFormatter bf = new BinaryFormatter();
-        PlayerSave data = (PlayerSave)bf.Deserialize(file);
+        PlayerSaveWrapper data = (PlayerSaveWrapper)bf.Deserialize(file);
         file.Close();
 
-        return data;
+        return data.PlayerSaveData;
     }
 	#endregion
 
 	#region SavingLoadingSettings
-	public static void SaveSettings(SettingsData settingsData)
+	public static void SaveSettings(SettingsSaveDataWrapper settingsData)
     {
-        settingsData.LatestSave = playerSaveDestination;
+        settingsData.LatestSaveSlot = LatestSlot;
 
         FileStream fileStream;
 
@@ -119,7 +107,7 @@ public static class SavingFunctionality
         fileStream.Close();
     }
 
-    public static SettingsData LoadSettingsFile()
+    public static SettingsSaveDataWrapper LoadSettingsFile()
     {
         FileStream file;
 
@@ -134,10 +122,10 @@ public static class SavingFunctionality
         }
 
         BinaryFormatter bf = new BinaryFormatter();
-        SettingsData data = (SettingsData)bf.Deserialize(file);
+        SettingsSaveDataWrapper data = (SettingsSaveDataWrapper)bf.Deserialize(file);
         file.Close();
 
-        playerSaveDestination = data.LatestSave;
+        LatestSlot = data.LatestSaveSlot;
         return data;
     }
 	#endregion

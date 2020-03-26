@@ -9,76 +9,44 @@ public class SaveLoadUI : MonoBehaviour
     public SaveSlotElement Save2;
     public SaveSlotElement Save3;
 
+    public PlayerData currentPlayer;
+
     void Start()
     {
+        Save1.SaveSlot = 1;
+        Save2.SaveSlot = 2;
+        Save3.SaveSlot = 3;
         UpdateList();
     }
 
     public void UpdateList()
     {
-        PlayerSave[] saves = SavingFunctionality.GetSaves();
+        PlayerData[] saves = SavingFunctionality.GetSaves();
         if (saves[0] != null)
         {
-            Save1.saveSlot = 1;
-            Text[] texts = Save1.GetComponentsInChildren<Text>();
-            texts[0].text = saves[0].SaveSlot.ToString();
-            texts[1].text = saves[0].PlayerSaveData.ToString();
+            Save1.UpdateData(saves[0]);
         }
         else
         {
-            Save1.saveSlot = 1;
-            Text[] texts = Save1.GetComponentsInChildren<Text>();
-            texts[0].text = "1";
-            texts[1].text = "Empty";
+            Save1.DisplayEmptySlot();
         }
 
         if (saves[1] != null)
         {
-            Save2.saveSlot = 2;
-            Text[] texts = Save2.GetComponentsInChildren<Text>();
-            texts[0].text = saves[1].SaveSlot.ToString();
-            texts[1].text = saves[1].PlayerSaveData.ToString();
+            Save2.UpdateData(saves[0]);
         }
         else
         {
-            Save2.saveSlot = 2;
-            Text[] texts = Save2.GetComponentsInChildren<Text>();
-            texts[0].text = "2";
-            texts[1].text = "Empty";
+            Save2.DisplayEmptySlot();
         }
 
         if (saves[2] != null)
         {
-            Save3.saveSlot = 3;
-            Text[] texts = Save3.GetComponentsInChildren<Text>();
-            texts[0].text = saves[2].SaveSlot.ToString();
-            texts[1].text = saves[2].PlayerSaveData.ToString();
+            Save3.UpdateData(saves[0]);
         }
         else
         {
-            Save3.saveSlot = 3;
-            Text[] texts = Save3.GetComponentsInChildren<Text>();
-            texts[0].text = "3";
-            texts[1].text = "Empty";
-        }
-    }
-
-    public void SaveToSelected(byte saveSlot)
-    {
-        switch (saveSlot)
-        {
-            case 1:
-                SavingFunctionality.SavePlayer(new PlayerData(2), 1);
-                break;
-            case 2:
-                SavingFunctionality.SavePlayer(new PlayerData(2), 2);
-                break;
-            case 3:
-                SavingFunctionality.SavePlayer(new PlayerData(2), 3);
-                break;
-            default:
-                Debug.LogError(saveSlot + "number not accepted!");
-                break;
+            Save3.DisplayEmptySlot();
         }
     }
 }
