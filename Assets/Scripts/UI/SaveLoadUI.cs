@@ -33,7 +33,7 @@ public class SaveLoadUI : MonoBehaviour
 
         if (saves[1] != null)
         {
-            Save2.UpdateData(saves[0]);
+            Save2.UpdateData(saves[1]);
         }
         else
         {
@@ -42,7 +42,7 @@ public class SaveLoadUI : MonoBehaviour
 
         if (saves[2] != null)
         {
-            Save3.UpdateData(saves[0]);
+            Save3.UpdateData(saves[2]);
         }
         else
         {

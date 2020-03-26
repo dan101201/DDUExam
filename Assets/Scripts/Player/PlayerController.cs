@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     //Update is called once per 'tick'
     void FixedUpdate()
     {
-        if (GetInputState() == eInputState.MouseKeyboard)
+        if (GetInputState() == EInputState.MouseKeyboard)
         {
             Debug.Log("MouseKeyboard");
         }
-        else if (GetInputState() == eInputState.Controller)
+        else if (GetInputState() == EInputState.Controller)
         {
             Debug.Log("Controller");
         }
@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
     // Private member data //
     //*********************//
 
-    public enum eInputState
+    public enum EInputState
     {
         MouseKeyboard,
         Controller
     };
-    private eInputState m_State = eInputState.MouseKeyboard;
+    private EInputState m_State = EInputState.MouseKeyboard;
 
     //*************************//
     // Unity member methods    //
@@ -77,17 +77,17 @@ public class PlayerController : MonoBehaviour
     {
         switch (m_State)
         {
-            case eInputState.MouseKeyboard:
-                if (isControlerInput())
+            case EInputState.MouseKeyboard:
+                if (IsControlerInput())
                 {
-                    m_State = eInputState.Controller;
+                    m_State = EInputState.Controller;
                     Debug.Log("DREAM - JoyStick being used");
                 }
                 break;
-            case eInputState.Controller:
-                if (isMouseKeyboard())
+            case EInputState.Controller:
+                if (IsMouseKeyboard())
                 {
-                    m_State = eInputState.MouseKeyboard;
+                    m_State = EInputState.MouseKeyboard;
                     Debug.Log("DREAM - Mouse & Keyboard being used");
                 }
                 break;
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
     // Public member methods     //
     //***************************//
 
-    public eInputState GetInputState()
+    public EInputState GetInputState()
     {
         return m_State;
     }
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     // Private member methods     //
     //****************************//
 
-    private bool isMouseKeyboard()
+    private bool IsMouseKeyboard()
     {
         // mouse & keyboard buttons
         if (Event.current.isKey ||
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    private bool isControlerInput()
+    private bool IsControlerInput()
     {
         // joystick buttons
         if (Input.GetKey(KeyCode.Joystick1Button0) ||

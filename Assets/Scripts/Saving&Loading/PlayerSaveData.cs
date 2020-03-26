@@ -33,7 +33,7 @@ public class PlayerData
         rNGCryptoServiceProvider.GetBytes(vs);
         foreach (byte item in vs)
         {
-            HelperString += Convert.ToChar(vs).ToString();
+            HelperString += Convert.ToChar(item).ToString();
         }
     }
 

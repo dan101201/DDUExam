@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEditor.UI;
+using UnityEditor;
 
-public class SaveSlotElement : MonoBehaviour
+public class SaveSlotElement : Button
 {
-    public Canvas canvas;
     public byte SaveSlot;
-    Text SaveText;
+    public Text NumberText;
+    public Text SaveText;
 
-    void Start()
+    protected override void Start()
     {
-        Text[] texts = GetComponentsInChildren<Text>();
-        texts[0].text = SaveSlot.ToString();
-        SaveText = texts[1];
+        base.Start();
+        NumberText.text = SaveSlot.ToString();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
+        base.OnPointerClick(eventData);
         PlayerData playerData = new PlayerData(2);
         SavingFunctionality.SavePlayer(playerData, SaveSlot);
         UpdateData(playerData);
@@ -31,6 +33,26 @@ public class SaveSlotElement : MonoBehaviour
 
     public void UpdateData(PlayerData playerData)
     {
-        SaveText.text = playerData.ToString();
+        SaveText.text = playerData.HelperString;
     }
 }
+
+#region EditorStuff
+[CustomEditor(typeof(SaveSlotElement))]
+public class SaveSlotElementEditor : ButtonEditor
+{
+    public override void OnInspectorGUI()
+    {
+        // Show default inspector property editor
+        base.OnInspectorGUI();
+
+        SaveSlotElement targetSaveSlot = (SaveSlotElement)target;
+
+        targetSaveSlot.SaveSlot = (byte)EditorGUILayout.IntField("SaveSlot Number", targetSaveSlot.SaveSlot);
+
+        targetSaveSlot.NumberText = (Text)EditorGUILayout.ObjectField("SaveNumber Text Field", targetSaveSlot.NumberText, typeof(Text), true);
+
+        targetSaveSlot.SaveText = (Text)EditorGUILayout.ObjectField("SaveText Text Field", targetSaveSlot.SaveText, typeof(Text), true);
+    }
+}
+#endregion
