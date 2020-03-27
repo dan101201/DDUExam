@@ -121,6 +121,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 92d2f184a23699748998b3504c082cc3, type: 2}
+--- !u!1001 &83092305
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6226679885705983476, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.312
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931819953410918375, guid: 6192eb32a5163814a99e46f7ce5ca398,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6192eb32a5163814a99e46f7ce5ca398, type: 3}
 --- !u!1 &147729799 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 69bf953c81087dd4bb31c57156f781a8,
@@ -195,23 +264,8 @@ MonoBehaviour:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 147729800}
-        m_MethodName: IsMouseKeyboard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_ActionEvents:
-  - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 1f82d14a-cb37-4a71-a2d7-79675f001d98
-    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 88330f9b-d969-4281-b851-1c57a5392a44
@@ -231,8 +285,12 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 71d01b5f-83eb-4aca-814f-fd1a4f49d5b8
     m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1f82d14a-cb37-4a71-a2d7-79675f001d98
+    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 556252531}
@@ -249,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e, type: 3}
-  bulletVelocityVector: {x: 0, y: 0, z: 50}
+  bulletVelocityVector: {x: 0, y: 0, z: 35}
 --- !u!4 &147729805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 69bf953c81087dd4bb31c57156f781a8,
@@ -513,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 8641734181194189742, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8641734181194189742, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
@@ -702,6 +760,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 8348980130892951753, guid: ec611e20c709ebf45a3aebfe09c8befe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9190322025053039010, guid: ec611e20c709ebf45a3aebfe09c8befe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -845,6 +908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 69bf953c81087dd4bb31c57156f781a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69bf953c81087dd4bb31c57156f781a8, type: 3}

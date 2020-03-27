@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
     //Update is called once per 'tick'
     void FixedUpdate()
     {
-        if (GetInputState() == EInputState.MouseKeyboard)
+        Debug.Log(PlayerInput.currentControlScheme);
+
+        if (m_State == EInputState.MouseKeyboard)
         {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPlacement;
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("MouseKeyboard");
         }
-        else if (GetInputState() == EInputState.Controller)
+        else if (m_State == EInputState.Controller)
         {
             Debug.Log("Controller");
         }
@@ -92,105 +94,10 @@ public class PlayerController : MonoBehaviour
     // Private member data //
     //*********************//
 
-    public enum EInputState
+    enum EInputState
     {
         MouseKeyboard,
         Controller
     };
     private EInputState m_State = EInputState.MouseKeyboard;
-
-    //*************************//
-    // Unity member methods    //
-    //*************************//
-
-    /*void OnGUI()
-    {
-        switch (m_State)
-        {
-            case EInputState.MouseKeyboard:
-                if (IsControlerInput())
-                {
-                    m_State = EInputState.Controller;
-                    Debug.Log("DREAM - JoyStick being used");
-                }
-                break;
-            case EInputState.Controller:
-                if (IsMouseKeyboard())
-                {
-                    m_State = EInputState.MouseKeyboard;
-                    Debug.Log("DREAM - Mouse & Keyboard being used");
-                }
-                break;
-        }
-    }*/
-
-    //***************************//
-    // Public member methods     //
-    //***************************//
-
-    public EInputState GetInputState()
-    {
-        return m_State;
-    }
-
-    //****************************//
-    // Private member methods     //
-    //****************************//
-
-    public void IsMouseKeyboard()
-    {
-        // mouse & keyboard buttons
-        if (Event.current.isKey ||
-            Event.current.isMouse)
-        {
-            return;
-        }
-        // mouse movement
-        if (Input.GetAxis("Mouse X") != 0.0f ||
-            Input.GetAxis("Mouse Y") != 0.0f)
-        {
-            return;
-        }
-        return;
-    }
-
-    public void IsControlerInput()
-    {
-        // joystick buttons
-        if (Input.GetKey(KeyCode.Joystick1Button0) ||
-           Input.GetKey(KeyCode.Joystick1Button1) ||
-           Input.GetKey(KeyCode.Joystick1Button2) ||
-           Input.GetKey(KeyCode.Joystick1Button3) ||
-           Input.GetKey(KeyCode.Joystick1Button4) ||
-           Input.GetKey(KeyCode.Joystick1Button5) ||
-           Input.GetKey(KeyCode.Joystick1Button6) ||
-           Input.GetKey(KeyCode.Joystick1Button7) ||
-           Input.GetKey(KeyCode.Joystick1Button8) ||
-           Input.GetKey(KeyCode.Joystick1Button9) ||
-           Input.GetKey(KeyCode.Joystick1Button10) ||
-           Input.GetKey(KeyCode.Joystick1Button11) ||
-           Input.GetKey(KeyCode.Joystick1Button12) ||
-           Input.GetKey(KeyCode.Joystick1Button13) ||
-           Input.GetKey(KeyCode.Joystick1Button14) ||
-           Input.GetKey(KeyCode.Joystick1Button15) ||
-           Input.GetKey(KeyCode.Joystick1Button16) ||
-           Input.GetKey(KeyCode.Joystick1Button17) ||
-           Input.GetKey(KeyCode.Joystick1Button18) ||
-           Input.GetKey(KeyCode.Joystick1Button19))
-        {
-            return;
-        }
-
-        // joystick axis
-        /*if (Input.GetAxis("XC Left Stick X") != 0.0f ||
-           Input.GetAxis("XC Left Stick Y") != 0.0f ||
-           Input.GetAxis("XC Triggers") != 0.0f ||
-           Input.GetAxis("XC Right Stick X") != 0.0f ||
-           Input.GetAxis("XC Right Stick Y") != 0.0f)
-        {
-            return true;
-        }*/
-
-        return;
-    }
 }
