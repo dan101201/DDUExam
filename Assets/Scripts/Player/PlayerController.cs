@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         aimingLayerMask = LayerMask.GetMask("PlayerAiming");
         playerRigidbody = GetComponent<Rigidbody>();
-        Camera.main.transform.LookAt(transform);
+        StartCoroutine(LateStart());
         PlayerInput = GetComponent<PlayerInput>();
         InputSystem.onDeviceChange += (device, change) =>
         {
@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         };
+    }
+
+    IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Camera.main.transform.LookAt(transform);
     }
 
     //Update is called once per 'tick'
