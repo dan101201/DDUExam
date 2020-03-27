@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
-    new Rigidbody rigidbody;
+    public GameObject daEmpty;
+
+    Rigidbody playerRigidbody;
+    LayerMask aimingLayerMask;
+    Vector3 north;
+    PlayerInput PlayerInput;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        GameObject.FindGameObjectWithTag("MainCamera").transform.LookAt(transform);
+        aimingLayerMask = LayerMask.GetMask("PlayerAiming");
+        playerRigidbody = GetComponent<Rigidbody>();
+        Camera.main.transform.LookAt(transform);
+        north = new Vector3(0, 0, 1);
+        PlayerInput = GetComponent<PlayerInput>();
     }
 
     //Update is called once per 'tick'
@@ -18,6 +27,26 @@ public class PlayerController : MonoBehaviour
     {
         if (GetInputState() == EInputState.MouseKeyboard)
         {
+            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitPlacement;
+
+            if (Physics.Raycast(camRay, out hitPlacement, 100, aimingLayerMask))
+            {
+                /*daEmpty.transform.position = hitPlacement.point;
+                daEmpty.transform.position = new Vector3(daEmpty.transform.position.x, 0, daEmpty.transform.position.z);
+                transform.LookAt(daEmpty.transform);
+                Debug.Log(transform.rotation.eulerAngles);*/
+                /*daEmpty.transform.position = hitPlacement.point - transform.position;
+                transform.eulerAngles = new Vector3(0, Vector3.Angle(north, daEmpty.transform.position), 0);*/
+                Vector3 playerToMouse = hitPlacement.point - transform.position;
+                playerToMouse.y = 0f;
+                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+                playerRigidbody.MoveRotation(newRotation);
+
+
+                Debug.DrawRay(Camera.main.transform.position, camRay.direction);
+            }
+
             Debug.Log("MouseKeyboard");
         }
         else if (GetInputState() == EInputState.Controller)
@@ -28,7 +57,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No Input");
         }
-        rigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, 0, Input.GetAxis("Vertical") * movementSpeed);
+
+        playerRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, 0, Input.GetAxis("Vertical") * movementSpeed);
 
         //Debug.Log(rigidbody.velocity);
 
@@ -73,7 +103,7 @@ public class PlayerController : MonoBehaviour
     // Unity member methods    //
     //*************************//
 
-    void OnGUI()
+    /*void OnGUI()
     {
         switch (m_State)
         {
@@ -92,7 +122,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
         }
-    }
+    }*/
 
     //***************************//
     // Public member methods     //
@@ -107,24 +137,24 @@ public class PlayerController : MonoBehaviour
     // Private member methods     //
     //****************************//
 
-    private bool IsMouseKeyboard()
+    public void IsMouseKeyboard()
     {
         // mouse & keyboard buttons
         if (Event.current.isKey ||
             Event.current.isMouse)
         {
-            return true;
+            return;
         }
         // mouse movement
         if (Input.GetAxis("Mouse X") != 0.0f ||
             Input.GetAxis("Mouse Y") != 0.0f)
         {
-            return true;
+            return;
         }
-        return false;
+        return;
     }
 
-    private bool IsControlerInput()
+    public void IsControlerInput()
     {
         // joystick buttons
         if (Input.GetKey(KeyCode.Joystick1Button0) ||
@@ -148,7 +178,7 @@ public class PlayerController : MonoBehaviour
            Input.GetKey(KeyCode.Joystick1Button18) ||
            Input.GetKey(KeyCode.Joystick1Button19))
         {
-            return true;
+            return;
         }
 
         // joystick axis
@@ -161,6 +191,6 @@ public class PlayerController : MonoBehaviour
             return true;
         }*/
 
-        return false;
+        return;
     }
 }
