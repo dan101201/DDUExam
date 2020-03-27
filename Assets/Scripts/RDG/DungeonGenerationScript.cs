@@ -11,9 +11,9 @@ public class DungeonGenerationScript : MonoBehaviour
     public int seed = 312312;
     // Start is called before the first frame update
 
-    private void Update()
+    private void Awake()
     {
-        
+        Generate();   
     }
 
     public void Generate()
@@ -26,7 +26,7 @@ public class DungeonGenerationScript : MonoBehaviour
         Random.InitState(seed);
         List<GameObject> rooms = new List<GameObject>();
         rooms.Add(startingRoom);
-        for (int i = 0; i < roomsWanted; i++)
+        for (int i = 0; i < roomsWanted; )
         {
             int rnd = Random.Range(0,rooms.Count);
             var currentRoom = rooms[rnd].GetComponent<Room>();
@@ -111,7 +111,9 @@ public class DungeonGenerationScript : MonoBehaviour
                         float rotationAngle = Vector3.Angle(door.transform.forward, newDoor.transform.forward);
                         newDoor.transform.rotation = Quaternion.Euler(0, (180 - rotationAngle) + newDoor.transform.rotation.eulerAngles.y , 0);
 
-                        yield return new WaitForSeconds(1f);
+
+                        //yield return new WaitForSeconds(2f);
+                        yield return new WaitForFixedUpdate();
 
                         roomFits = newRoom.GetComponent<Room>().roomFits;
                         Debug.Log(roomFits);
@@ -122,6 +124,7 @@ public class DungeonGenerationScript : MonoBehaviour
                             rooms.Add(newRoom);
                             placedSuccesfullRoom = true;
                             done = true;
+                            i++;
                         }
                         else
                         {
