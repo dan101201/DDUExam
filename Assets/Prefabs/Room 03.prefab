@@ -306,9 +306,18 @@ GameObject:
   - component: {fileID: 1355827828083957899}
   - component: {fileID: 4866387568028602229}
   - component: {fileID: 6530656337666172988}
-  - component: {fileID: 1233681216}
-  - component: {fileID: 1233681217}
-  - component: {fileID: 1233681215}
+  - component: {fileID: 3441538537608135504}
+  - component: {fileID: 4246790764296395434}
+  - component: {fileID: 648568321395075981}
+  - component: {fileID: 4585280115892044596}
+  - component: {fileID: 9077253418512928293}
+  - component: {fileID: 3315253265022712000}
+  - component: {fileID: 8783734892980227851}
+  - component: {fileID: 1039317128930372340}
+  - component: {fileID: 248017671251190551}
+  - component: {fileID: 2020601056557613768}
+  - component: {fileID: 2791966041218565547}
+  - component: {fileID: 6686429624693171885}
   m_Layer: 0
   m_Name: Room_03
   m_TagString: Untagged
@@ -384,7 +393,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1233681216
+--- !u!65 &3441538537608135504
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,12 +401,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023357618715441220}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 10, z: 7.5}
-  m_Center: {x: -0.0000011920929, y: 5, z: 11.25}
---- !u!65 &1233681217
+  m_Size: {x: 2.5, y: 10, z: 7.5}
+  m_Center: {x: -18.75, y: 5, z: -8.75}
+--- !u!65 &4246790764296395434
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,25 +414,141 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023357618715441220}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 35, y: 10, z: 20}
-  m_Center: {x: 0, y: 5, z: 0}
---- !u!114 &1233681215
-MonoBehaviour:
+  m_Size: {x: 2.5, y: 10, z: 12.5}
+  m_Center: {x: -18.75, y: 5, z: 6.25}
+--- !u!65 &648568321395075981
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7fcbc8006678bf44bedcd76184447a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roof: {fileID: 5221278864507545155}
-  isPlayerInRoom: 0
+  serializedVersion: 2
+  m_Size: {x: 12.5, y: 10, z: 2.5}
+  m_Center: {x: -13.75, y: 5, z: 11.25}
+--- !u!65 &4585280115892044596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 10, z: 7.5}
+  m_Center: {x: -8.75, y: 5, z: 13.75}
+--- !u!65 &9077253418512928293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5, y: 10, z: 2.5}
+  m_Center: {x: -6.25, y: 5, z: 16.25}
+--- !u!65 &3315253265022712000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.5, y: 10, z: 2.5}
+  m_Center: {x: 6.25, y: 5, z: 16.25}
+--- !u!65 &8783734892980227851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 10, z: 7.5}
+  m_Center: {x: 8.75, y: 5, z: 13.75}
+--- !u!65 &1039317128930372340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.5, y: 10, z: 2.5}
+  m_Center: {x: 13.75, y: 5, z: 11.25}
+--- !u!65 &248017671251190551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 10, z: 7.5}
+  m_Center: {x: 18.75, y: 5, z: 8.75}
+--- !u!65 &2020601056557613768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 10, z: 12.5}
+  m_Center: {x: 18.75, y: 5, z: -6.25}
+--- !u!65 &2791966041218565547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.5, y: 10, z: 2.5}
+  m_Center: {x: 11.25, y: 5, z: -11.25}
+--- !u!65 &6686429624693171885
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023357618715441220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 17.5, y: 10, z: 2.5}
+  m_Center: {x: -11.25, y: 5, z: -11.25}
 --- !u!1 &2081993568269973173
 GameObject:
   m_ObjectHideFlags: 0
