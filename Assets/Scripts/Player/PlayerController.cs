@@ -6,62 +6,77 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
-    public GameObject daEmpty;
 
     Rigidbody playerRigidbody;
     LayerMask aimingLayerMask;
-    Vector3 north;
     PlayerInput PlayerInput;
+
+    private EInputState m_State;
 
     void Start()
     {
         aimingLayerMask = LayerMask.GetMask("PlayerAiming");
         playerRigidbody = GetComponent<Rigidbody>();
         Camera.main.transform.LookAt(transform);
-        north = new Vector3(0, 0, 1);
         PlayerInput = GetComponent<PlayerInput>();
+        InputSystem.onDeviceChange += (device, change) =>
+        {
+            switch (change)
+            {
+                case InputDeviceChange.Added:
+                    Debug.Log($"Device {device} was added");
+                    m_State = EInputState.Controller;
+                    break;
+                case InputDeviceChange.Removed:
+                    Debug.Log($"Device {device} was removed");
+                    m_State = EInputState.MouseKeyboard;
+                    break;
+            }
+        };
     }
 
     //Update is called once per 'tick'
-    void FixedUpdate()
+    void Update()
     {
+        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitPlacement;
+
+        if (Physics.Raycast(camRay, out hitPlacement, 100f, aimingLayerMask))
+        {
+            Vector3 playerToMouse = hitPlacement.point - transform.position;
+            playerToMouse.y = 0f;
+            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
+            playerRigidbody.MoveRotation(newRotation);
+        }
+
+        playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * movementSpeed;
+
         Debug.Log(PlayerInput.currentControlScheme);
 
-        if (m_State == EInputState.MouseKeyboard)
+        /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPlacement;
 
-            if (Physics.Raycast(camRay, out hitPlacement, 100, aimingLayerMask))
+            if (Physics.Raycast(camRay, out hitPlacement, 100f, aimingLayerMask))
             {
-                /*daEmpty.transform.position = hitPlacement.point;
-                daEmpty.transform.position = new Vector3(daEmpty.transform.position.x, 0, daEmpty.transform.position.z);
-                transform.LookAt(daEmpty.transform);
-                Debug.Log(transform.rotation.eulerAngles);*/
-                /*daEmpty.transform.position = hitPlacement.point - transform.position;
-                transform.eulerAngles = new Vector3(0, Vector3.Angle(north, daEmpty.transform.position), 0);*/
                 Vector3 playerToMouse = hitPlacement.point - transform.position;
                 playerToMouse.y = 0f;
-                Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-                playerRigidbody.MoveRotation(newRotation);
-
-
-                Debug.DrawRay(Camera.main.transform.position, camRay.direction);
+                
             }
 
             Debug.Log("MouseKeyboard");
         }
-        else if (m_State == EInputState.Controller)
+        else if (PlayerInput.currentControlScheme == "Gamepad")
         {
+            Quaternion newRotation = Quaternion.LookRotation(PlayerInput);
+            playerRigidbody.MoveRotation(newRotation);
             Debug.Log("Controller");
         }
         else
         {
             Debug.Log("No Input");
-        }
-
-        playerRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * movementSpeed, 0, Input.GetAxis("Vertical") * movementSpeed);
-
+        }*/
         //Debug.Log(rigidbody.velocity);
 
         //Locally deprecated
@@ -84,20 +99,9 @@ public class PlayerController : MonoBehaviour
         }*/
     }
 
-    //https://answers.unity.com/questions/131899/how-do-i-check-what-input-device-is-currently-beei.html
-    //*********************//
-    // Public member data  //
-    //*********************//
-
-
-    //*********************//
-    // Private member data //
-    //*********************//
-
     enum EInputState
     {
         MouseKeyboard,
         Controller
     };
-    private EInputState m_State = EInputState.MouseKeyboard;
 }

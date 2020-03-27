@@ -1,23 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Shooting : MonoBehaviour
 {
     public GameObject bullet;
-    public Vector3 bulletVelocityVector;
+    public float bulletSpeed;
+    public float TimeTillDeath;
+    public float IntershotDelay;
 
-    PlayerInput playerInputLayout;
+    bool canShoot;
 
     void Start()
     {
-        playerInputLayout = GetComponent<PlayerInput>();
+        canShoot = true;
     }
 
-    public void Shoot()
+    void Update()
     {
-        GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
-        newBullet.GetComponent<Rigidbody>().velocity = bulletVelocityVector;
+        if (canShoot && Input.GetButton("Fire1"))
+        {
+            GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation);
+            newBullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+            Destroy(newBullet, TimeTillDeath);
+            canShoot = false;
+            StartCoroutine(ShootWait());
+        }
+    }
+
+    IEnumerator ShootWait()
+    {
+        yield return new WaitForSeconds(IntershotDelay);
+        canShoot = true;
     }
 }
