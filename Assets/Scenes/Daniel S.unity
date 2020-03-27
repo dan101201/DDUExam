@@ -337,13 +337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d5614641d4fda44949b0bf44cbb15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomPrefabs:
-  - {fileID: 8641734181194189909, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}
-  - {fileID: 7396510135336022704, guid: ec611e20c709ebf45a3aebfe09c8befe, type: 3}
-  - {fileID: 5768749186405888730, guid: 0a48189e914ab924384f9e60b7b76f86, type: 3}
-  - {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41, type: 3}
+  roomPrefabs: []
+  treasureRoomPrefabs: []
+  bossRoom: {fileID: 0}
   startingRoom: {fileID: 1087573062}
-  roomsWanted: 1000
+  minRoomsBeforeTreasure: 2
+  normalRoomsWanted: 10
+  treasureRoomsWanted: 0
   seed: 4841635
 --- !u!4 &989055570
 Transform:
@@ -466,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 2686521747521380380, guid: 6192eb32a5163814a99e46f7ce5ca398,
         type: 3}
       propertyPath: movementSpeed
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2686521748191682178, guid: 6192eb32a5163814a99e46f7ce5ca398,
         type: 3}
