@@ -48,5 +48,9 @@ public class RandoMelee : MonoBehaviour
                 navMeshAgent.isStopped = false;
             }
         }
+        else
+        {
+
+        }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActions",
+    "name": "PlayerInputKeyboard",
     "maps": [
         {
             "name": "Player",
@@ -33,7 +33,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
+                    "id": "a7eaa0b1-6371-40f3-bb82-8d29ecf53a13",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -143,7 +143,7 @@
                 },
                 {
                     "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
+                    "id": "8887c48a-032a-4c8e-b383-bc88181a2543",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
@@ -165,7 +165,7 @@
                 },
                 {
                     "name": "",
-                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
+                    "id": "7ab6b5de-7555-4133-9f31-d85a4598862f",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
