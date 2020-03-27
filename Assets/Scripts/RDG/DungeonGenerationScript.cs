@@ -5,15 +5,19 @@ using System.Threading;
 using UnityEngine.SceneManagement;
 public class DungeonGenerationScript : MonoBehaviour
 {
-    public GameObject[] RoomPrefabs;
+    public GameObject[] roomPrefabs;
+    public GameObject[] treasureRooms;
+    public GameObject bossRoom;
     public GameObject startingRoom;
+    public int minRoomsBeforeTreasure = 2;
     public int roomsWanted = 10;
     public int seed = 312312;
-    // Start is called before the first frame update
-
+    
+    
     private void Awake()
     {
-        Generate();   
+        Random.InitState(seed);
+        Generate();
     }
 
     public void Generate()
@@ -23,24 +27,24 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private IEnumerator GenerateDungeon()
     {
-        Random.InitState(seed);
         List<GameObject> rooms = new List<GameObject>();
         rooms.Add(startingRoom);
         for (int i = 0; i < roomsWanted; )
         {
-            int rnd = Random.Range(0,rooms.Count);
-            var currentRoom = rooms[rnd].GetComponent<Room>();
+            Debug.Log("Room " + i);
 
-            var doorsTried = new List<GameObject>(currentRoom.usedDoors);
+            var currentRoomScript = startingRoom.GetComponent<Room>();
+
+            var doorsTried = new List<GameObject>(currentRoomScript.usedDoors);
             bool done = false;
             while(!done)
             {
                 
-                rnd = Random.Range(0, currentRoom.doors.Count);
-                var door = currentRoom.doors[rnd];
+                int rnd = Random.Range(0, currentRoomScript.doors.Count);
+                var door = currentRoomScript.doors[rnd];
                 if (doorsTried.Contains(door))
                 {
-                    if (doorsTried.Count == currentRoom.doors.Count)
+                    if (doorsTried.Count == currentRoomScript.doors.Count)
                     {
                         break;
                     }
@@ -56,13 +60,13 @@ public class DungeonGenerationScript : MonoBehaviour
                 while(!roomFits)
                 {
                     
-                    rnd = Random.Range(0, RoomPrefabs.Length);
-                    var roomPrefab = RoomPrefabs[rnd];
+                    rnd = Random.Range(0, roomPrefabs.Length);
+                    var roomPrefab = GetRoomPrefab();
                     
 
                     if (roomsTried.Contains(roomPrefab))
                     {
-                        if (roomsTried.Count == RoomPrefabs.Length)
+                        if (roomsTried.Count == roomPrefabs.Length)
                         {
                             break;
                         }
@@ -87,7 +91,6 @@ public class DungeonGenerationScript : MonoBehaviour
                         {
                             if (newRoomDoorsTried.Count == doors)
                             {
-                                Debug.Log("break");
                                 break;
                             } 
                             else
@@ -98,8 +101,6 @@ public class DungeonGenerationScript : MonoBehaviour
                         newRoomDoorsTried.Add(rnd);
 
                         var newRoom = Instantiate(roomPrefab, door.transform.position, new Quaternion());
-
-                        Debug.Log("place room");
 
                         var newRoomScript = newRoom.GetComponent<Room>();
                         var newDoor = newRoomScript.doors[rnd];
@@ -116,10 +117,9 @@ public class DungeonGenerationScript : MonoBehaviour
                         yield return new WaitForFixedUpdate();
 
                         roomFits = newRoom.GetComponent<Room>().roomFits;
-                        Debug.Log(roomFits);
                         if (roomFits)
                         {
-                            currentRoom.usedDoors.Add(door);
+                            currentRoomScript.usedDoors.Add(door);
                             newRoomScript.usedDoors.Add(newDoor);
                             rooms.Add(newRoom);
                             placedSuccesfullRoom = true;
@@ -136,5 +136,25 @@ public class DungeonGenerationScript : MonoBehaviour
             }
         }
         yield return null;
+    }
+
+    private GameObject GetRoomPrefab()
+    {
+        int rnd = Random.Range(0,roomPrefabs.Length + treasureRooms.Length);
+        try
+        {
+            if (rnd < roomPrefabs.Length)
+            {
+                return roomPrefabs[rnd];
+            }
+            else
+            {
+                return treasureRooms[rnd - roomPrefabs.Length];
+            }
+        }
+        catch (System.IndexOutOfRangeException)
+        {
+            throw new System.Exception("prefab array is empty");
+        }
     }
 }
