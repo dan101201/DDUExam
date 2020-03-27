@@ -6,12 +6,30 @@ using UnityEngine.SceneManagement;
 public class DungeonGenerationScript : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
-    public GameObject[] treasureRooms;
+    public GameObject[] treasureRoomPrefabs;
     public GameObject bossRoom;
     public GameObject startingRoom;
     public int minRoomsBeforeTreasure = 2;
-    public int roomsWanted = 10;
+    public int normalRoomsWanted = 10;
+    public int treasureRoomsWanted;
     public int seed = 312312;
+    public int roomsPlaced
+    {
+        get
+        {
+            return treasureRoomsPlaced + normalRoomsPlaced;
+        }
+    }
+    public int treasureRoomsPlaced
+    {
+        get;
+        private set;
+    }
+    public int normalRoomsPlaced
+    {
+        get;
+        private set;
+    }
     
     
     private void Awake()
@@ -29,7 +47,7 @@ public class DungeonGenerationScript : MonoBehaviour
     {
         List<GameObject> rooms = new List<GameObject>();
         rooms.Add(startingRoom);
-        for (int i = 0; i < roomsWanted; )
+        for (int i = 0; i < normalRoomsWanted; )
         {
             Debug.Log("Room " + i);
 
@@ -61,7 +79,8 @@ public class DungeonGenerationScript : MonoBehaviour
                 {
                     
                     rnd = Random.Range(0, roomPrefabs.Length);
-                    var roomPrefab = GetRoomPrefab();
+                    bool treasureRoom;
+                    var roomPrefab = GetRoomPrefab(out treasureRoom);
                     
 
                     if (roomsTried.Contains(roomPrefab))
@@ -119,6 +138,14 @@ public class DungeonGenerationScript : MonoBehaviour
                         roomFits = newRoom.GetComponent<Room>().roomFits;
                         if (roomFits)
                         {
+                            if (treasureRoom)
+                            {
+                                treasureRoomsPlaced++;
+                            } else
+                            {
+                                normalRoomsPlaced++;
+                            }
+
                             currentRoomScript.usedDoors.Add(door);
                             newRoomScript.usedDoors.Add(newDoor);
                             rooms.Add(newRoom);
@@ -138,18 +165,21 @@ public class DungeonGenerationScript : MonoBehaviour
         yield return null;
     }
 
-    private GameObject GetRoomPrefab()
+    private GameObject GetRoomPrefab(out bool treasureRoom)
     {
-        int rnd = Random.Range(0,roomPrefabs.Length + treasureRooms.Length);
+        int rnd = Random.Range(0,roomPrefabs.Length + treasureRoomPrefabs.Length);
         try
         {
-            if (rnd < roomPrefabs.Length)
+            if (rnd >= roomPrefabs.Length && treasureRoomsWanted > treasureRoomsPlaced && roomsPlaced > minRoomsBeforeTreasure || normalRoomsPlaced == normalRoomsWanted && treasureRoomsPlaced < treasureRoomsWanted)
             {
-                return roomPrefabs[rnd];
+                treasureRoom = true;
+                return treasureRoomPrefabs[rnd - roomPrefabs.Length];
             }
             else
             {
-                return treasureRooms[rnd - roomPrefabs.Length];
+                rnd = Random.Range(0, roomPrefabs.Length);
+                treasureRoom = false;
+                return roomPrefabs[rnd];
             }
         }
         catch (System.IndexOutOfRangeException)
