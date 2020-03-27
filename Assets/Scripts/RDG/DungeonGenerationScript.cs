@@ -56,7 +56,7 @@ public class DungeonGenerationScript : MonoBehaviour
                 while(!roomFits)
                 {
                     
-                    rnd = Random.Range(0, RoomPrefabs.Length - 1);
+                    rnd = Random.Range(0, RoomPrefabs.Length);
                     var roomPrefab = RoomPrefabs[rnd];
                     
 
