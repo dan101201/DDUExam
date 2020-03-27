@@ -13,11 +13,7 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< Updated upstream
         Generate();   
-=======
-        Generate();
->>>>>>> Stashed changes
     }
 
     public void Generate()
