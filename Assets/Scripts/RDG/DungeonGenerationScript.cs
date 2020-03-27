@@ -1,37 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Threading;
+using UnityEngine.SceneManagement;
 public class DungeonGenerationScript : MonoBehaviour
 {
     public GameObject[] RoomPrefabs;
-    public GameObject room;
+    public GameObject startingRoom;
+    public int roomsWanted = 10;
+    public int seed = 312312;
     // Start is called before the first frame update
-    void Start()
+
+    private void Update()
     {
-        PlaceRoom(room,RoomPrefabs[0],room.GetComponent<Room>().doors[0]);
-        //GenerateDungeon(room,10,10);
+        
     }
 
-    public void GenerateDungeon(GameObject startingRoom,int seed, int roomsWanted)
+    public void Generate()
+    {
+        StartCoroutine("GenerateDungeon");
+    }
+
+    private IEnumerator GenerateDungeon()
     {
         Random.InitState(seed);
         List<GameObject> rooms = new List<GameObject>();
         rooms.Add(startingRoom);
         for (int i = 0; i < roomsWanted; i++)
         {
-            int rnd = Random.Range(0,i);
+            int rnd = Random.Range(0,rooms.Count);
             var currentRoom = rooms[rnd].GetComponent<Room>();
 
-            var doorsTried = new List<GameObject>();
+            var doorsTried = new List<GameObject>(currentRoom.usedDoors);
             bool done = false;
             while(!done)
             {
-                rnd = Random.Range(0, currentRoom.doors.Length - 1);
+                
+                rnd = Random.Range(0, currentRoom.doors.Count);
                 var door = currentRoom.doors[rnd];
                 if (doorsTried.Contains(door))
                 {
-                    continue;
+                    if (doorsTried.Count == currentRoom.doors.Count)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
                 }
                 doorsTried.Add(door);
 
@@ -39,64 +55,83 @@ public class DungeonGenerationScript : MonoBehaviour
                 bool roomFits = false;
                 while(!roomFits)
                 {
+                    
                     rnd = Random.Range(0, RoomPrefabs.Length - 1);
-                    var newRoom = RoomPrefabs[rnd];
-                    if (roomsTried.Contains(door))
-                    {
-                        continue;
-                    }
-                    roomsTried.Add(newRoom);
+                    var roomPrefab = RoomPrefabs[rnd];
+                    
 
-                    if (PlaceRoom(currentRoom.gameObject,door, newRoom))
+                    if (roomsTried.Contains(roomPrefab))
                     {
-                        roomFits = true;
-                        done = true;
+                        if (roomsTried.Count == RoomPrefabs.Length)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    roomsTried.Add(roomPrefab);
+
+                    List<int> newRoomDoorsTried = new List<int>();
+                    bool placedSuccesfullRoom = false;
+                    while (!placedSuccesfullRoom) 
+                    {
+
+                        int doors = roomPrefab.GetComponent<Room>().doors.Count;
+
+                        rnd = Random.Range(0, doors);
+
+
+                        if (newRoomDoorsTried.Contains(rnd))
+                        {
+                            if (newRoomDoorsTried.Count == doors)
+                            {
+                                Debug.Log("break");
+                                break;
+                            } 
+                            else
+                            {
+                                continue;
+                            }
+                        }
+                        newRoomDoorsTried.Add(rnd);
+
+                        var newRoom = Instantiate(roomPrefab, door.transform.position, new Quaternion());
+
+                        Debug.Log("place room");
+
+                        var newRoomScript = newRoom.GetComponent<Room>();
+                        var newDoor = newRoomScript.doors[rnd];
+
+                        newDoor.transform.parent = null;
+                        newRoom.transform.parent = newRoomScript.doors[rnd].transform;
+                        newDoor.transform.position = door.transform.position;
+
+                        float rotationAngle = Vector3.Angle(door.transform.forward, newDoor.transform.forward);
+                        newDoor.transform.rotation = Quaternion.Euler(0, (180 - rotationAngle) + newDoor.transform.rotation.eulerAngles.y , 0);
+
+                        yield return new WaitForSeconds(1f);
+
+                        roomFits = newRoom.GetComponent<Room>().roomFits;
+                        Debug.Log(roomFits);
+                        if (roomFits)
+                        {
+                            currentRoom.usedDoors.Add(door);
+                            newRoomScript.usedDoors.Add(newDoor);
+                            rooms.Add(newRoom);
+                            placedSuccesfullRoom = true;
+                            done = true;
+                        }
+                        else
+                        {
+                            Destroy(newDoor);
+                        }
+                        
                     }
                 }
             }
-            
         }
+        yield return null;
     }
-
-    private bool PlaceRoom(GameObject startingRoom, GameObject newRoom, GameObject door)
-    {
-        List<int> doorsTried = new List<int>();
-        bool done = false;
-        var boxCollider = startingRoom.GetComponent<BoxCollider>();
-        var startingRoomScript = startingRoom.GetComponent<Room>();
-        //while (!doorFits)
-        {
-
-            newRoom = Instantiate(newRoom, startingRoomScript.doors[0].transform.position,new Quaternion());
-            var newRoomScript = newRoom.GetComponent<Room>();
-            int rnd = Random.Range(0,newRoomScript.doors.Length);
-            if (doorsTried.Contains(rnd))
-            {
-                if (doorsTried.Count == newRoomScript.doors.Length)
-                {
-                    done = true;
-                }
-            }
-            doorsTried.Add(rnd);
-
-            newRoomScript.doors[rnd].transform.parent = null;
-            newRoom.transform.parent = newRoomScript.doors[rnd].transform;
-            newRoomScript.doors[rnd].transform.position = door.transform.position;
-            
-            newRoomScript.doors[rnd].transform.rotation = Quaternion.Euler(0, room.transform.rotation.eulerAngles.y + 180, 0);
-
-            bool roomFits = newRoom.GetComponent<Room>().roomFits;
-            Debug.Log(roomFits);
-            if (roomFits)
-            {   
-                return true;
-            }
-            else
-            {
-                Destroy(newRoom);
-            }
-        }
-        return false;
-    }
-
 }

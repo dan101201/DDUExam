@@ -5,7 +5,7 @@ using UnityEngine;
 public class Roomreveal : MonoBehaviour
 {
     public GameObject roof;
-    public static bool isPlayerInRoom;
+    public bool isPlayerInRoom;
 
     int colliderCount;
     void OnTriggerEnter(Collider col)
