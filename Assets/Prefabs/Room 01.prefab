@@ -297,7 +297,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed891c5d006fbe24690f08aef59942b4, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1057,7 +1057,6 @@ MonoBehaviour:
   - {fileID: 8641734180398081040}
   - {fileID: 8641734180598265375}
   - {fileID: 8641734181728077772}
-  usedDoors: []
 --- !u!114 &8641734181194189907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,7 +1070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roof: {fileID: 8641734182404243749}
-  isPlayerInRoom: 0
 --- !u!54 &8641734181194189906
 Rigidbody:
   m_ObjectHideFlags: 0
