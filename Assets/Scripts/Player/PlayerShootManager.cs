@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerShootManager : MonoBehaviour
 {
     public GameObject shoot;
-    public float shootSpeed = 3f;
+    public float shootSpeed = 1f;
     public float shootFlySpeed = 10f;
     public float shootTravelTime = 10f;
     public bool isExplosive;
-    public float fireBallSize = 2;
+    public float fireBallSize = 0.7f;
     float canShoot;
 
     // Start is called before the first frame update

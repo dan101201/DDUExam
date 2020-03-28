@@ -7,7 +7,7 @@ public class FireBallEffect : MonoBehaviour
     public GameObject explosionEffect;
     public bool canExplode;
     public float timeUntilDead;
-    public float fireBallSize = 2;
+    public float fireBallSize;
 
     // Start is called before the first frame update
     void Start()
@@ -45,13 +45,13 @@ public class FireBallEffect : MonoBehaviour
     {
         if(canExplode)
         {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(explosionEffect, 5f);
         }
     }
     void Destroy()
     {
         Destroy(gameObject);
-        Destroy(explosionEffect);
     }
 
 }
