@@ -217,15 +217,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d5614641d4fda44949b0bf44cbb15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomPrefabs:
+  roomPrefabs:
   - {fileID: 8641734181194189909, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}
   - {fileID: 7396510135336022704, guid: ec611e20c709ebf45a3aebfe09c8befe, type: 3}
   - {fileID: 5768749186405888730, guid: 0a48189e914ab924384f9e60b7b76f86, type: 3}
   - {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41, type: 3}
+  treasureRoomPrefabs:
+  - {fileID: 2279093781699360160, guid: 7d5a15b2f64854f45898834cb298b04d, type: 3}
+  bossRoom: {fileID: 0}
   startingRoom: {fileID: 1648518888}
   minRoomsBeforeTreasure: 2
-  roomsWanted: 20
-  seed: 312312
+  normalRoomsWanted: 20
+  treasureRoomsWanted: 2
+  seed: 785785
+  treasureRoomsPlaced: 0
+  normalRoomsPlaced: 0
+  roomSelected: {fileID: 0}
 --- !u!1 &953988085
 GameObject:
   m_ObjectHideFlags: 0
