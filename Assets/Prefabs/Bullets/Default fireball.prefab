@@ -122,7 +122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114488699329220992}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74d860340ea131b4dacf1f65d8b22ddf, type: 3}
   m_Name: 
@@ -130,6 +130,7 @@ MonoBehaviour:
   delay: 3
   explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
+  canExplode: 0
 --- !u!1 &6032434091290387750
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,38 +4,42 @@ using UnityEngine;
 
 public class ExlsiveFireBall : MonoBehaviour
 {
-    public float delay = 3f;
     public GameObject explosionEffect;
     public bool canExplode;
-    float countDown;
+    public float timeUntilDead;
 
     // Start is called before the first frame update
     void Start()
     {
-        countDown = delay;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        countDown -= Time.deltaTime;
-        if (countDown <= 0f)
+        timeUntilDead -= Time.deltaTime;
+        if(timeUntilDead <= 0f)
         {
             Explode();
+            Destroy();
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         Explode();
+        Destroy();
     }
     void Explode()
     {
-        if (canExplode)
+        if(canExplode)
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
-            Destroy(explosionEffect);
         }
+    }
+    void Destroy()
+    {
+        Destroy(gameObject);
+        Destroy(explosionEffect);
     }
 
 }
