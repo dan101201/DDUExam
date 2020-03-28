@@ -9,6 +9,7 @@ public class PlayerShootManager : MonoBehaviour
     public float shootFlySpeed = 10f;
     public float shootTravelTime = 10f;
     public bool isExplosive;
+    public float fireBallSize = 2;
     float canShoot;
 
     // Start is called before the first frame update
@@ -25,10 +26,11 @@ public class PlayerShootManager : MonoBehaviour
         {
             GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
             newShoot.GetComponent<Rigidbody>().velocity = transform.forward * shootFlySpeed;
-            newShoot.GetComponent<ExlsiveFireBall>().timeUntilDead = shootTravelTime;
+            newShoot.GetComponent<FireBallEffect>().timeUntilDead = shootTravelTime;
+            newShoot.GetComponent<FireBallEffect>().fireBallSize = fireBallSize;
             if (isExplosive)
             {
-                newShoot.GetComponent<ExlsiveFireBall>().canExplode = true;
+                newShoot.GetComponent<FireBallEffect>().canExplode = true;
             }
             canShoot = shootSpeed;
         }
