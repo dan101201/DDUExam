@@ -6,6 +6,7 @@ public class ExlsiveFireBall : MonoBehaviour
 {
     public float delay = 3f;
     public GameObject explosionEffect;
+    public bool canExplode;
     float countDown;
 
     // Start is called before the first frame update
@@ -29,9 +30,12 @@ public class ExlsiveFireBall : MonoBehaviour
     }
     void Explode()
     {
-        Instantiate(explosionEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
-        Destroy(explosionEffect);
+        if (canExplode)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+            Destroy(explosionEffect);
+        }
     }
 
 }

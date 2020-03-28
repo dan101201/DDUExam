@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7049120911496566137}
   - component: {fileID: -7688750510998944465}
   - component: {fileID: -5811109642332666711}
-  m_Layer: 10
+  - component: {fileID: -1919515138960586545}
+  m_Layer: 12
   m_Name: Default fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +115,21 @@ CapsuleCollider:
   m_Height: 0.99999994
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1919515138960586545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3114488699329220992}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d860340ea131b4dacf1f65d8b22ddf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 3
+  explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
 --- !u!1 &6032434091290387750
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3627659030960441970}
   - component: {fileID: 5578954694855608802}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +233,7 @@ GameObject:
   - component: {fileID: 1257390384349087762}
   - component: {fileID: 9005145609944290820}
   - component: {fileID: 554397992524241141}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4973,15 +4989,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1652784949999524, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1706519164850726, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1878652760548056, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_IsActive
@@ -4989,11 +5005,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878652760548056, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1911683160194432, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4250067245354182, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_LocalPosition.y

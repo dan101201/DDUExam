@@ -5023,7 +5023,7 @@ GameObject:
   - component: {fileID: 2686521747521380383}
   - component: {fileID: 2686521747521380380}
   - component: {fileID: 5147593067375484902}
-  - component: {fileID: 717602134147403846}
+  - component: {fileID: 4031395617130830098}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -5183,7 +5183,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &717602134147403846
+--- !u!114 &4031395617130830098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5192,13 +5192,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6226679885705983476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01865e2fadbbc14d8510985c8a9273c, type: 3}
+  m_Script: {fileID: 11500000, guid: a9a23ea451b4ac743961c3ce82d2c519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e, type: 3}
-  bulletSpeed: 15
-  TimeTillDeath: 2
-  IntershotDelay: 0.2
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0
