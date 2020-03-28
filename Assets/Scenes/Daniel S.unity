@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29798443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8641734181194189909, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3524590509459389983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &91491483
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +163,7 @@ MonoBehaviour:
   - {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41, type: 3}
   treasureRoomPrefabs: []
   bossRoom: {fileID: 0}
-  startingRoom: {fileID: 0}
+  startingRoom: {fileID: 29798443}
   minRoomsBeforeTreasure: 2
   normalRoomsWanted: 10
   treasureRoomsWanted: 0
@@ -485,18 +491,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 717602134147403846, guid: 6192eb32a5163814a99e46f7ce5ca398,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e,
-        type: 3}
-    - target: {fileID: 4031395617130830098, guid: 6192eb32a5163814a99e46f7ce5ca398,
-        type: 3}
-      propertyPath: shoot
-      value: 
-      objectReference: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e,
-        type: 3}
     - target: {fileID: 6226679885705983476, guid: 6192eb32a5163814a99e46f7ce5ca398,
         type: 3}
       propertyPath: m_Name
