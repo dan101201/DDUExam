@@ -5196,11 +5196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e, type: 3}
-  shootSpeed: 2
-  shootFlySpeed: 1
+  shootSpeed: 1
+  shootFlySpeed: 10
   shootTravelTime: 10
   isExplosive: 0
-  fireBallSize: 2
+  fireBallSize: 0.7
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0
