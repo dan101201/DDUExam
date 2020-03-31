@@ -896,6 +896,8 @@ GameObject:
   - component: {fileID: 3129424483133778529}
   - component: {fileID: 828309066165797340}
   - component: {fileID: 2121213224677732339}
+  - component: {fileID: 2578154899903564963}
+  - component: {fileID: 5168941818903779198}
   m_Layer: 0
   m_Name: Room_04_nav
   m_TagString: Untagged
@@ -1004,8 +1006,34 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 0.00000011920929, z: 45}
-  m_Center: {x: 0, y: 0.000000059604645, z: 0}
+  m_Size: {x: 20, y: 2.5, z: 12.5}
+  m_Center: {x: 0, y: -1.25, z: 16.25}
+--- !u!65 &2578154899903564963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782801964621027793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30, y: 2.5, z: 35}
+  m_Center: {x: -5, y: -1.25, z: -5}
+--- !u!65 &5168941818903779198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782801964621027793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.5, y: 2.5, z: 25}
+  m_Center: {x: 13.75, y: -1.25, z: 0}
 --- !u!1 &1827747965627850690
 GameObject:
   m_ObjectHideFlags: 0

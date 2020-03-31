@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -7688750510998944465}
   - component: {fileID: -5811109642332666711}
   - component: {fileID: -1919515138960586545}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Default fireball
-  m_TagString: Untagged
+  m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3627659030960441970}
   - component: {fileID: 5578954694855608802}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,15 +236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1652784949999524, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1706519164850726, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1878652760548056, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_IsActive
@@ -252,11 +252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1878652760548056, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1911683160194432, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4250067245354182, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       propertyPath: m_LocalPosition.y

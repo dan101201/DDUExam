@@ -8,6 +8,7 @@ public class FireBallEffect : MonoBehaviour
     public bool canExplode;
     public float timeUntilDead;
     public float fireBallSize;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()

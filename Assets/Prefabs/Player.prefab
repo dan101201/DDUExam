@@ -5024,6 +5024,8 @@ GameObject:
   - component: {fileID: 2686521747521380380}
   - component: {fileID: 5147593067375484902}
   - component: {fileID: 4031395617130830098}
+  - component: {fileID: 906501464}
+  - component: {fileID: 906501463}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -5201,6 +5203,37 @@ MonoBehaviour:
   shootTravelTime: 10
   isExplosive: 0
   fireBallSize: 0.7
+  damage: 0
+--- !u!136 &906501464
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226679885705983476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.22379883
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &906501463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226679885705983476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d1098ee1f08ad439b6c70e5fabc4d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  curentHealth: 0
+  canBeAttacked: 1
+  invincibleTime: 2
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0

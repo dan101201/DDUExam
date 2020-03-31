@@ -36,8 +36,8 @@ public class RandoMelee : MonoBehaviour
             {
                 Debug.Log("Player hasn't moved");
             }
-            Debug.Log(navMeshAgent.remainingDistance);
-            if (navMeshAgent.remainingDistance < 1f)
+            //Debug.Log(navMeshAgent.remainingDistance);
+            if (navMeshAgent.remainingDistance < 0.3f)
             {
                 navMeshAgent.isStopped = true;
                 transform.LookAt(Player.transform);

@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 1069311949}
   m_Layer: 0
   m_Name: RandoShooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,6 +615,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7564852768790207522, guid: 82209022725a0d6419dcca01fc496d41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41,
         type: 3}
       propertyPath: m_Name
@@ -707,7 +712,7 @@ GameObject:
   - component: {fileID: 2106455680}
   m_Layer: 0
   m_Name: RandoMelee
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
