@@ -8,7 +8,7 @@ public class EnemyProjectile : MonoBehaviour
     public bool canExplode;
     public float timeUntilDead;
     public float fireBallSize;
-    public float damage;
+    public float damage = 20;
 
     // Start is called before the first frame update
 
@@ -39,7 +39,12 @@ public class EnemyProjectile : MonoBehaviour
     }
     void Destroy()
     {
+        gameObject.transform.position = new Vector3(10000, 10000, 10000);
+        StartCoroutine(NextFrame());
+    }
+    IEnumerator NextFrame()
+    {
+        yield return new WaitForEndOfFrame();
         Destroy(gameObject);
     }
-
 }

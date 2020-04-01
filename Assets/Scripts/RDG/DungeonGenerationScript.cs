@@ -13,6 +13,11 @@ public class DungeonGenerationScript : MonoBehaviour
     public int normalRoomsWanted = 10;
     public int treasureRoomsWanted;
     public int seed = 312312;
+    public bool canSpawnPlayer;
+    public bool canSpawnEnemys;
+    public static DungeonGenerationScript dungGeneration;
+
+    public bool test;
 
     [SerializeField]
     public int roomsPlaced
@@ -32,6 +37,7 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
+        dungGeneration = this;
         Generate();
     }
 
@@ -179,6 +185,8 @@ public class DungeonGenerationScript : MonoBehaviour
                 currentRoom.usedDoors.Add(door);
             }
         }
+        canSpawnPlayer = true;
+        canSpawnEnemys = true;
         yield return null;
     }
 
@@ -206,5 +214,9 @@ public class DungeonGenerationScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+    }
 
 }
