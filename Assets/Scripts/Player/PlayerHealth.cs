@@ -11,13 +11,11 @@ public class PlayerHealth : MonoBehaviour
     float timer;
     bool isBeingHit;
 
-    // Start is called before the first frame update
     void Start()
     {
         curentHealth = maxHealth;
         timer = invincibleTime;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -32,7 +30,6 @@ public class PlayerHealth : MonoBehaviour
             isBeingHit = false;
         }
     }
-    // Update is called once per frame
     void Update()
     {
         if (isBeingHit)
@@ -51,12 +48,10 @@ public class PlayerHealth : MonoBehaviour
     }
     void Takedamage()
     {
+        if (canBeAttacked)
         {
-            if (canBeAttacked)
-            {
-                curentHealth -= 20;
-                canBeAttacked = false;
-            }
+            curentHealth -= 20;
+            canBeAttacked = false;
         }
     }
 }

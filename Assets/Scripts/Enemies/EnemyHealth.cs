@@ -25,10 +25,10 @@ public class EnemyHealth : MonoBehaviour
         if (curentHealth <= 0)
         {
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
-            StartCoroutine(nextFrame());
+            StartCoroutine(NextFrame());
         }
     }
-    IEnumerator nextFrame()
+    IEnumerator NextFrame()
     {
         yield return new WaitForEndOfFrame();
         Destroy(gameObject);

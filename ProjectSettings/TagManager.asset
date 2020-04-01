@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Shootable
   - Enemy
+  - FireBall
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - PlayerAiming
   - Player
   - Fire ball
-  - 
-  - 
+  - Enemys
+  - Enemy projectiles
   - 
   - 
   - 

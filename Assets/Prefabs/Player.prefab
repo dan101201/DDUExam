@@ -5198,12 +5198,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e, type: 3}
-  shootSpeed: 1
+  shootSpeed: 0.4
   shootFlySpeed: 10
   shootTravelTime: 10
-  isExplosive: 0
-  fireBallSize: 0.7
-  damage: 0
+  isExplosive: 1
+  fireBallSize: 0.4
+  damage: 40
 --- !u!136 &906501464
 CapsuleCollider:
   m_ObjectHideFlags: 0
