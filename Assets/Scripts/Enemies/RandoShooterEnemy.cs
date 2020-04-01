@@ -40,7 +40,7 @@ public class RandoShooterEnemy : MonoBehaviour
                 Debug.Log("Player hasn't moved");
             }
             //Debug.Log(navMeshAgent.remainingDistance);
-            if (navMeshAgent.remainingDistance < 10f)
+            if (navMeshAgent.remainingDistance < 3f)
             {
                 navMeshAgent.isStopped = true;
                 transform.LookAt(Player.transform);
