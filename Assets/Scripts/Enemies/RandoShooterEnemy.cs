@@ -52,6 +52,7 @@ public class RandoShooterEnemy : MonoBehaviour
                 transform.LookAt(Player.transform);
                 Debug.Log("Close Enough");
             }
+
             else
             {
                 navMeshAgent.isStopped = false;
