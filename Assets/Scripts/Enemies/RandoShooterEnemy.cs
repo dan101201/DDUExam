@@ -52,6 +52,12 @@ public class RandoShooterEnemy : MonoBehaviour
                 transform.LookAt(Player.transform);
                 Debug.Log("Close Enough");
             }
+            if (navMeshAgent.remainingDistance > 10f)
+            {
+                navMeshAgent.isStopped = true;
+                transform.LookAt(Player.transform);
+                Debug.Log("too far");
+            }
 
             else
             {
@@ -69,10 +75,11 @@ public class RandoShooterEnemy : MonoBehaviour
         {
             GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
 
-            newShoot.GetComponent<Rigidbody>().velocity = transform.forward * shootFlySpeed;
-            newShoot.GetComponent<EnemyProjectile>().timeUntilDead = shootTravelTime;
-            newShoot.GetComponent<EnemyProjectile>().fireBallSize = shootSize;
-            newShoot.GetComponent<EnemyProjectile>().damage = damage;
+            newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * shootFlySpeed;
+            EnemyProjectile projectile = newShoot.GetComponent<EnemyProjectile>();
+            projectile.timeUntilDead = shootTravelTime;
+            projectile.shootSize = shootSize;
+            projectile.damage = damage;
 
             canShoot = shootSpeed;
             Debug.Log(shootSpeed);

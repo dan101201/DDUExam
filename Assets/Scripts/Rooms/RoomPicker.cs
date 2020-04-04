@@ -18,7 +18,7 @@ public class RoomPicker : MonoBehaviour
             if (waitTime <= 0)
             {
                 GameObject pickedInside = roomInside[Random.Range(0, roomInside.Length)];
-                Instantiate(pickedInside, transform.position, transform.rotation, roomInside);
+                Instantiate(pickedInside, transform.position, transform.rotation);
                 Debug.Log(pickedInside);
                 hasPicked = true;
             }

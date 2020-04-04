@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 8826338594615662038}
   - component: {fileID: 4597144160787270894}
   m_Layer: 0
-  m_Name: Room_02_nav
+  m_Name: Room 02 ser 02 nav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 6ab3d4c78ffb74f44850b3e2638a7f64, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a59b70d6cde920f498eeb1d80ee7da4e, type: 2}
 --- !u!65 &8826338594615662038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 8044822660741164355, guid: 33a0f4f151ed7af4684fdff98d5f3939,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a0f4f151ed7af4684fdff98d5f3939, type: 3}
@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 8044822660741164355, guid: 33a0f4f151ed7af4684fdff98d5f3939,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a0f4f151ed7af4684fdff98d5f3939, type: 3}
@@ -632,7 +632,7 @@ PrefabInstance:
     - target: {fileID: 8044822660741164355, guid: 33a0f4f151ed7af4684fdff98d5f3939,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a0f4f151ed7af4684fdff98d5f3939, type: 3}
@@ -844,7 +844,7 @@ PrefabInstance:
     - target: {fileID: 8044822660741164355, guid: 33a0f4f151ed7af4684fdff98d5f3939,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a0f4f151ed7af4684fdff98d5f3939, type: 3}
