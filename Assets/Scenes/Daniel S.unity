@@ -166,8 +166,8 @@ MonoBehaviour:
   bossRoom: {fileID: 0}
   startingRoom: {fileID: 29798443}
   minRoomsBeforeTreasure: 2
-  normalRoomsWanted: 25
-  treasureRoomsWanted: 4
+  normalRoomsWanted: 1
+  treasureRoomsWanted: 0
   seed: 312312
   canSpawnPlayer: 0
   canSpawnEnemys: 0
@@ -630,21 +630,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8641734180498860556, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
+    - target: {fileID: 3304024703627905630, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 2f294c1abcbbb2648aed925e109f5adc,
-        type: 2}
-    - target: {fileID: 8641734180498860559, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8641734180498860559, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0
+      propertyPath: m_LocalScale.x
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8641734181194189742, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
@@ -705,11 +694,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room 01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8641734182404243749, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}

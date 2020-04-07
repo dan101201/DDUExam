@@ -801,6 +801,8 @@ GameObject:
   - component: {fileID: 6446755061713511932}
   - component: {fileID: 4529612473726152557}
   - component: {fileID: 282994310034642444}
+  - component: {fileID: 2132198517341734709}
+  - component: {fileID: 7442298489810011450}
   m_Layer: 0
   m_Name: Door_03
   m_TagString: Untagged
@@ -869,6 +871,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2132198517341734709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765255696309084216}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 2.5}
+--- !u!114 &7442298489810011450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3765255696309084216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788022407606141481
 GameObject:
   m_ObjectHideFlags: 0
