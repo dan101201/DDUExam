@@ -166,7 +166,7 @@ MonoBehaviour:
   bossRoom: {fileID: 0}
   startingRoom: {fileID: 29798443}
   minRoomsBeforeTreasure: 2
-  normalRoomsWanted: 1
+  normalRoomsWanted: 10
   treasureRoomsWanted: 0
   seed: 312312
   canSpawnPlayer: 0
@@ -630,11 +630,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3304024703627905630, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8641734181194189742, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_LocalPosition.x

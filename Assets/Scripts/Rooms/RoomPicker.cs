@@ -7,7 +7,7 @@ public class RoomPicker : MonoBehaviour
     public GameObject[] roomInside;
     DungeonGenerationScript generation;
     bool hasPicked;
-    float waitTime = 5f;
+    float waitTime = 0.1f;
 
     void Update()
     {

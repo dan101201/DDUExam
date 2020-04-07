@@ -8,49 +8,45 @@ public class RandoMelee : MonoBehaviour
     public Roomreveal room;
 
     NavMeshAgent navMeshAgent;
-    Vector3 savedPlayerTransform;
     GameObject Player;
-    bool Continue;
+    float timer;
 
-    // Start is called before the first frame update
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Room"))
+        {
+            room = other.GetComponent<Roomreveal>();
+        }
+    }
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        savedPlayerTransform = Player.transform.position;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (room.isPlayerInRoom)
         {
-            Vector3 tempPlayerTransform = Player.transform.position;
-            if (tempPlayerTransform != savedPlayerTransform)
-            {
-                savedPlayerTransform = tempPlayerTransform;
-                navMeshAgent.SetDestination(tempPlayerTransform);
-                Debug.Log("Player has moved");
-            }
-            else
-            {
-                Debug.Log("Player hasn't moved");
-            }
-            //Debug.Log(navMeshAgent.remainingDistance);
             if (navMeshAgent.remainingDistance < 0.3f)
             {
                 navMeshAgent.isStopped = true;
                 transform.LookAt(Player.transform);
-                Debug.Log("Close Enough");
+                Move();
             }
             else
             {
                 navMeshAgent.isStopped = false;
             }
         }
-        else
+    }
+    void Move()
+    {
+        timer -= Time.deltaTime;
+        if(timer <= 0)
         {
-
+            navMeshAgent.SetDestination(Player.transform.position);
+            timer = 2f;
         }
     }
 }
