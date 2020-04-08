@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 8641734180398081134}
   - component: {fileID: 6588478397307706092}
   - component: {fileID: 4339986030997801909}
+  - component: {fileID: 5341967459926941432}
   m_Layer: 16
   m_Name: Door_02
   m_TagString: Untagged
@@ -688,7 +689,7 @@ BoxCollider:
   m_GameObject: {fileID: 8641734180398081040}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 0.99999875}
   m_Center: {x: 2.1316282e-14, y: 0, z: 2.4999993}
@@ -704,6 +705,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &5341967459926941432
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641734180398081040}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8641734180598265375
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +734,7 @@ GameObject:
   - component: {fileID: 8641734180598265373}
   - component: {fileID: 2872108607405810338}
   - component: {fileID: 6756189599445086987}
+  - component: {fileID: 2456687398260314288}
   m_Layer: 16
   m_Name: Door_03
   m_TagString: Untagged
@@ -794,7 +812,7 @@ BoxCollider:
   m_GameObject: {fileID: 8641734180598265375}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.99999905}
   m_Center: {x: 0, y: 0, z: 2.5}
@@ -810,6 +828,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &2456687398260314288
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641734180598265375}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8641734180600559892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2240,7 @@ GameObject:
   - component: {fileID: 8641734181695615481}
   - component: {fileID: 9142128105027320723}
   - component: {fileID: 4630172450475021068}
+  - component: {fileID: 278946242515724205}
   m_Layer: 16
   m_Name: Door_01
   m_TagString: Untagged
@@ -2283,7 +2318,7 @@ BoxCollider:
   m_GameObject: {fileID: 8641734181695615483}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.99999905}
   m_Center: {x: 0, y: 0, z: 2.5}
@@ -2299,6 +2334,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &278946242515724205
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641734181695615483}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8641734181728077772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,6 +2363,7 @@ GameObject:
   - component: {fileID: 8641734181728077770}
   - component: {fileID: 8035171571104448600}
   - component: {fileID: 1081929906393642948}
+  - component: {fileID: 2225778506217842810}
   m_Layer: 16
   m_Name: Door_04
   m_TagString: Untagged
@@ -2389,7 +2441,7 @@ BoxCollider:
   m_GameObject: {fileID: 8641734181728077772}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 0.99999875}
   m_Center: {x: -2.1316296e-14, y: 0.00000022351742, z: 2.4999998}
@@ -2405,6 +2457,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &2225778506217842810
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8641734181728077772}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8641734181815229936
 GameObject:
   m_ObjectHideFlags: 0

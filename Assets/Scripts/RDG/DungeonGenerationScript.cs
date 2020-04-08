@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class DungeonGenerationScript : MonoBehaviour
 {
-    public GameObject[,] roomPrefabs;
+    public GameObject[] roomPrefabs;
     public GameObject[] treasureRoomPrefabs;
     public GameObject bossRoom;
     public GameObject startingRoom;
@@ -34,6 +34,7 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
+        startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
         Generate();
     }
 
@@ -42,9 +43,9 @@ public class DungeonGenerationScript : MonoBehaviour
         StartCoroutine("GenerateDungeon");
     }
 
-    private IEnumerator GenerateDungeon(System.Action callback)
+    private IEnumerator GenerateDungeon()
     {
-        UnityEngine.Random.InitState(seed);
+        Random.InitState(seed);
         rooms.Add(startingRoom);
         for (int i = 0; i < normalRoomsWanted + treasureRoomsWanted;)
         {
@@ -168,6 +169,7 @@ public class DungeonGenerationScript : MonoBehaviour
                             placedSuccesfullRoom = true;
                             done = true;
                             i++;
+                            newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                         }
                         else
                         {
@@ -178,6 +180,7 @@ public class DungeonGenerationScript : MonoBehaviour
                 }
                 currentRoom.usedDoors.Add(door);
             }
+            
         }
         {
             bool bossRoomPlaced = false;
@@ -273,6 +276,7 @@ public class DungeonGenerationScript : MonoBehaviour
                                 bossRoomPlaced = true;
                                 placedSuccesfullRoom = true;
                                 done = true;
+                                newRoom.GetComponent<RoomPicker>().PopulateRoom();
                             }
                             else
                             {
@@ -285,19 +289,13 @@ public class DungeonGenerationScript : MonoBehaviour
                 }
             }
         }
-        callback();
+        
         yield return null;
     }
 
-    private void PopulateRooms()
+    private void FinishGeneration()
     {
 
-    }
-
-    private void SpawnPlayer()
-    {
-        Instantiate(player, transform.position = new Vector3(0, 0.6f, 0), transform.rotation);
-        Instantiate(camara, transform.position = new Vector3(0, 7.5f, -1.8f), transform.rotation = new Quaternion(72, 0, 0, 0));
     }
 
     private GameObject GetRoomPrefab(out bool treasureRoom)
@@ -315,7 +313,7 @@ public class DungeonGenerationScript : MonoBehaviour
             {
                 rnd = Random.Range(0, roomPrefabs.Length);
                 treasureRoom = false;
-                return roomPrefabs[rnd,0];
+                return roomPrefabs[rnd];
             }
         }
         catch (System.IndexOutOfRangeException)
