@@ -6866,6 +6866,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomPicker
       objectReference: {fileID: 0}
+    - target: {fileID: 7583003332405670885, guid: c06ea9c26662a844e92ab0495ba41dd3,
+        type: 3}
+      propertyPath: roomInside.Array.data[1]
+      value: 
+      objectReference: {fileID: 7283854667187301255, guid: c0dfe7eab1a242340a7d22f1f37510f5,
+        type: 3}
+    - target: {fileID: 7583003332405670885, guid: c06ea9c26662a844e92ab0495ba41dd3,
+        type: 3}
+      propertyPath: roomInside.Array.data[0]
+      value: 
+      objectReference: {fileID: 1866304545527976225, guid: 54aa512f220abaf4facac8a03ac7d94f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c06ea9c26662a844e92ab0495ba41dd3, type: 3}
 --- !u!4 &4408431152097987563 stripped

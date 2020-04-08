@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4530829338533056899}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.117, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6485089243674419024}
@@ -292,7 +292,7 @@ MonoBehaviour:
   shootFlySpeed: 5
   shootTravelTime: 10
   isExplosive: 0
-  shootSize: 0.7
+  shootSize: 5
   damage: 0
   canShoot: 0
   ofsetAngle: 0

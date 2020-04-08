@@ -162,6 +162,7 @@ public class DungeonGenerationScript : MonoBehaviour
                             }
                             else
                             {
+                                newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                                 normalRoomsPlaced++;
                             }
                             newRoomScript.usedDoors.Add(newDoor);
@@ -170,7 +171,6 @@ public class DungeonGenerationScript : MonoBehaviour
                             done = true;
                             i++;
 
-                            newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                         }
                         else
                         {
