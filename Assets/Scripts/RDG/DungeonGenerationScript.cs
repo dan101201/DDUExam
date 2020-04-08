@@ -169,6 +169,7 @@ public class DungeonGenerationScript : MonoBehaviour
                             placedSuccesfullRoom = true;
                             done = true;
                             i++;
+
                             newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                         }
                         else

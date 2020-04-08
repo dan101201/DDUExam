@@ -13,6 +13,7 @@ public class Roomreveal : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             isPlayerInRoom = true;
+            Debug.Log("this one officer: " + gameObject.name);
             roof.SetActive(false);
             colliderCount++;
         }

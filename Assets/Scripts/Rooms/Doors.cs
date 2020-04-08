@@ -9,9 +9,11 @@ public class Doors : MonoBehaviour
     Collider temp;
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Door"))
         {
             Destroy(other.gameObject);
         }
+        
     }
 }
