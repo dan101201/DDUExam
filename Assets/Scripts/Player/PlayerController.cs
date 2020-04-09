@@ -57,8 +57,6 @@ public class PlayerController : MonoBehaviour
 
         playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * movementSpeed;
 
-        Debug.Log(PlayerInput.currentControlScheme);
-
         /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
             Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);

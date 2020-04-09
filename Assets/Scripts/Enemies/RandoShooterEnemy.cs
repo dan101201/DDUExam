@@ -82,9 +82,7 @@ public class RandoShooterEnemy : MonoBehaviour
             projectile.timeUntilDead = shootTravelTime;
             projectile.shootSize = shootSize;
             projectile.damage = damage;
-
             canShoot = shootSpeed;
-            Debug.Log(shootSpeed);
         }
     }
 }

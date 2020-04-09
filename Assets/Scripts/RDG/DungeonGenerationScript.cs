@@ -4,11 +4,10 @@ using UnityEngine;
 public class DungeonGenerationScript : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
+    public bool DoneGenerating;
     public GameObject[] treasureRoomPrefabs;
     public GameObject bossRoom;
     public GameObject startingRoom;
-    public GameObject player;
-    public GameObject camara;
     public int minRoomsBeforeTreasure = 2;
     public int normalRoomsWanted = 10;
     public int treasureRoomsWanted;
@@ -33,9 +32,17 @@ public class DungeonGenerationScript : MonoBehaviour
     // Start is called before the first frame update
 
     private void Awake()
+    {        
+        
+    }
+
+    private void Update()
     {
-        startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
-        Generate();
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Generate();
+            startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
+        }
     }
 
     public void Generate()
@@ -58,7 +65,7 @@ public class DungeonGenerationScript : MonoBehaviour
             bool done = false;
             while (!done)
             {
-
+                Debug.Log("choosing firstdoor");
                 rnd = Random.Range(0, currentRoom.doors.Count);
                 var door = currentRoom.doors[rnd];
                 if (doorsTried.Contains(door))
@@ -79,7 +86,7 @@ public class DungeonGenerationScript : MonoBehaviour
                 bool roomFits = false;
                 while (!roomFits)
                 {
-
+                    Debug.Log("picking room");
                     rnd = Random.Range(0, roomPrefabs.Length);
                     bool treasureRoom;
                     var roomPrefab = GetRoomPrefab(out treasureRoom);
@@ -118,7 +125,7 @@ public class DungeonGenerationScript : MonoBehaviour
                     bool placedSuccesfullRoom = false;
                     while (!placedSuccesfullRoom)
                     {
-
+                        Debug.Log("choosing 2nd door");
                         int doors = roomPrefab.GetComponent<Room>().doors.Count;
 
                         rnd = Random.Range(0, doors);
@@ -150,7 +157,7 @@ public class DungeonGenerationScript : MonoBehaviour
                         newDoor.transform.rotation = Quaternion.Euler(0, (180 - rotationAngle) + newDoor.transform.rotation.eulerAngles.y, 0);
 
 
-                        //yield return new WaitForSeconds(2f);
+                        //yield return new WaitForSeconds(0.5f);
                         yield return new WaitForFixedUpdate();
 
                         roomFits = newRoom.GetComponent<Room>().roomFits;
@@ -162,7 +169,6 @@ public class DungeonGenerationScript : MonoBehaviour
                             }
                             else
                             {
-                                newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                                 normalRoomsPlaced++;
                             }
                             newRoomScript.usedDoors.Add(newDoor);
