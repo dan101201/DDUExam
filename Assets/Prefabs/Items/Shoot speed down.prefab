@@ -112,3 +112,6 @@ MonoBehaviour:
   fireBallSizeScale: 0
   isExplosive: 0
   movementSpeed: 1
+  damage: 20
+  healthUp: 0
+  maxHealthUp: 0

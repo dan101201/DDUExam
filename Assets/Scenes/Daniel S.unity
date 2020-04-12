@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 91491484}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,18 +172,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomPrefabs:
   - {fileID: 8641734181194189909, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}
-  - {fileID: 7396510135336022704, guid: ec611e20c709ebf45a3aebfe09c8befe, type: 3}
   - {fileID: 5768749186405888730, guid: 0a48189e914ab924384f9e60b7b76f86, type: 3}
+  - {fileID: 7396510135336022704, guid: ec611e20c709ebf45a3aebfe09c8befe, type: 3}
   - {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41, type: 3}
+  DoneGenerating: 0
   treasureRoomPrefabs:
   - {fileID: 2279093781699360160, guid: 7d5a15b2f64854f45898834cb298b04d, type: 3}
   bossRoom: {fileID: 7981985362084885923, guid: b8ddc4c68bd4ee443813b70a2fb8d73e,
     type: 3}
   startingRoom: {fileID: 29798443}
-  player: {fileID: 0}
-  camara: {fileID: 0}
   minRoomsBeforeTreasure: 2
-  normalRoomsWanted: 20
+  normalRoomsWanted: 10
   treasureRoomsWanted: 2
   seed: 312312
   treasureRoomsPlaced: 0
@@ -669,22 +668,27 @@ PrefabInstance:
     - target: {fileID: 1081929906393642948, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091706129637642203, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4339986030997801909, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4630172450475021068, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756189599445086987, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8641734181194189742, guid: f71ff38fb3b9cf64486a5a478c2f92e3,
         type: 3}
