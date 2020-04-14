@@ -9,6 +9,7 @@ TagManager:
   - FireBall
   - Door
   - Room
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

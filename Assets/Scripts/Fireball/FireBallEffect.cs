@@ -39,8 +39,11 @@ public class FireBallEffect : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Explode();
-        Destroy();
+        if (collision.transform.tag != "EnemyProjectile")
+        {
+            Explode();
+            Destroy();
+        }
     }
     void Explode()
     {
