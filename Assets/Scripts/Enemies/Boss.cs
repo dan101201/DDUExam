@@ -27,6 +27,8 @@ public class Boss : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("wow" + other);
+
         if (other.CompareTag("Room"))
         {
             room = other.GetComponent<Roomreveal>();
