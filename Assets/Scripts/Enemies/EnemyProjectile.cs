@@ -46,9 +46,10 @@ public class EnemyProjectile : MonoBehaviour
         }
         if (collision.transform.tag != "Fireball")
         {
-            Explode();
-            Destroy();
+
         }
+        Explode();
+        Destroy();
     }
     void Explode()
     {
