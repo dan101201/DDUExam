@@ -8,7 +8,7 @@ public class Doors : MonoBehaviour
     GameObject door;
     Collider temp;
 
-    private void Start()
+    private void Awake()
     {
         generation = GameObject.FindGameObjectWithTag("GameController").GetComponent<DungeonGenerationScript>();
     }
