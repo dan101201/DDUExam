@@ -22,6 +22,7 @@ public class RandoShooterEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("wow" + other);
         if (other.CompareTag("Room"))
         {
             room = other.GetComponent<Roomreveal>();
@@ -51,7 +52,6 @@ public class RandoShooterEnemy : MonoBehaviour
             else
             {
             }
-            //Debug.Log(navMeshAgent.remainingDistance);
             if (navMeshAgent.remainingDistance < 6f)
             {
                 navMeshAgent.isStopped = true;
