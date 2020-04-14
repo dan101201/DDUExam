@@ -5201,9 +5201,9 @@ MonoBehaviour:
   shootSpeed: 0.4
   shootFlySpeed: 10
   shootTravelTime: 10
-  isExplosive: 1
+  isExplosive: 0
   fireBallSize: 0.4
-  damage: 40
+  damage: 20
 --- !u!136 &906501464
 CapsuleCollider:
   m_ObjectHideFlags: 0

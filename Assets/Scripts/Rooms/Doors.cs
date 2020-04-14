@@ -11,16 +11,18 @@ public class Doors : MonoBehaviour
     private void Start()
     {
         generation = GameObject.FindGameObjectWithTag("GameController").GetComponent<DungeonGenerationScript>();
+        Debug.Log("uwuwow");
+
     }
 
-    private void OnTriggeStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        
+        Debug.Log("uwuwow");
+
         if (other.CompareTag("Door") && generation.DoneGenerating)
         {
             Destroy(other.gameObject);
-            
+
         }
-        
     }
 }
