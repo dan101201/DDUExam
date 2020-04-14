@@ -87,14 +87,13 @@ public class DungeonGenerationScript : MonoBehaviour
                     bool treasureRoom;
                     var roomPrefab = GetRoomPrefab(out treasureRoom);
 
-
-                    if (newRoomsTried.Contains(roomPrefab))
+                    if (newRoomsTried.Contains(roomPrefab) || treasureRoomsTried.Contains(roomPrefab))
                     {
-                        if (newRoomsTried.Count + treasureRoomsTried.Count == roomPrefabs.Length + treasureRoomPrefabs.Length)
+                        if (newRoomsTried.Count + treasureRoomsTried.Count >= roomPrefabs.Length + treasureRoomPrefabs.Length)
                         {
                             break;
                         }
-                        else if (treasureRoomsTried.Count == treasureRoomPrefabs.Length)
+                        else if (treasureRoomsTried.Count >= treasureRoomPrefabs.Length)
                         {
                             break;
                         }
