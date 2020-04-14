@@ -286,6 +286,7 @@ public class DungeonGenerationScript : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForFixedUpdate();
         DoneGenerating = true;
         yield return null;
     }
