@@ -12,8 +12,9 @@ public class PlayerHealth : MonoBehaviour
     public float invincibleTime = 2f;
     float timer;
 
-    void Start()
+    void Awake()
     {
+        slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
         curentHealth = maxHealth;
         timer = invincibleTime;
     }

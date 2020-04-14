@@ -10,6 +10,7 @@ TagManager:
   - Door
   - Room
   - EnemyProjectile
+  - Slider
   layers:
   - Default
   - TransparentFX
