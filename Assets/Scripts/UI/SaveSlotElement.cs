@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+#if UNITY_EDITOR
 using UnityEditor.UI;
 using UnityEditor;
+#endif
 
 public class SaveSlotElement : Button
 {
@@ -37,6 +39,7 @@ public class SaveSlotElement : Button
     }
 }
 
+#if UNITY_EDITOR
 #region EditorStuff
 [CustomEditor(typeof(SaveSlotElement))]
 public class SaveSlotElementEditor : ButtonEditor
@@ -56,3 +59,4 @@ public class SaveSlotElementEditor : ButtonEditor
     }
 }
 #endregion
+#endif
