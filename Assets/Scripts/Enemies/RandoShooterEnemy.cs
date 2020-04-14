@@ -53,22 +53,25 @@ public class RandoShooterEnemy : MonoBehaviour
                 navMeshAgent.isStopped = false;
             }
 
+            canShoot -= Time.deltaTime;
+            if (canShoot <= 0f)
+            {
+                GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
+
+                newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * shootFlySpeed;
+                EnemyProjectile projectile = newShoot.GetComponent<EnemyProjectile>();
+                projectile.timeUntilDead = shootTravelTime;
+                projectile.shootSize = shootSize;
+                projectile.damage = damage;
+                projectile.playerHealth = playerHealth;
+                canShoot = shootSpeed;
+            }
         }
         else
         {
 
         }
-        canShoot -= Time.deltaTime;
-        if (canShoot <= 0f)
-        {
-            GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
-
-            newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * shootFlySpeed;
-            EnemyProjectile projectile = newShoot.GetComponent<EnemyProjectile>();
-            projectile.timeUntilDead = shootTravelTime;
-            projectile.shootSize = shootSize;
-            projectile.damage = damage;
-            canShoot = shootSpeed;
-        }
+        
+        
     }
 }
