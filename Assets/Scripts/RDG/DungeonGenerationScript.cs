@@ -32,17 +32,9 @@ public class DungeonGenerationScript : MonoBehaviour
     // Start is called before the first frame update
 
     private void Awake()
-    {        
-        
-    }
-
-    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Generate();
-            startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
-        }
+        Generate();
+        startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
     }
 
     public void Generate()
