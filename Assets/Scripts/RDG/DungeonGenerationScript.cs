@@ -287,7 +287,6 @@ public class DungeonGenerationScript : MonoBehaviour
             }
         }
         DoneGenerating = true;
-        Debug.Log(DoneGenerating);
         yield return null;
     }
 
