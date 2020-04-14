@@ -15,13 +15,13 @@ public class RandoShooterEnemy : MonoBehaviour
     public float damage;
     public float canShoot;
     public float ofsetAngle;
+    PlayerHealth playerHealth;
     NavMeshAgent navMeshAgent;
     Vector3 savedPlayerTransform;
     GameObject Player;
 
     private void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Room"))
         {
             room = other.GetComponent<Roomreveal>();
@@ -34,6 +34,7 @@ public class RandoShooterEnemy : MonoBehaviour
         canShoot = shootSpeed;
         Player = GameObject.FindGameObjectWithTag("Player");
         savedPlayerTransform = Player.transform.position;
+        playerHealth = Player.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -46,21 +47,16 @@ public class RandoShooterEnemy : MonoBehaviour
             {
                 savedPlayerTransform = tempPlayerTransform;
                 navMeshAgent.SetDestination(tempPlayerTransform);
-                Debug.Log("Player has moved");
             }
             else
             {
-                Debug.Log("Player hasn't moved");
             }
             //Debug.Log(navMeshAgent.remainingDistance);
             if (navMeshAgent.remainingDistance < 6f)
             {
                 navMeshAgent.isStopped = true;
                 transform.LookAt(Player.transform);
-                Debug.Log("Close Enough");
             }
-
-
             else
             {
                 navMeshAgent.isStopped = false;

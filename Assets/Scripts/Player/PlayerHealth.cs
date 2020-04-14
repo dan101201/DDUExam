@@ -1,57 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     public float curentHealth;
+    public Slider slider;
     public bool canBeAttacked = true;
     public float invincibleTime = 2f;
     float timer;
-    bool isBeingHit;
 
     void Start()
     {
         curentHealth = maxHealth;
         timer = invincibleTime;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            isBeingHit = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            isBeingHit = false;
-        }
-    }
+
     void Update()
     {
-        if (isBeingHit)
-        {
-            Takedamage();
-        }
-        if (canBeAttacked == false)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                canBeAttacked = true;
-                timer = invincibleTime;
-            }
-        }
+       timer += Time.deltaTime;
     }
-    void Takedamage()
+    public void TakeDamage(float damage)
     {
-        if (canBeAttacked)
+        if (timer > invincibleTime)
         {
-            curentHealth -= 20;
-            canBeAttacked = false;
+            timer = 0;
+            curentHealth -= damage;
+            slider.value = curentHealth;
         }
     }
 }

@@ -59,13 +59,11 @@ public class DungeonGenerationScript : MonoBehaviour
             int rnd = Random.Range(0, rooms.Count);
             var currentRoom = rooms[rnd].GetComponent<Room>();
             roomSelected = currentRoom.gameObject;
-            Debug.Log("Selected room: " + roomSelected.name);
 
             var doorsTried = new List<GameObject>(currentRoom.usedDoors);
             bool done = false;
             while (!done)
             {
-                Debug.Log("choosing firstdoor");
                 rnd = Random.Range(0, currentRoom.doors.Count);
                 var door = currentRoom.doors[rnd];
                 if (doorsTried.Contains(door))
@@ -86,8 +84,6 @@ public class DungeonGenerationScript : MonoBehaviour
                 bool roomFits = false;
                 while (!roomFits)
                 {
-                    Debug.Log("picking room");
-                    rnd = Random.Range(0, roomPrefabs.Length);
                     bool treasureRoom;
                     var roomPrefab = GetRoomPrefab(out treasureRoom);
 
@@ -125,7 +121,6 @@ public class DungeonGenerationScript : MonoBehaviour
                     bool placedSuccesfullRoom = false;
                     while (!placedSuccesfullRoom)
                     {
-                        Debug.Log("choosing 2nd door");
                         int doors = roomPrefab.GetComponent<Room>().doors.Count;
 
                         rnd = Random.Range(0, doors);
@@ -176,7 +171,7 @@ public class DungeonGenerationScript : MonoBehaviour
                             placedSuccesfullRoom = true;
                             done = true;
                             i++;
-
+                            newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                         }
                         else
                         {
@@ -193,7 +188,6 @@ public class DungeonGenerationScript : MonoBehaviour
             bool bossRoomPlaced = false;
             while (!bossRoomPlaced)
             {
-                Debug.Log("placing bossroom");
                 int rnd = Random.Range(0, rooms.Count);
                 var currentRoom = rooms[rnd].GetComponent<Room>();
                 roomSelected = currentRoom.gameObject;
@@ -277,13 +271,12 @@ public class DungeonGenerationScript : MonoBehaviour
                             roomFits = newRoom.GetComponent<Room>().roomFits;
                             if (roomFits)
                             {
-                                Debug.Log("placed boss");
                                 newRoomScript.usedDoors.Add(newDoor);
                                 rooms.Add(newRoom);
                                 bossRoomPlaced = true;
                                 placedSuccesfullRoom = true;
                                 done = true;
-                                newRoom.GetComponent<RoomPicker>().PopulateRoom();
+                                newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                             }
                             else
                             {

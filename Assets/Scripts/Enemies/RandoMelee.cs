@@ -9,7 +9,11 @@ public class RandoMelee : MonoBehaviour
 
     NavMeshAgent navMeshAgent;
     GameObject Player;
+    PlayerHealth playerHealth;
+    public int Damage;
+    public int Speed;
     float timer;
+    float attackTimer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,14 +22,26 @@ public class RandoMelee : MonoBehaviour
             room = other.GetComponent<Roomreveal>();
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && attackTimer >= Speed)
+        {
+            attackTimer = 0;
+            playerHealth.TakeDamage(Damage);
+        }
+    }
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = Player.GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
+        attackTimer += Time.deltaTime;
         if (room.isPlayerInRoom)
         {
             if (navMeshAgent.remainingDistance < 0.3f)

@@ -9,6 +9,7 @@ public class EnemyProjectile : MonoBehaviour
     public float timeUntilDead;
     public float shootSize;
     public float damage;
+    public PlayerHealth playerHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,10 @@ public class EnemyProjectile : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.tag == "Player")
+        {
+            playerHealth.TakeDamage(damage);
+        }
         Explode();
         Destroy();
     }
