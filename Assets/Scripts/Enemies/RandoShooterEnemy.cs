@@ -39,7 +39,7 @@ public class RandoShooterEnemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (room.isPlayerInRoom)
         {
             Vector3 tempPlayerTransform = Player.transform.position;
@@ -67,7 +67,7 @@ public class RandoShooterEnemy : MonoBehaviour
         {
 
         }
-
+        */
         canShoot -= Time.deltaTime;
         if (canShoot <= 0f)
         {

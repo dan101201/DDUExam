@@ -162,16 +162,17 @@ public class DungeonGenerationScript : MonoBehaviour
                             {
                                 treasureRoomsPlaced++;
                             }
-                            else
+                            else 
                             {
+
+                                newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
                                 normalRoomsPlaced++;
                             }
                             newRoomScript.usedDoors.Add(newDoor);
                             rooms.Add(newRoom);
                             placedSuccesfullRoom = true;
                             done = true;
-                            i++;
-                            newRoom.transform.GetChild(1).GetComponent<RoomPicker>().PopulateRoom();
+                            i++;                          
                         }
                         else
                         {
@@ -196,7 +197,6 @@ public class DungeonGenerationScript : MonoBehaviour
                 bool done = false;
                 while (!done)
                 {
-
                     rnd = Random.Range(0, currentRoom.doors.Count);
                     var door = currentRoom.doors[rnd];
                     if (doorsTried.Contains(door))
@@ -217,7 +217,6 @@ public class DungeonGenerationScript : MonoBehaviour
                     bool roomFits = false;
                     while (!roomFits)
                     {
-
                         rnd = Random.Range(0, roomPrefabs.Length);
                         var roomPrefab = bossRoom;
 
@@ -233,7 +232,6 @@ public class DungeonGenerationScript : MonoBehaviour
                         bool placedSuccesfullRoom = false;
                         while (!placedSuccesfullRoom)
                         {
-
                             int doors = roomPrefab.GetComponent<Room>().doors.Count;
 
                             rnd = Random.Range(0, doors);
@@ -289,13 +287,9 @@ public class DungeonGenerationScript : MonoBehaviour
                 }
             }
         }
-        
+        DoneGenerating = true;
+        Debug.Log(DoneGenerating);
         yield return null;
-    }
-
-    private void FinishGeneration()
-    {
-
     }
 
     private GameObject GetRoomPrefab(out bool treasureRoom)
