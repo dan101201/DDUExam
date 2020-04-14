@@ -25,6 +25,14 @@ public class Boss : MonoBehaviour
     float attackTImeLeft = 10;
     int nextAttack = 0;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Room"))
+        {
+            room = other.GetComponent<Roomreveal>();
+        }
+    }
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
