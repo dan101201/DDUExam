@@ -18,17 +18,14 @@ public class Boss : MonoBehaviour
     NavMeshAgent navMeshAgent;
     GameObject Player;
     GameObject child;
-    bool hasReturend;
     float angel;
     float canShoot;
     bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collider other)
     {
-        Debug.Log("wow" + other);
-
         if (other.CompareTag("Room"))
         {
             room = other.GetComponent<Roomreveal>();
@@ -38,7 +35,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-         Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
@@ -114,7 +111,6 @@ public class Boss : MonoBehaviour
                     isAttacking = false;
                 }
             }
-            Debug.Log(attackTImeLeft);
         }
     }
     void Attack()

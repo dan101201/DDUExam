@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class RandoMelee : MonoBehaviour
 {
     public Roomreveal room;
-
     NavMeshAgent navMeshAgent;
     GameObject Player;
     PlayerHealth playerHealth;
@@ -14,14 +13,6 @@ public class RandoMelee : MonoBehaviour
     public int Speed;
     float timer;
     float attackTimer;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Room"))
-        {
-            room = other.GetComponent<Roomreveal>();
-        }
-    }
 
     private void OnTriggerStay(Collider other)
     {

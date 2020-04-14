@@ -432,7 +432,7 @@ Transform:
   m_GameObject: {fileID: 7886005438775307909}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1396529734153813547}
   m_Father: {fileID: 0}
@@ -1398,6 +1398,12 @@ PrefabInstance:
       propertyPath: bossMovePoints.Array.data[2]
       value: 
       objectReference: {fileID: 6813954745512722221}
+    - target: {fileID: 338205267071583067, guid: f9b9cc455ac946b44bfd65630543c884,
+        type: 3}
+      propertyPath: room
+      value: 
+      objectReference: {fileID: 8365720604050699759, guid: b8ddc4c68bd4ee443813b70a2fb8d73e,
+        type: 3}
     - target: {fileID: 3983851953332250037, guid: f9b9cc455ac946b44bfd65630543c884,
         type: 3}
       propertyPath: m_Name

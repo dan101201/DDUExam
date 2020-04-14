@@ -20,15 +20,6 @@ public class RandoShooterEnemy : MonoBehaviour
     Vector3 savedPlayerTransform;
     GameObject Player;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("wow" + other);
-        if (other.CompareTag("Room"))
-        {
-            room = other.GetComponent<Roomreveal>();
-        }
-    }
-
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -67,7 +58,6 @@ public class RandoShooterEnemy : MonoBehaviour
         {
 
         }
-        
         canShoot -= Time.deltaTime;
         if (canShoot <= 0f)
         {
@@ -78,7 +68,6 @@ public class RandoShooterEnemy : MonoBehaviour
             projectile.timeUntilDead = shootTravelTime;
             projectile.shootSize = shootSize;
             projectile.damage = damage;
-            projectile.playerHealth = playerHealth;
             canShoot = shootSpeed;
         }
     }
