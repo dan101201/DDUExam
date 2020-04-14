@@ -9,6 +9,6 @@ public class RoomPicker : MonoBehaviour
     public void PopulateRoom()
     { 
         GameObject pickedInside = roomInside[Random.Range(0, roomInside.Length)];
-        Instantiate(pickedInside, transform.position, transform.rotation);
+        Instantiate(pickedInside, transform.position, transform.rotation,transform.parent);
     }         
 }

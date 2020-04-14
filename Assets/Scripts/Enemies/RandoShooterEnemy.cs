@@ -20,12 +20,13 @@ public class RandoShooterEnemy : MonoBehaviour
     Vector3 savedPlayerTransform;
     GameObject Player;
 
-    void Start()
+    void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         canShoot = shootSpeed;
         Player = GameObject.FindGameObjectWithTag("Player");
         savedPlayerTransform = Player.transform.position;
+        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         playerHealth = Player.GetComponent<PlayerHealth>();
     }
 

@@ -23,10 +23,11 @@ public class RandoMelee : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         playerHealth = Player.GetComponent<PlayerHealth>();
     }
 

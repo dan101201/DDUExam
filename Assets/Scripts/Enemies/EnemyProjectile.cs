@@ -44,8 +44,11 @@ public class EnemyProjectile : MonoBehaviour
         {
             playerHealth.TakeDamage(damage);
         }
-        Explode();
-        Destroy();
+        if (collision.transform.tag != "Fireball")
+        {
+            Explode();
+            Destroy();
+        }
     }
     void Explode()
     {

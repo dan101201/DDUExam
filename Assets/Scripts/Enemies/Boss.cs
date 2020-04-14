@@ -23,19 +23,12 @@ public class Boss : MonoBehaviour
     bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
-
-    private void OnCollisionEnter(Collider other)
-    {
-        if (other.CompareTag("Room"))
-        {
-            room = other.GetComponent<Roomreveal>();
-        }
-    }
-
-    void Start()
+    
+    void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
