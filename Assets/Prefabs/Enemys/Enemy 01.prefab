@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 0}
   shoot: {fileID: 3114488699329220992, guid: 7b6c343e2b169e6489f9345ef61d482c, type: 3}
-  shootSpeed: 1.2
+  shootSpeed: 2
   shootFlySpeed: 5
   shootTravelTime: 10
   isExplosive: 0

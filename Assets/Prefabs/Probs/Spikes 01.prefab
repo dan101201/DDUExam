@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 2954736963837756535}
   - component: {fileID: 3064386112876843658}
   - component: {fileID: 8990337608662483743}
+  - component: {fileID: -3589765076939362131}
   m_Layer: 0
   m_Name: Spikes 01
   m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &533353614102545080
 Transform:
@@ -89,7 +90,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3548136743114256555}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 81.77701, y: 69.162155, z: 84.58127}
@@ -110,3 +111,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-3589765076939362131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548136743114256555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb8211d06cfc4544a55c848c3a122eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

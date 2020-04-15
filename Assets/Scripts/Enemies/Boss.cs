@@ -19,11 +19,11 @@ public class Boss : MonoBehaviour
     GameObject player;
     GameObject child;
     float angel;
-    float canShoot;
-    bool isAttacking = false;
+    public float canShoot;
+    public bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
-    
+    GameObject bossHealth;
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -37,6 +37,7 @@ public class Boss : MonoBehaviour
                 child = tempChild;
             }
         }
+        bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class Boss : MonoBehaviour
         if (room.isPlayerInRoom)
         {
             child.transform.Rotate(0, 0.5f, 0);
-            GameObject bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
+             
             if (bossHealth.name == "Dead")
             {
                 Destroy();

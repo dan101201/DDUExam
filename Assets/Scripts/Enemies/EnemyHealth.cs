@@ -16,21 +16,26 @@ public class EnemyHealth : MonoBehaviour
         if (other.CompareTag ("FireBall"))
         {
             FireBallEffect fireBall = other.GetComponent<FireBallEffect>();
-            curentHealth -= fireBall.damage;
+            TakeDamage(fireBall.damage);
         }
     }
-    void Update()
+  
+    void TakeDamage(float damage)
     {
-
+        curentHealth -= damage;
         if (curentHealth <= 0)
         {
+
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
+            gameObject.name = "Dead";
             StartCoroutine(NextFrame());
         }
     }
+
+
     IEnumerator NextFrame()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }
