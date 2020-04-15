@@ -64,7 +64,7 @@ public class Boss : MonoBehaviour
             }
             if (nextAttack == 1 && isAttacking)
             {
-                attackTImeLeft -= Time.deltaTime;
+                attackTImeLeft -= Time.fixedDeltaTime;
                 shootAmount = 3;
                 offsetAngle = 4f;
                 shootSize = 10f;
@@ -78,7 +78,7 @@ public class Boss : MonoBehaviour
             }
             if (nextAttack == 2 && isAttacking)
             {
-                attackTImeLeft -= Time.deltaTime;
+                attackTImeLeft -= Time.fixedDeltaTime;
                 shootAmount = 4;
                 offsetAngle = 30;
                 shootSize = 5;
@@ -92,7 +92,7 @@ public class Boss : MonoBehaviour
             }
             if (nextAttack == 3 && isAttacking)
             {
-                attackTImeLeft -= Time.deltaTime;
+                attackTImeLeft -= Time.fixedDeltaTime;
                 shootAmount = 30;
                 offsetAngle = 0f;
                 shootSize = 20f;

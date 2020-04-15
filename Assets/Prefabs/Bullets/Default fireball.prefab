@@ -131,6 +131,7 @@ MonoBehaviour:
   canExplode: 0
   timeUntilDead: 0
   fireBallSize: 1
+  damage: 0
 --- !u!1 &6032434091290387750
 GameObject:
   m_ObjectHideFlags: 0
