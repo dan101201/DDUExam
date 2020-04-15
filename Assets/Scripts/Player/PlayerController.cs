@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     {
         playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * movementSpeed;
     }
-    //Update is called once per 'tick'
 
     void Update()
     {
@@ -53,6 +52,7 @@ public class PlayerController : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
         }
+        //Debug.Log(playerRigidbody.velocity);
 
         /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
@@ -77,26 +77,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             Debug.Log("No Input");
-        }*/
-        //Debug.Log(GetComponent<Rigidbody>().velocity);
-
-        //Locally deprecated
-        /*if (Input.GetKey("w"))
-        {
-            transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
-        }
-        else if (Input.GetKey("s"))
-        {
-            transform.position -= transform.TransformDirection(Vector3.forward) * Time.deltaTime * movementSpeed;
-        }
-
-        if (Input.GetKey("a") && !Input.GetKey("d"))
-        {
-            transform.position += transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
-        }
-        else if (Input.GetKey("d") && !Input.GetKey("a"))
-        {
-            transform.position -= transform.TransformDirection(Vector3.left) * Time.deltaTime * movementSpeed;
         }*/
     }
 

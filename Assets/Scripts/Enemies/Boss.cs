@@ -23,11 +23,8 @@ public class Boss : MonoBehaviour
     public bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
-<<<<<<< Updated upstream
     GameObject bossHealth;
-=======
-
->>>>>>> Stashed changes
+    PlayerHealth playerHealth;
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -42,6 +39,7 @@ public class Boss : MonoBehaviour
             }
         }
         bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
+        playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -123,6 +121,7 @@ public class Boss : MonoBehaviour
                 projectile.timeUntilDead = shootTravelTime;
                 projectile.shootSize = shootSize;
                 projectile.damage = damage;
+                projectile.playerHealth = playerHealth;
                 angel += (360 / shootAmount);
             }
             angel -= (360 / shootAmount * shootAmount);
