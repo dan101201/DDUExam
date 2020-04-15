@@ -23,7 +23,11 @@ public class Boss : MonoBehaviour
     public bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
+<<<<<<< Updated upstream
     GameObject bossHealth;
+=======
+
+>>>>>>> Stashed changes
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -59,8 +63,6 @@ public class Boss : MonoBehaviour
                     Debug.Log(nextAttack);
                     isAttacking = true;
                     attackTImeLeft = 10;
-
-                    Debug.Log(isAttacking);
                 }
             }
             if (nextAttack == 1 && isAttacking)
@@ -96,7 +98,7 @@ public class Boss : MonoBehaviour
                 attackTImeLeft -= Time.fixedDeltaTime;
                 shootAmount = 30;
                 offsetAngle = 0f;
-                shootSize = 20f;
+                shootSize = 10f;
                 shootSpeed = 2f;
                 Attack();
                 if (attackTImeLeft <= 0)
