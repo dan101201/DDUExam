@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RandoMelee : MonoBehaviour
+public class StandardMeleeEnemy : MonoBehaviour
 {
     public Roomreveal room;
     NavMeshAgent navMeshAgent;

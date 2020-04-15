@@ -12,11 +12,11 @@ public class Boss : MonoBehaviour
     public float shootTravelTime = 10f;
     public float shootSize = 0.7f;
     public float damage;
-    public float ofsetAngle;
+    public float offsetAngle;
     public int shootAmount;
     public GameObject[] bossMovePoints;
     NavMeshAgent navMeshAgent;
-    GameObject Player;
+    GameObject player;
     GameObject child;
     float angel;
     float canShoot;
@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        Player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
@@ -66,7 +66,7 @@ public class Boss : MonoBehaviour
             {
                 attackTImeLeft -= Time.deltaTime;
                 shootAmount = 3;
-                ofsetAngle = 4f;
+                offsetAngle = 4f;
                 shootSize = 10f;
                 shootSpeed = 0.2f;
                 Attack();
@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour
             {
                 attackTImeLeft -= Time.deltaTime;
                 shootAmount = 4;
-                ofsetAngle = 30;
+                offsetAngle = 30;
                 shootSize = 5;
                 shootSpeed = 0.2f;
                 Attack();
@@ -94,7 +94,7 @@ public class Boss : MonoBehaviour
             {
                 attackTImeLeft -= Time.deltaTime;
                 shootAmount = 30;
-                ofsetAngle = 0f;
+                offsetAngle = 0f;
                 shootSize = 20f;
                 shootSpeed = 2f;
                 Attack();
@@ -123,7 +123,7 @@ public class Boss : MonoBehaviour
                 angel += (360 / shootAmount);
             }
             angel -= (360 / shootAmount * shootAmount);
-            angel += ofsetAngle;
+            angel += offsetAngle;
             canShoot = shootSpeed;
         }
     }
