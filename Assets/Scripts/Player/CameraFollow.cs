@@ -3,14 +3,15 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Vector3 offset;
     public float smoothing = 5f;
 
     Transform target;
+    Vector3 offset;
 
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.LookAt(target);
         offset = transform.position - target.position;
     }
 

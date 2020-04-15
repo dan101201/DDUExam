@@ -15,7 +15,6 @@ public class EnemyProjectile : MonoBehaviour
     void Start()
     {
         transform.localScale = new Vector3(shootSize, shootSize, shootSize);
-        var children = new List<GameObject>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             //Stores the child so unity doesnt have to get it every time, better for performance
@@ -38,18 +37,21 @@ public class EnemyProjectile : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             playerHealth.TakeDamage(damage);
         }
-        if (collision.transform.tag != "Fireball")
+
+        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Enemy") && !other.CompareTag("Room"))
         {
             Explode();
             Destroy();
         }
     }
+
     void Explode()
     {
         if(canExplode)
@@ -58,11 +60,13 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(explosionEffect, 5f);
         }
     }
+
     void Destroy()
     {
         gameObject.transform.position = new Vector3(10000, 10000, 10000);
         StartCoroutine(NextFrame());
     }
+
     IEnumerator NextFrame()
     {
         yield return new WaitForEndOfFrame();

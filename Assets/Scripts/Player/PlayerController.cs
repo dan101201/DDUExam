@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody playerRigidbody;
     LayerMask aimingLayerMask;
     PlayerInput PlayerInput;
+    Transform shootingDirector;
 
     private EInputState m_State;
 
@@ -17,7 +18,6 @@ public class PlayerController : MonoBehaviour
     {
         aimingLayerMask = LayerMask.GetMask("PlayerAiming");
         playerRigidbody = GetComponent<Rigidbody>();
-        StartCoroutine(LateStart());
         PlayerInput = GetComponent<PlayerInput>();
         InputSystem.onDeviceChange += (device, change) =>
         {
@@ -33,29 +33,26 @@ public class PlayerController : MonoBehaviour
                     break;
             }
         };
+        shootingDirector = GameObject.FindWithTag("ShootingDirector").transform;
     }
 
-    IEnumerator LateStart()
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(0.5f);
-        Camera.main.transform.LookAt(transform);
+        playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * movementSpeed;
     }
     //Update is called once per 'tick'
 
     void Update()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitPlacement;
-        
-        if (Physics.Raycast(camRay, out hitPlacement, 100f, aimingLayerMask))
+
+        if (Physics.Raycast(camRay, out RaycastHit hitPlacement, 100f, aimingLayerMask))
         {
             Vector3 playerToMouse = hitPlacement.point - transform.position;
             playerToMouse.y = 0f;
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
         }
-        
-        playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * movementSpeed;
 
         /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
@@ -81,7 +78,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("No Input");
         }*/
-        //Debug.Log(rigidbody.velocity);
+        //Debug.Log(GetComponent<Rigidbody>().velocity);
 
         //Locally deprecated
         /*if (Input.GetKey("w"))

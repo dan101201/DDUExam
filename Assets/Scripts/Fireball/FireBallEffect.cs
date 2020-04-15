@@ -14,7 +14,6 @@ public class FireBallEffect : MonoBehaviour
     void Start()
     {
         transform.localScale = new Vector3(fireBallSize, fireBallSize, fireBallSize);
-        var children = new List<GameObject>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             //Stores the child so unity doesnt have to get it every time, better for performance
@@ -37,9 +36,9 @@ public class FireBallEffect : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag != "EnemyProjectile")
+        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
         {
             Explode();
             Destroy();

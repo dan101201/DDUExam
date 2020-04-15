@@ -11,6 +11,8 @@ TagManager:
   - Room
   - EnemyProjectile
   - Slider
+  - ShootingDirector
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -26,10 +28,10 @@ TagManager:
   - PlayerAiming
   - Player
   - Fire ball
-  - Enemys
+  - Enemies
   - Enemy projectiles
   - Door trigger
-  - 
+  - Room
   - 
   - 
   - 

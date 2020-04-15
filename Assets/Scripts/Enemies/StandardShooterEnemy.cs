@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RandoShooterEnemy : MonoBehaviour
+public class StandardShooterEnemy : MonoBehaviour
 {
     public Roomreveal room;
     public GameObject shoot;

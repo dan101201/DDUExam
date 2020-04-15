@@ -39,7 +39,7 @@ public class DungeonGenerationScript : MonoBehaviour
 
     public void Generate()
     {
-        StartCoroutine("GenerateDungeon");
+        StartCoroutine(GenerateDungeon());
     }
 
     private IEnumerator GenerateDungeon()
