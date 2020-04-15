@@ -5234,7 +5234,7 @@ MonoBehaviour:
   curentHealth: 0
   slider: {fileID: 0}
   canBeAttacked: 1
-  invincibleTime: 1
+  invincibleTime: 0.5
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0

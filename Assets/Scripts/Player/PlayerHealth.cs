@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
             timer = 0;
             curentHealth -= damage;
             slider.value = curentHealth;
+            if (curentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

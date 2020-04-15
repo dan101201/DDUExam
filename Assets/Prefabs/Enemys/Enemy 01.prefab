@@ -293,7 +293,7 @@ MonoBehaviour:
   shootTravelTime: 10
   isExplosive: 0
   shootSize: 5
-  damage: 5
+  damage: 10
   canShoot: 0
   ofsetAngle: 0
 --- !u!114 &2055082340439761769
