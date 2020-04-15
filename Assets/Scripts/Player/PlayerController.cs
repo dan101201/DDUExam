@@ -40,8 +40,8 @@ public class PlayerController : MonoBehaviour
     {
         playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * movementSpeed;
     }
-
     //Update is called once per 'tick'
+
     void Update()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);

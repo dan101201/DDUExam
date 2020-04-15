@@ -44,6 +44,7 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private IEnumerator GenerateDungeon()
     {
+        if (seed != 0)
         Random.InitState(seed);
         rooms.Add(startingRoom);
         for (int i = 0; i < normalRoomsWanted + treasureRoomsWanted;)

@@ -11,12 +11,14 @@ public class PlayerHealth : MonoBehaviour
     public bool canBeAttacked = true;
     public float invincibleTime = 2f;
     float timer;
+    Material playerMat;
 
     void Awake()
     {
         slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
         curentHealth = maxHealth;
         timer = invincibleTime;
+        playerMat = gameObject.GetComponent<MeshRenderer>().material;
     }
 
     void Update()
@@ -30,10 +32,21 @@ public class PlayerHealth : MonoBehaviour
             timer = 0;
             curentHealth -= damage;
             slider.value = curentHealth;
+            StartCoroutine("TurnPlayerRed");
             if (curentHealth <= 0)
             {
                 Destroy(gameObject);
+
             }
         }
+    }
+
+    private IEnumerator TurnPlayerRed()
+    {
+        var oldColour = playerMat.GetColor("_EmissionColor");
+        playerMat.SetColor("_EmissionColor",Color.red);
+        yield return new WaitForSeconds(invincibleTime);
+        playerMat.SetColor("_EmissionColor", oldColour);
+        yield return null;
     }
 }
