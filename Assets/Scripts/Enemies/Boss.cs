@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class Boss : MonoBehaviour
@@ -52,6 +53,8 @@ public class Boss : MonoBehaviour
             if (bossHealth.name == "Dead")
             {
                 Destroy();
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
             }
             if (navMeshAgent.remainingDistance < 0.1f)
             {
