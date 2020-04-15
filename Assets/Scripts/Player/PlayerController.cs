@@ -40,13 +40,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Camera.main.transform.LookAt(transform);
     }
-
     //Update is called once per 'tick'
+
     void Update()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitPlacement;
-
+        
         if (Physics.Raycast(camRay, out hitPlacement, 100f, aimingLayerMask))
         {
             Vector3 playerToMouse = hitPlacement.point - transform.position;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
         }
-
+        
         playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"))) * movementSpeed;
 
         /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")

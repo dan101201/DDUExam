@@ -40,11 +40,11 @@ public class Boss : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (room.isPlayerInRoom)
         {
-            child.transform.Rotate(0, 1, 0);
+            child.transform.Rotate(0, 0.5f, 0);
             GameObject bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
             if (bossHealth.name == "Dead")
             {

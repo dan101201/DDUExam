@@ -5107,9 +5107,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6226679885705983476}
   serializedVersion: 2
-  m_Mass: 2
-  m_Drag: 15
-  m_AngularDrag: 0.05
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -5141,7 +5141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3355c4585efae834683f80f8be39f1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2.5
+  movementSpeed: 5
 --- !u!114 &5147593067375484902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5154,8 +5154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1cf0874e54e3b3a4e8c58b5e8a4b00ac,
-    type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -5203,7 +5202,7 @@ MonoBehaviour:
   shootTravelTime: 10
   isExplosive: 0
   fireBallSize: 0.4
-  damage: 20
+  damage: 30
 --- !u!136 &906501464
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5234,7 +5233,7 @@ MonoBehaviour:
   curentHealth: 0
   slider: {fileID: 0}
   canBeAttacked: 1
-  invincibleTime: 0.5
+  invincibleTime: 1
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0
