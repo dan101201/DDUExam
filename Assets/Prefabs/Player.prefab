@@ -5056,6 +5056,7 @@ GameObject:
   - component: {fileID: 4031395617130830098}
   - component: {fileID: 906501464}
   - component: {fileID: 906501463}
+  - component: {fileID: -2678046043678526167}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -5228,12 +5229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shoot: {fileID: 3114488699329220992, guid: 7dfdfa13744433145a17d8366b40920e, type: 3}
-  shootSpeed: 0.4
-  shootFlySpeed: 10
-  shootTravelTime: 10
-  isExplosive: 0
-  fireBallSize: 0.4
-  damage: 30
+  stats: {fileID: -2678046043678526167}
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!136 &906501464
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5265,6 +5262,27 @@ MonoBehaviour:
   slider: {fileID: 0}
   canBeAttacked: 1
   invincibleTime: 1
+--- !u!114 &-2678046043678526167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6226679885705983476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930de2b4bcf6cc54e84c49bfdbc19c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReloadSpeed: 0
+  FlySpeed: 3
+  TimeAlive: 10
+  ExplosionSize: 0
+  fireBallSize: 0.5
+  damage: 40
+  Accuracy: 100
+  Shots: 2
+  color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &2686521747032778686
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public float shootSpeedMultiplyer = 1f;
-    public float shootFlySpeedMultiplyer = 1f;
-    public float shootTravelTimeMultiplyer = 1f;
-    public float fireBallSizeScale = 0f;
-    public bool isExplosive;
-    public float movementSpeed =1f;
-    public float damage;
+    public FireballStats stats;
+    public float movementSpeed = 1f;
     public float healthUp;
     public float maxHealthUp;
     private void OnTriggerEnter(Collider other)
@@ -21,15 +16,8 @@ public class Item : MonoBehaviour
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();
 
-            player.shootSpeed /= shootFlySpeedMultiplyer;
-            player.shootFlySpeed *= shootTravelTimeMultiplyer;
-            player.shootTravelTime *= shootFlySpeedMultiplyer;
-            player.fireBallSize += fireBallSizeScale;
-            player.damage += damage;
-            if (isExplosive)
-            {
-                player.isExplosive = true;
-            }
+            player.AddStats(stats);
+
             playerC.movementSpeed *= movementSpeed;
             playerH.curentHealth += healthUp;
             playerH.maxHealth += maxHealthUp;

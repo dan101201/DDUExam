@@ -5,37 +5,49 @@ using UnityEngine;
 public class PlayerShootManager : MonoBehaviour
 {
     public GameObject shoot;
-    public float shootSpeed = 1f;
-    public float shootFlySpeed = 10f;
-    public float shootTravelTime = 10f;
-    public bool isExplosive;
-    public float fireBallSize = 0.7f;
-    public float damage;
+    public FireballStats stats;
+    public Color color = Color.red;
+
     float canShoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        canShoot = shootSpeed;
+        canShoot = stats.ReloadSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         canShoot -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot <= 0f)
         {
-            GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
-            newShoot.GetComponent<Rigidbody>().velocity = transform.forward * shootFlySpeed;
-            newShoot.GetComponent<FireBallEffect>().timeUntilDead = shootTravelTime;
-            newShoot.GetComponent<FireBallEffect>().fireBallSize = fireBallSize;
-            newShoot.GetComponent<FireBallEffect>().damage = damage;
-
-            if (isExplosive)
+            canShoot = stats.ReloadSpeed;
+            float angle = 180/stats.Shots;
+            for (int i = 1; i <= stats.Shots; i++)
             {
-                newShoot.GetComponent<FireBallEffect>().canExplode = true;
+                Debug.Log("Fire!");
+                GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
+                var temp = transform.rotation.eulerAngles;
+                newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(90+angle/2) + angle*i,temp.z);
+                newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * stats.FlySpeed;
+                newShoot.GetComponent<FireBallEffect>().StartShot(stats);
             }
-            canShoot = shootSpeed;
         }
+    }
+
+    
+
+    public void AddStats(FireballStats modifier) {
+        stats.FlySpeed *= modifier.FlySpeed;
+        stats.TimeAlive *= modifier.TimeAlive;
+        stats.ExplosionSize *= modifier.ExplosionSize;
+        stats.ReloadSpeed *= modifier.ReloadSpeed;
+        stats.fireBallSize *= modifier.fireBallSize;
+        stats.damage *= modifier.damage;
+        stats.Accuracy *= modifier.Accuracy;
+        stats.Shots += modifier.Shots;
+        stats.color = modifier.color;
     }
 }

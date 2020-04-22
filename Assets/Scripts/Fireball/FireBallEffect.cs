@@ -4,40 +4,24 @@ using UnityEngine;
 
 public class FireBallEffect : MonoBehaviour
 {
+    public float damage = 0f;
+    private float explosionSize = 0f;
     public GameObject explosionEffect;
-    public bool canExplode;
-    public float timeUntilDead;
-    public float fireBallSize;
-    public float damage;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.localScale = new Vector3(fireBallSize, fireBallSize, fireBallSize);
+    public void StartShot(FireballStats stats) {
+        damage = stats.damage;
+        explosionSize = stats.ExplosionSize;
+        Destroy(gameObject,stats.TimeAlive);
+        transform.localScale = new Vector3(stats.fireBallSize, stats.fireBallSize, stats.fireBallSize);
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            //Stores the child so unity doesnt have to get it every time, better for performance
             var child = gameObject.transform.GetChild(1).GetChild(i).gameObject;
-            if (child.name == "PS_Fire_ALPHA" || child.name == "PS_Fire_ADD" || child.name == "PS_Glow" || child.name == "PS_Sparks")
-            {
-                child.transform.localScale = new Vector3(fireBallSize, fireBallSize, fireBallSize);
-            }
+            child.transform.localScale = new Vector3(stats.fireBallSize, stats.fireBallSize, stats.fireBallSize);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timeUntilDead -= Time.deltaTime;
-        if(timeUntilDead <= 0f)
-        {
-            Explode();
-            Destroy();
-        }
-
-    }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Fireball hit object");
         if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
         {
             Explode();
@@ -46,11 +30,9 @@ public class FireBallEffect : MonoBehaviour
     }
     void Explode()
     {
-        if(canExplode)
-        {
-            explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
-            Destroy(explosionEffect, 5f);
-        }
+        explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
+        explosionEffect.transform.localScale = new Vector3(explosionSize,explosionSize,explosionSize);
+        Destroy(explosionEffect, 5f);
     }
     void Destroy()
     {
