@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
-public class Boss : MonoBehaviour
+public class Boss : MonoBehaviour, IBaseEnemy
 {
-    public Roomreveal room;
+    public Roomreveal Room { get; set; }
     public GameObject shoot;
     public float shootSpeed = 1f;
     public float shootFlySpeed = 10f;
@@ -16,12 +16,13 @@ public class Boss : MonoBehaviour
     public float offsetAngle;
     public int shootAmount;
     public GameObject[] bossMovePoints;
+    public float canShoot;
+    public bool isAttacking = false;
+
     NavMeshAgent navMeshAgent;
     GameObject player;
     GameObject child;
     float angel;
-    public float canShoot;
-    public bool isAttacking = false;
     float attackTImeLeft = 10;
     int nextAttack = 0;
     GameObject bossHealth;
@@ -29,8 +30,8 @@ public class Boss : MonoBehaviour
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
+        Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
+        Room.CheckInEnemy(this);
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
@@ -40,13 +41,18 @@ public class Boss : MonoBehaviour
             }
         }
         bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
+    }
+
+    public void LateStart()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (room.isPlayerInRoom)
+        if (Room.isPlayerInRoom)
         {
             child.transform.Rotate(0, 0.5f, 0);
              

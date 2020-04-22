@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StandardShooterEnemy : MonoBehaviour
+public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
 {
-    public Roomreveal room;
+    public Roomreveal Room { get; set; }
     public GameObject shoot;
     public float shootSpeed = 1f;
     public float shootFlySpeed = 10f;
@@ -15,6 +15,7 @@ public class StandardShooterEnemy : MonoBehaviour
     public float damage;
     public float canShoot;
     public float ofsetAngle;
+
     PlayerHealth playerHealth;
     NavMeshAgent navMeshAgent;
     Vector3 savedPlayerTransform;
@@ -24,16 +25,21 @@ public class StandardShooterEnemy : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         canShoot = shootSpeed;
+        Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
+        Room.CheckInEnemy(this);
+    }
+
+    public void LateStart()
+    {
         Player = GameObject.FindGameObjectWithTag("Player");
         savedPlayerTransform = Player.transform.position;
-        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         playerHealth = Player.GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (room.isPlayerInRoom)
+        if (Room.isPlayerInRoom)
         {
             Vector3 tempPlayerTransform = Player.transform.position;
             if (tempPlayerTransform != savedPlayerTransform)

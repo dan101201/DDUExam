@@ -7,6 +7,7 @@ public class Roomreveal : MonoBehaviour
     public GameObject roof;
     public bool isPlayerInRoom;
 
+    List<IBaseEnemy> enemies = new List<IBaseEnemy>();
     int colliderCount;
     void OnTriggerEnter(Collider col)
     {
@@ -27,6 +28,19 @@ public class Roomreveal : MonoBehaviour
                 isPlayerInRoom = false;
                 roof.SetActive(true);
             }
+        }
+    }
+
+    public void CheckInEnemy(IBaseEnemy enemy)
+    {
+        enemies.Add(enemy);
+    }
+
+    public void LateStart()
+    {
+        foreach (IBaseEnemy enemy in enemies)
+        {
+            enemy.LateStart();
         }
     }
 }
