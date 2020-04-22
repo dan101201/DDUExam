@@ -8,6 +8,8 @@ public class PlayerShootManager : MonoBehaviour
     public FireballStats stats;
     public Color color = Color.red;
 
+    public float spread = 90;
+
     float canShoot;
 
     // Start is called before the first frame update
@@ -24,13 +26,13 @@ public class PlayerShootManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot <= 0f)
         {
             canShoot = stats.ReloadSpeed;
-            float angle = 180/stats.Shots;
+            float angle = spread/stats.Shots;
             for (int i = 1; i <= stats.Shots; i++)
             {
                 Debug.Log("Fire!");
                 GameObject newShoot = Instantiate(shoot, transform.position, transform.rotation);
                 var temp = transform.rotation.eulerAngles;
-                newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(90+angle/2) + angle*i,temp.z);
+                newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(spread/2+angle/2) + angle*i,temp.z);
                 newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * stats.FlySpeed;
                 newShoot.GetComponent<FireBallEffect>().StartShot(stats);
             }
