@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StandardMeleeEnemy : MonoBehaviour
+public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
 {
-    public Roomreveal room;
+    public Roomreveal Room { get; set; }
+    public int Damage;
+    public int Speed;
+
     NavMeshAgent navMeshAgent;
     GameObject Player;
     PlayerHealth playerHealth;
-    public int Damage;
-    public int Speed;
     float timer;
     float attackTimer;
 
@@ -26,15 +27,20 @@ public class StandardMeleeEnemy : MonoBehaviour
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
+        Room.CheckInEnemy(this);
+    }
+
+    public void LateStart()
+    {
         Player = GameObject.FindGameObjectWithTag("Player");
-        room = transform.parent.parent.parent.GetComponent<Roomreveal>();
         playerHealth = Player.GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
         attackTimer += Time.deltaTime;
-        if (room.isPlayerInRoom)
+        if (Room.isPlayerInRoom)
         {
             if (navMeshAgent.remainingDistance < 0.3f)
             {

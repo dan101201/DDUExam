@@ -12,6 +12,7 @@ public class DungeonGenerationScript : MonoBehaviour
     public int normalRoomsWanted = 10;
     public int treasureRoomsWanted;
     public int seed = 312312;
+
     private List<GameObject> rooms = new List<GameObject>();
 
 
@@ -33,16 +34,15 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
-        Generate();
-        startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
+        Generate(true);
     }
 
-    public void Generate()
+    public void Generate(bool placePlayerOnGenerate)
     {
-        StartCoroutine(GenerateDungeon());
+        StartCoroutine(GenerateDungeon(placePlayerOnGenerate));
     }
 
-    private IEnumerator GenerateDungeon()
+    private IEnumerator GenerateDungeon(bool placePlayerOnGenerate)
     {
         if (seed != 0)
         Random.InitState(seed);
@@ -281,6 +281,14 @@ public class DungeonGenerationScript : MonoBehaviour
         }
         yield return new WaitForFixedUpdate();
         DoneGenerating = true;
+        if (placePlayerOnGenerate)
+        {
+            startingRoom.GetComponent<PlayerSpawner>().SpawnPlayer();
+        }
+        foreach (GameObject room in rooms)
+        {
+            room.GetComponent<Roomreveal>().LateStart();
+        }
         yield return null;
     }
 

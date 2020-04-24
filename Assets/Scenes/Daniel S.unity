@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 91491485}
   - component: {fileID: 91491484}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Dungeon Generator
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   normalRoomsWanted: 10
   treasureRoomsWanted: 2
   seed: 0
+  PlacePlayerOnGenerate: 1
   treasureRoomsPlaced: 0
   normalRoomsPlaced: 0
   roomSelected: {fileID: 0}
