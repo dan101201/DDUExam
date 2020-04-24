@@ -51,9 +51,11 @@ public class PlayerHealth : MonoBehaviour
         yield return null;
     }
 
-    public AudioSource audioSource;
-
+    public AudioClip audioSource;
+    private AudioSource source;
     public void PlayAudio() {
-        audioSource.Play();
+        if (source is null) source = transform.GetComponent<AudioSource>();
+        source.clip = audioSource;
+        source.Play();
     }
 }
