@@ -49,11 +49,16 @@ public class Boss : MonoBehaviour, IBaseEnemy
         playerHealth = player.GetComponent<PlayerHealth>();
     }
 
+    AudioClip sound;
+    bool played = false;
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Room.isPlayerInRoom)
         {
+            if (!played)
+            Camera.main.transform.parent.GetComponent<UniversalSound>().FadePlayAudio(sound);
+            played = true;
             child.transform.Rotate(0, 0.5f, 0);
              
             if (bossHealth.name == "Dead")

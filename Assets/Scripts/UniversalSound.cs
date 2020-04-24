@@ -22,6 +22,7 @@ public class UniversalSound : MonoBehaviour
         audioSource2.volume = 0;
         audioSource2.Play();
         audioSource2.clip = audio;
+        StartCoroutine("FadeAudio",audioSource2);
     }
 
     IEnumerator FadeAudio(AudioSource source) {
