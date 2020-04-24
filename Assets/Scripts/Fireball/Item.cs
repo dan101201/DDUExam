@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
             player.PlayAudio();
             player.AddStats(stats);
 
-            playerC.movementSpeed *= movementSpeed;
+            playerC.movementSpeed += movementSpeed;
             playerH.curentHealth += healthUp;
             playerH.maxHealth += maxHealthUp;
             Destroy(gameObject);

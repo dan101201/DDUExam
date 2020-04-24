@@ -49,7 +49,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
         playerHealth = player.GetComponent<PlayerHealth>();
     }
 
-    AudioClip sound;
+    public AudioClip sound;
     bool played = false;
     // Update is called once per frame
     void FixedUpdate()
