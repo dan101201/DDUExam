@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     public float movementSpeed = 1f;
     public float healthUp;
     public float maxHealthUp;
+    public AudioClip clip;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -15,7 +16,7 @@ public class Item : MonoBehaviour
             PlayerShootManager player = other.GetComponent<PlayerShootManager>();
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();
-
+            player.PlayAudio();
             player.AddStats(stats);
 
             playerC.movementSpeed *= movementSpeed;
