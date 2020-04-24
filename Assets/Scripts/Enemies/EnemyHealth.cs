@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         {
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
             gameObject.name = "Dead";
+            PlayAudio();
             StartCoroutine(NextFrame());
         }
     }
