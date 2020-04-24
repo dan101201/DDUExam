@@ -30,10 +30,12 @@ public class FireBallEffect : MonoBehaviour
     }
     void Explode()
     {
-        explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
-        explosionEffect.transform.localScale = new Vector3(explosionSize,explosionSize,explosionSize);
-        Destroy(explosionEffect, 5f);
-        PlayAudio();
+        if (explosionSize > 0) {
+            explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
+            explosionEffect.transform.localScale = new Vector3(explosionSize,explosionSize,explosionSize);
+            Destroy(explosionEffect, 5f);
+            PlayAudio();
+        }
     }
     void Destroy()
     {
