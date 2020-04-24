@@ -11,6 +11,7 @@ public class PlayerShootManager : MonoBehaviour
     public float spread = 90;
 
     float canShoot;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +36,19 @@ public class PlayerShootManager : MonoBehaviour
                 newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(spread/2+angle/2) + angle*i,temp.z);
                 newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * stats.FlySpeed;
                 newShoot.GetComponent<FireBallEffect>().StartShot(stats);
+                PlayAudio();
             }
         }
+
+        
     }
 
-    
+    public AudioSource audioSource;
+
+    public void PlayAudio() {
+        audioSource.Play();
+    }
+
 
     public void AddStats(FireballStats modifier) {
         stats.FlySpeed *= modifier.FlySpeed;

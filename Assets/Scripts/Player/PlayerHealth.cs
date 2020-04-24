@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
             timer = 0;
             curentHealth -= damage;
             slider.value = curentHealth;
+            PlayAudio();
             StartCoroutine("TurnPlayerRed");
             if (curentHealth <= 0)
             {
@@ -48,5 +49,11 @@ public class PlayerHealth : MonoBehaviour
         yield return new WaitForSeconds(invincibleTime);
         playerMat.SetColor("_EmissionColor", oldColour);
         yield return null;
+    }
+
+    public AudioSource audioSource;
+
+    public void PlayAudio() {
+        audioSource.Play();
     }
 }

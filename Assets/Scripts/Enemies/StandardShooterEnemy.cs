@@ -66,6 +66,7 @@ public class StandardShooterEnemy : MonoBehaviour
                 projectile.damage = damage;
                 projectile.playerHealth = playerHealth;
                 canShoot = shootSpeed;
+                PlayAudio();
             }
         }
         else
@@ -74,5 +75,11 @@ public class StandardShooterEnemy : MonoBehaviour
         }
         
         
+    }
+
+    public AudioSource audioSource;
+
+    public void PlayAudio() {
+        audioSource.Play();
     }
 }

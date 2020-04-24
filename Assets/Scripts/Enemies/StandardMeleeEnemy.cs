@@ -57,4 +57,11 @@ public class StandardMeleeEnemy : MonoBehaviour
             timer = 2f;
         }
     }
+
+    public AudioSource audioSource;
+
+    public void PlayAudio() {
+        audioSource.Play();
+    }
+
 }
