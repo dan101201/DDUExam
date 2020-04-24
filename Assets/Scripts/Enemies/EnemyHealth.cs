@@ -25,13 +25,19 @@ public class EnemyHealth : MonoBehaviour
         curentHealth -= damage;
         if (curentHealth <= 0)
         {
-
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
             gameObject.name = "Dead";
             StartCoroutine(NextFrame());
         }
     }
 
+    public AudioClip audioSource;
+    private AudioSource source;
+    public void PlayAudio() {
+        if (source is null) source = transform.GetComponent<AudioSource>();
+        source.clip = audioSource;
+        source.Play();
+    }
 
     IEnumerator NextFrame()
     {

@@ -34,18 +34,11 @@ public class FireBallEffect : MonoBehaviour
             explosionEffect = Instantiate(explosionEffect, transform.position, transform.rotation);
             explosionEffect.transform.localScale = new Vector3(explosionSize,explosionSize,explosionSize);
             Destroy(explosionEffect, 5f);
-            PlayAudio();
         }
     }
     void Destroy()
     {
         Destroy(gameObject);
-    }
-
-    public AudioSource audioSource;
-
-    public void PlayAudio() {
-        audioSource.Play();
     }
 
 }
