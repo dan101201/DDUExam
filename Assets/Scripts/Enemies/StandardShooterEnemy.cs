@@ -39,7 +39,7 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
     // Update is called once per frame
     void Update()
     {
-        if (Room.isPlayerInRoom)
+        if (Room.playerIsInRoom)
         {
             Vector3 tempPlayerTransform = Player.transform.position;
             if (tempPlayerTransform != savedPlayerTransform)
@@ -75,12 +75,12 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
                 PlayAudio();
             }
         }
-        else
-        {
+    }
 
-        }
-        
-        
+    public AudioSource audioSource;
+
+    public void PlayAudio() {
+        audioSource.Play();
     }
 
     public AudioClip audioSource;

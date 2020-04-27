@@ -5,15 +5,17 @@ using UnityEngine;
 public class Roomreveal : MonoBehaviour
 {
     public GameObject roof;
-    public bool isPlayerInRoom;
+    public bool playerIsInRoom;
 
     List<IBaseEnemy> enemies = new List<IBaseEnemy>();
     int colliderCount;
+    bool open = true;
+
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
         {
-            isPlayerInRoom = true;
+            playerIsInRoom = true;
             roof.SetActive(false);
             colliderCount++;
         }
@@ -25,9 +27,42 @@ public class Roomreveal : MonoBehaviour
             colliderCount--;
             if (colliderCount == 0)
             {
-                isPlayerInRoom = false;
+                playerIsInRoom = false;
                 roof.SetActive(true);
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        int deadCount = 0;
+        foreach (IBaseEnemy enemy in enemies)
+        {
+            if (enemy is null)
+            {
+                deadCount++;
+            }
+        }
+
+        if (!open)
+        {
+            if (playerIsInRoom && enemies.Count == deadCount)
+            {
+                open = true;
+            }
+        }
+        else if (playerIsInRoom && enemies.Count != deadCount)
+        {
+            open = false;
+            CloseCullases();
+        }
+    }
+
+    void CloseCullases()
+    {
+        for (int i = 2; i < transform.childCount; i++)
+        {
+            transform.GetChild(0).GetComponent<Animator>();
         }
     }
 

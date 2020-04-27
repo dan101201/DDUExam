@@ -40,7 +40,7 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
     void Update()
     {
         attackTimer += Time.deltaTime;
-        if (Room.isPlayerInRoom)
+        if (Room.playerIsInRoom)
         {
             if (navMeshAgent.remainingDistance < 0.3f)
             {

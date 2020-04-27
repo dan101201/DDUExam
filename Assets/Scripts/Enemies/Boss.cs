@@ -54,7 +54,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Room.isPlayerInRoom)
+        if (Room.playerIsInRoom)
         {
             if (!played)
             Camera.main.transform.parent.GetComponent<UniversalSound>().FadePlayAudio(sound);
