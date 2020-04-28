@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
         {
             FireBallEffect fireBall = other.GetComponent<FireBallEffect>();
             TakeDamage(fireBall.damage);
+            PlayAudio();
         }
     }
   
@@ -30,7 +31,6 @@ public class EnemyHealth : MonoBehaviour
             DropHealth();
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
             gameObject.name = "Dead";
-            PlayAudio();
             StartCoroutine(Die());
         }
     }

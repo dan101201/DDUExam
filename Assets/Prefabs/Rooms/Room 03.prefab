@@ -239,6 +239,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9a697eb10b0d70a4dbaacb1e9ccecd77, type: 2}
+  - {fileID: 2100000, guid: 6bc900834345d4a40bbdf009db5510b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1994,7 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roof: {fileID: 5221278864507545155}
-  isPlayerInRoom: 0
+  playerIsInRoom: 0
 --- !u!1 &5959123799492753578
 GameObject:
   m_ObjectHideFlags: 0

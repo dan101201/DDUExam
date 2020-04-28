@@ -173,7 +173,7 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 8641734181194189909, guid: f71ff38fb3b9cf64486a5a478c2f92e3, type: 3}
   - {fileID: 5768749186405888730, guid: 0a48189e914ab924384f9e60b7b76f86, type: 3}
-  - {fileID: 7396510135336022704, guid: ec611e20c709ebf45a3aebfe09c8befe, type: 3}
+  - {fileID: 7396510135336022704, guid: 420e898ee49061847a4e5575a7da2871, type: 3}
   - {fileID: 8106692805582063803, guid: 82209022725a0d6419dcca01fc496d41, type: 3}
   DoneGenerating: 0
   treasureRoomPrefabs:
@@ -182,7 +182,7 @@ MonoBehaviour:
     type: 3}
   startingRoom: {fileID: 29798443}
   minRoomsBeforeTreasure: 2
-  normalRoomsWanted: 10
+  normalRoomsWanted: 2
   treasureRoomsWanted: 2
   seed: 0
   treasureRoomsPlaced: 0
