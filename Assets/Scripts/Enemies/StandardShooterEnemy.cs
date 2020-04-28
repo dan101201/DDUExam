@@ -77,12 +77,6 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
         }
     }
 
-    public AudioSource audioSource;
-
-    public void PlayAudio() {
-        audioSource.Play();
-    }
-
     public AudioClip audioSource;
     private AudioSource source;
     public void PlayAudio() {
