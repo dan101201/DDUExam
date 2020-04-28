@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth;
     public float curentHealth;
+    public float healthDropChance;
+    public GameObject healthDrop;
 
     void Start()
     {
@@ -25,10 +27,11 @@ public class EnemyHealth : MonoBehaviour
         curentHealth -= damage;
         if (curentHealth <= 0)
         {
+            DropHealth();
             gameObject.transform.position = new Vector3(10000, 10000, 10000);
             gameObject.name = "Dead";
             PlayAudio();
-            StartCoroutine(NextFrame());
+            StartCoroutine(Die());
         }
     }
 
@@ -40,9 +43,17 @@ public class EnemyHealth : MonoBehaviour
         source.Play();
     }
 
-    IEnumerator NextFrame()
+    IEnumerator Die()
     {
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
+    }
+
+    void DropHealth()
+    {
+        if (Random.value <= healthDropChance)
+        {
+            Instantiate(healthDrop, transform.position, new Quaternion(0, 0, 0, 0));
+        }
     }
 }

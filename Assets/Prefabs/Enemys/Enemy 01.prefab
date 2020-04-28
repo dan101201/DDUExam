@@ -311,6 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   curentHealth: 0
+  healthDropChance: 0.5
+  healthDrop: {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e,
+    type: 3}
   audioSource: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
 --- !u!82 &8070888629855015224
 AudioSource:

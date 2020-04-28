@@ -60,6 +60,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   curentHealth: 0
+  healthDropChance: -1
+  healthDrop: {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e,
+    type: 3}
+  audioSource: {fileID: 0}
 --- !u!1 &1305970253628379883
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2284328254317637861
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &2475191295205181331
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +436,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &3132461554503334327
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +561,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &3983851953332250037
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +886,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &8103267355345040377
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,3 +1011,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   curentHealth: 0
+  healthDropChance: 0
+  healthDrop: {fileID: 0}
+  audioSource: {fileID: 0}
