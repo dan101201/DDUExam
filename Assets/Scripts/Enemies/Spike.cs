@@ -5,11 +5,11 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     public float damage;
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            collision.transform.GetComponent<PlayerHealth>().TakeDamage(damage);
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }
