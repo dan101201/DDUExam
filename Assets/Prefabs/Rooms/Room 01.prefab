@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roof: {fileID: 8641734182404243749}
-  isPlayerInRoom: 0
+  playerIsInRoom: 0
 --- !u!54 &8641734181194189906
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2708,6 +2708,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9a697eb10b0d70a4dbaacb1e9ccecd77, type: 2}
+  - {fileID: 2100000, guid: 6bc900834345d4a40bbdf009db5510b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
