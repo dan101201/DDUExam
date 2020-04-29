@@ -130,7 +130,6 @@ MonoBehaviour:
   damage: 0
   explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
-  audioSource: {fileID: -2055398581533140782}
 --- !u!82 &-2055398581533140782
 AudioSource:
   m_ObjectHideFlags: 0
@@ -151,7 +150,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.46674693
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
