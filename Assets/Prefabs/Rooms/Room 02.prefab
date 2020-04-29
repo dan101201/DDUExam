@@ -8516,6 +8516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune_arrow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 633545321387372848, guid: 1d670fd17aed8b74799d3fb43881e4d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4508551570479203107, guid: 1d670fd17aed8b74799d3fb43881e4d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14437,6 +14442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune_arrow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 633545321387372848, guid: 1d670fd17aed8b74799d3fb43881e4d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4508551570479203107, guid: 1d670fd17aed8b74799d3fb43881e4d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16062,6 +16072,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rune_arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 633545321387372848, guid: 1d670fd17aed8b74799d3fb43881e4d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4508551570479203107, guid: 1d670fd17aed8b74799d3fb43881e4d9,
         type: 3}
@@ -18948,6 +18963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rune_arrow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 633545321387372848, guid: 1d670fd17aed8b74799d3fb43881e4d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4508551570479203107, guid: 1d670fd17aed8b74799d3fb43881e4d9,
         type: 3}
