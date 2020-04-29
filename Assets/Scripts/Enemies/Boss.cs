@@ -62,7 +62,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
              
             if (bossHealth.name == "Dead")
             {
-                StartCoroutine("Death");
+                StartCoroutine(Death());
             }
             if (navMeshAgent.remainingDistance < 0.1f)
             {
