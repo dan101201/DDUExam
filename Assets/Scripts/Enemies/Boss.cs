@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class Boss : MonoBehaviour, IBaseEnemy
@@ -63,9 +62,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
              
             if (bossHealth.name == "Dead")
             {
-                Destroy();
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
+                StartCoroutine("Death");
             }
             if (navMeshAgent.remainingDistance < 0.1f)
             {
@@ -168,5 +165,13 @@ public class Boss : MonoBehaviour, IBaseEnemy
     {
         yield return new WaitForEndOfFrame();
         Destroy(gameObject);
+    }
+
+    IEnumerator Death() {
+        var cam = Camera.main.transform.parent.GetComponent<CameraFollow>();
+        cam.target = gameObject;
+        yield return new WaitForSeconds(1f);
+        cam.target = player;
+        Destroy();
     }
 }

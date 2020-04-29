@@ -13,6 +13,7 @@ TagManager:
   - Slider
   - ShootingDirector
   - Spikes
+  - Player Spawner
   layers:
   - Default
   - TransparentFX
