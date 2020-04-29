@@ -33,7 +33,6 @@ public class EnemyHealth : MonoBehaviour
         if (curentHealth <= 0)
         {
             DropHealth();
-            gameObject.transform.position = new Vector3(10000, 10000, 10000);
             gameObject.name = "Dead";
             StartCoroutine(Die());
         }
@@ -49,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.1f);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     void DropHealth()
