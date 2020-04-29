@@ -20,7 +20,11 @@ public class Doors : MonoBehaviour
         
         if (other.CompareTag("Door") && generation.DoneGenerating)
         {
-            arrow.SetActive(true);
+            Doors doors = other.GetComponent<Doors>();
+            if (doors.arrow != null)
+            {
+                doors.arrow.SetActive(true);
+            }
             Destroy(other.gameObject);
         }
     }
