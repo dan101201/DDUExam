@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UniversalSound : MonoBehaviour
 {
+    public static GameObject independentAudioObject;
     public AudioSource audioSource;
     public float fade;
 
@@ -20,6 +21,7 @@ public class UniversalSound : MonoBehaviour
         var audioSource2 = gameObject.AddComponent<AudioSource>();
         audioSource2.clip = audio;
         audioSource2.volume = 0;
+        audioSource2.loop = true;
         audioSource2.Play();
         audioSource2.clip = audio;
         StartCoroutine("FadeAudio",audioSource2);

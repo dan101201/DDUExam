@@ -26,7 +26,7 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
         navMeshAgent = GetComponent<NavMeshAgent>();
         canShoot = shootSpeed;
         Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
-        Room.CheckInEnemy(this);
+        Room.CheckInEnemy(gameObject);
     }
 
     public void LateStart()
@@ -77,11 +77,11 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
         }
     }
 
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioSource;
+        source.clip = audioClip;
         source.Play();
     }
 }

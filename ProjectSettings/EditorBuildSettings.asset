@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Daniel S.unity
     guid: 7c2ce012570b50944a795b6bc7726f46
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9396c9037255f6e409e469534e6b230b,
+      type: 2}

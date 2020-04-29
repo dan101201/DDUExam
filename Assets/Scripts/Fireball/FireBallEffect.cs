@@ -23,7 +23,6 @@ public class FireBallEffect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Fireball hit object");
         if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
         {
             Explode();

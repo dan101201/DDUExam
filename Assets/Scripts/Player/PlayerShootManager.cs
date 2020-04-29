@@ -63,7 +63,7 @@ public class PlayerShootManager : MonoBehaviour
     public void AddStats(FireballStats modifier) {
         stats.FlySpeed *= modifier.FlySpeed;
         stats.TimeAlive *= modifier.TimeAlive;
-        stats.ExplosionSize *= modifier.ExplosionSize;
+        stats.ExplosionSize += modifier.ExplosionSize;
         stats.ReloadSpeed /= modifier.ReloadSpeed;
         stats.fireBallSize *= modifier.fireBallSize;
         stats.damage *= modifier.damage;

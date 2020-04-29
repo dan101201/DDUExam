@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+    public GameObject arrow;
+
     DungeonGenerationScript generation;
     GameObject door;
     Collider temp;
@@ -18,6 +20,11 @@ public class Doors : MonoBehaviour
         
         if (other.CompareTag("Door") && generation.DoneGenerating)
         {
+            Doors doors = other.GetComponent<Doors>();
+            if (doors.arrow != null)
+            {
+                doors.arrow.SetActive(true);
+            }
             Destroy(other.gameObject);
         }
     }

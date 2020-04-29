@@ -271,8 +271,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.16347966
-  m_BaseOffset: 0.08173983
+  m_Height: 0.23
+  m_BaseOffset: 0.03
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2055082340439761766
@@ -296,7 +296,7 @@ MonoBehaviour:
   damage: 10
   canShoot: 0
   ofsetAngle: 0
-  audioSource: {fileID: 8300000, guid: c30c07f080bf1fe47b4636db5bc3da2e, type: 3}
+  audioClip: {fileID: 8300000, guid: c30c07f080bf1fe47b4636db5bc3da2e, type: 3}
 --- !u!114 &2055082340439761769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +314,8 @@ MonoBehaviour:
   healthDropChance: 0.5
   healthDrop: {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e,
     type: 3}
-  audioSource: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
+  hurtClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
 --- !u!82 &8070888629855015224
 AudioSource:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
-        Room.CheckInEnemy(this);
+        Room.CheckInEnemy(gameObject);
     }
 
     public void LateStart()
@@ -64,10 +64,12 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
         }
     }
 
-    public AudioSource audioSource;
-
-    public void PlayAudio() {
-        audioSource.Play();
+    public AudioClip audioClip;
+    private AudioSource source;
+    public void PlayAudio()
+    {
+        if (source is null) source = transform.GetComponent<AudioSource>();
+        source.clip = audioClip;
+        source.Play();
     }
-
 }
