@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2212678544778937936}
   - component: {fileID: 1221915222195300698}
   m_Layer: 0
-  m_Name: Teplate item 4
-  m_TagString: Untagged
+  m_Name: Teplate item 5
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,9 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 1221915222195300698}
-  movementSpeed: 0
+  movementSpeedUp: 0
   healthUp: 0
   maxHealthUp: 0
+  clip: {fileID: 0}
 --- !u!114 &1221915222195300698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,4 +83,6 @@ MonoBehaviour:
   damage: 1
   Accuracy: 1
   Shots: 0
+  angleOffset: 0
+  deathOffset: 0
   color: {r: 1, g: 0, b: 0, a: 1}

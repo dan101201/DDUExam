@@ -23,10 +23,10 @@ public class FireBallEffect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
+        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes") && !other.CompareTag("Item") && !other.CompareTag("Door Cube"))
         {
             Explode();
-            Destroy(gameObject,deathOffset);
+            Destroy(gameObject, deathOffset);
         }
     }
     void Explode()

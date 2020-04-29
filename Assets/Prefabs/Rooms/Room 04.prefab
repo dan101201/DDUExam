@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2255397015616437457}
   m_Layer: 16
   m_Name: Door_01
-  m_TagString: Untagged
+  m_TagString: Door Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 103879929947429587}
   m_Layer: 16
   m_Name: Door_02
-  m_TagString: Untagged
+  m_TagString: Door Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 1003551469250530898}
   m_Layer: 16
   m_Name: Door_04
-  m_TagString: Untagged
+  m_TagString: Door Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2600,7 +2600,7 @@ GameObject:
   - component: {fileID: 776768539488201442}
   m_Layer: 16
   m_Name: Door_03
-  m_TagString: Untagged
+  m_TagString: Door Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
