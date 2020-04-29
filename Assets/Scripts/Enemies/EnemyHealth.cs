@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -53,6 +53,11 @@ public class EnemyHealth : MonoBehaviour
 
     void DropHealth()
     {
+        while (healthDropChance >= 1)
+        {
+            Instantiate(healthDrop, transform.position, new Quaternion(0, 0, 0, 0));
+            healthDropChance--;
+        }
         if (Random.value <= healthDropChance)
         {
             Instantiate(healthDrop, transform.position, new Quaternion(0, 0, 0, 0));
