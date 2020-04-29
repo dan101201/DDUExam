@@ -12,5 +12,6 @@ public class FireballStats : MonoBehaviour
     public float damage = 0;
     public float Accuracy = 0;
     public int Shots = 0;
+    public float angleOffset;
     public Color color = Color.red;
 }

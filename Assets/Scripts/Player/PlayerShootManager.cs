@@ -8,7 +8,8 @@ public class PlayerShootManager : MonoBehaviour
     public FireballStats stats;
     public Color color = Color.red;
 
-    public float spread = 90;
+    public float spreadOffset = 15;
+    public float initialSpread = 90;
 
     float canShoot;
     
@@ -27,6 +28,7 @@ public class PlayerShootManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot <= 0f)
         {
             canShoot = stats.ReloadSpeed;
+            float spread = initialSpread+spreadOffset*stats.Shots;
             float angle = spread/stats.Shots;
             for (int i = 1; i <= stats.Shots; i++)
             {
@@ -62,11 +64,12 @@ public class PlayerShootManager : MonoBehaviour
         stats.FlySpeed *= modifier.FlySpeed;
         stats.TimeAlive *= modifier.TimeAlive;
         stats.ExplosionSize *= modifier.ExplosionSize;
-        stats.ReloadSpeed *= modifier.ReloadSpeed;
+        stats.ReloadSpeed /= modifier.ReloadSpeed;
         stats.fireBallSize *= modifier.fireBallSize;
         stats.damage *= modifier.damage;
         stats.Accuracy *= modifier.Accuracy;
         stats.Shots += modifier.Shots;
         stats.color = modifier.color;
+        stats.angleOffset += modifier.angleOffset;
     }
 }
