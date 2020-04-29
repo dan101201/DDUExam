@@ -126,6 +126,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
         canShoot -= Time.deltaTime;
         if (canShoot <= 0f)
         {
+            PlayAudio();
             for (int amountShoot = 0; amountShoot < shootAmount; amountShoot += 1)
             {
                 GameObject newShoot = Instantiate(shoot, transform.position + new Vector3(0, -0.6f, 0), transform.rotation);
@@ -153,6 +154,15 @@ public class Boss : MonoBehaviour, IBaseEnemy
     {
         gameObject.transform.position = new Vector3(10000, 10000, 10000);
         StartCoroutine(NextFrame());
+    }
+
+    public AudioClip audioSource;
+    private AudioSource source;
+    public void PlayAudio() {
+        if (source is null) source = transform.GetComponent<AudioSource>();
+        if (source is null) return;
+        source.clip = audioSource;
+        source.Play();
     }
     IEnumerator NextFrame()
     {

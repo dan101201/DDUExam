@@ -16,7 +16,6 @@ public class Item : MonoBehaviour
             PlayerShootManager player = other.GetComponent<PlayerShootManager>();
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();
-            player.PlayAudio();
             player.AddStats(stats);
 
             playerC.movementSpeed += movementSpeed;

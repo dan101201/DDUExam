@@ -39,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
+        if (source is null) return;
         source.clip = audioSource;
         source.Play();
     }
