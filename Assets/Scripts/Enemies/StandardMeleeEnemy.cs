@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -28,7 +28,7 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
-        Room.CheckInEnemy(this);
+        Room.CheckInEnemy(gameObject);
     }
 
     public void LateStart()

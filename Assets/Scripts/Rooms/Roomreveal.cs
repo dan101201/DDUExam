@@ -6,10 +6,9 @@ public class Roomreveal : MonoBehaviour
 {
     public GameObject roof;
     public bool playerIsInRoom;
+    public List<GameObject> enemies = new List<GameObject>();
 
-    List<IBaseEnemy> enemies = new List<IBaseEnemy>();
     int colliderCount;
-    bool open = true;
 
     void OnTriggerEnter(Collider col)
     {
@@ -33,49 +32,16 @@ public class Roomreveal : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        int deadCount = 0;
-        foreach (IBaseEnemy enemy in enemies)
-        {
-            if (enemy is null)
-            {
-                deadCount++;
-            }
-        }
-
-        if (!open)
-        {
-            if (playerIsInRoom && enemies.Count == deadCount)
-            {
-                open = true;
-            }
-        }
-        else if (playerIsInRoom && enemies.Count != deadCount)
-        {
-            open = false;
-            CloseCullases();
-        }
-    }
-
-    void CloseCullases()
-    {
-        for (int i = 2; i < transform.childCount; i++)
-        {
-            transform.GetChild(0).GetComponent<Animator>();
-        }
-    }
-
-    public void CheckInEnemy(IBaseEnemy enemy)
+    public void CheckInEnemy(GameObject enemy)
     {
         enemies.Add(enemy);
     }
 
     public void LateStart()
     {
-        foreach (IBaseEnemy enemy in enemies)
+        foreach (GameObject enemy in enemies)
         {
-            enemy.LateStart();
+            enemy.GetComponent<IBaseEnemy>().LateStart();
         }
     }
 }

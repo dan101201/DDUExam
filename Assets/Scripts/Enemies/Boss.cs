@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,7 +31,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         Room = transform.parent.parent.parent.GetComponent<Roomreveal>();
-        Room.CheckInEnemy(this);
+        Room.CheckInEnemy(gameObject);
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
