@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25525f02b82e7f843b2bfb0d18c1b63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6226679885705983476, guid: 6192eb32a5163814a99e46f7ce5ca398, type: 3}
+  player: {fileID: 8347601139508498530, guid: 6192eb32a5163814a99e46f7ce5ca398, type: 3}
   camara: {fileID: 6490032949348849083, guid: 93c592671e1c2db40813f7e920c2837e, type: 3}
 --- !u!1 &91491483
 GameObject:
