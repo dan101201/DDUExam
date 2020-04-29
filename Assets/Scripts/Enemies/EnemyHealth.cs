@@ -49,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
     IEnumerator Die()
     {
         yield return new WaitForSeconds(0.1f);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void DropHealth()
