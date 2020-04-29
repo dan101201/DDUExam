@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 public class DungeonGenerationScript : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class DungeonGenerationScript : MonoBehaviour
     public GameObject startingRoom;
     public int minRoomsBeforeTreasure = 2;
     public int normalRoomsWanted = 10;
-    public int treasureRoomsWanted;
-    public int seed = 312312;
+    public int treasureRoomsWanted = 2;
+    public int seed = 0;
 
     private List<GameObject> rooms = new List<GameObject>();
 
@@ -34,7 +35,8 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
-        Generate(true);
+        DontDestroyOnLoad(gameObject);
+        Generate(GameObject.FindGameObjectWithTag("Player") == null);
     }
 
     public void Generate(bool placePlayerOnGenerate)

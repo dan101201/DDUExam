@@ -7,11 +7,12 @@ public class FireBallEffect : MonoBehaviour
     public float damage = 0f;
     private float explosionSize = 0f;
     public GameObject explosionEffect;
-    public float destructionDelay = 1f;
+    private float deathOffset = 1f;
     public void StartShot(FireballStats stats) {
         damage = stats.damage;
         explosionSize = stats.ExplosionSize;
         Destroy(gameObject,stats.TimeAlive);
+        deathOffset = stats.deathOffset;
         transform.localScale = new Vector3(stats.fireBallSize, stats.fireBallSize, stats.fireBallSize);
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
@@ -26,7 +27,7 @@ public class FireBallEffect : MonoBehaviour
         if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
         {
             Explode();
-            Destroy(gameObject,destructionDelay);
+            Destroy(gameObject,deathOffset);
         }
     }
     void Explode()

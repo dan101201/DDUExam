@@ -70,6 +70,7 @@ public class PlayerShootManager : MonoBehaviour
         stats.Accuracy *= modifier.Accuracy;
         stats.Shots += modifier.Shots;
         stats.color = modifier.color;
+        stats.deathOffset += modifier.deathOffset; 
         stats.angleOffset += modifier.angleOffset;
     }
 }
