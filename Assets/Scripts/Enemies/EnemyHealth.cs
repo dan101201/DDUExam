@@ -8,6 +8,10 @@ public class EnemyHealth : MonoBehaviour
     public float curentHealth;
     public float healthDropChance;
     public GameObject healthDrop;
+    public AudioClip hurtClip;
+    public AudioClip deathClip;
+
+    private AudioSource source;
 
     void Start()
     {
@@ -19,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
         {
             FireBallEffect fireBall = other.GetComponent<FireBallEffect>();
             TakeDamage(fireBall.damage);
-            PlayAudio();
+            PlayAudio(hurtClip);
         }
     }
   
@@ -35,12 +39,10 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public AudioClip audioSource;
-    private AudioSource source;
-    public void PlayAudio() {
+    public void PlayAudio(AudioClip audioClip) {
         if (source is null) source = transform.GetComponent<AudioSource>();
         if (source is null) return;
-        source.clip = audioSource;
+        source.clip = audioClip;
         source.Play();
     }
 

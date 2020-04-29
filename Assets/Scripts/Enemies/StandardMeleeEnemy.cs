@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -64,10 +64,12 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
         }
     }
 
-    public AudioSource audioSource;
-
-    public void PlayAudio() {
-        audioSource.Play();
+    public AudioClip audioClip;
+    private AudioSource source;
+    public void PlayAudio()
+    {
+        if (source is null) source = transform.GetComponent<AudioSource>();
+        source.clip = audioClip;
+        source.Play();
     }
-
 }
