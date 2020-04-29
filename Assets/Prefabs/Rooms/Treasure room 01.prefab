@@ -818,7 +818,6 @@ GameObject:
   - component: {fileID: 6446755061713511932}
   - component: {fileID: 4529612473726152557}
   - component: {fileID: 282994310034642444}
-  - component: {fileID: 8133971239626675982}
   - component: {fileID: 4165046192044202496}
   m_Layer: 16
   m_Name: Door_03
@@ -888,19 +887,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8133971239626675982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3765255696309084216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716d83844c5bea24c8f37fec4ca27378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrow: {fileID: 5661558985619338520}
 --- !u!65 &4165046192044202496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1913,12 +1899,6 @@ PrefabInstance:
 --- !u!4 &8703976205853132555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4508551570479203107, guid: 1d670fd17aed8b74799d3fb43881e4d9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5069694159395570728}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &5661558985619338520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 633545321387372848, guid: 1d670fd17aed8b74799d3fb43881e4d9,
     type: 3}
   m_PrefabInstance: {fileID: 5069694159395570728}
   m_PrefabAsset: {fileID: 0}
