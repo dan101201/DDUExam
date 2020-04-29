@@ -21,7 +21,10 @@ public class ItemSpawner : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        child.transform.Rotate(0.5f, 0.5f, 0.5f);
+        if (child != null)
+        {
+            child.transform.Rotate(0.5f, 0.5f, 0.5f);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
