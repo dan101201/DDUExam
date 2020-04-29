@@ -7,6 +7,7 @@ public class FireBallEffect : MonoBehaviour
     public float damage = 0f;
     private float explosionSize = 0f;
     public GameObject explosionEffect;
+    public float destructionDelay = 1f;
     public void StartShot(FireballStats stats) {
         damage = stats.damage;
         explosionSize = stats.ExplosionSize;
@@ -25,7 +26,7 @@ public class FireBallEffect : MonoBehaviour
         if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
         {
             Explode();
-            Destroy();
+            Destroy(gameObject,destructionDelay);
         }
     }
     void Explode()
