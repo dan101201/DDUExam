@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
             curentHealth -= damage;
             slider.value = curentHealth;
             PlayAudio();
-            StartCoroutine("TurnPlayerRed");
+            StartCoroutine(TurnPlayerRed());
             if (curentHealth <= 0)
             {
                 Destroy(gameObject);
