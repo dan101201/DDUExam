@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1071805693139473724}
   - component: {fileID: 6933206764974442756}
   - component: {fileID: 7513800518621751576}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Cullas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,5 +91,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 200, y: 399.5239, z: 80.00663}
-  m_Center: {x: 0, y: 0, z: -26.816029}
+  m_Size: {x: 200, y: 399.5239, z: 120.370186}
+  m_Center: {x: 0, y: 0, z: -46.9978}
