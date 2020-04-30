@@ -37,9 +37,4 @@ public class FireBall : MonoBehaviour
             Destroy(explosionEffect, 5f);
         }
     }
-    void Destroy()
-    {
-        Destroy(gameObject);
-    }
-
 }
