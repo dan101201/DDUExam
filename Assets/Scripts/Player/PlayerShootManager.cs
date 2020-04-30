@@ -45,20 +45,14 @@ public class PlayerShootManager : MonoBehaviour
         
     }
 
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioSource;
+        if (source is null) return;
+        source.clip = audioClip;
         source.Play();
     }
-
-    public void PlayAudio(AudioClip clip) {
-        if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = clip;
-        source.Play();
-    }
-
 
     public void AddStats(FireballStats modifier) {
         stats.FlySpeed *= modifier.FlySpeed;

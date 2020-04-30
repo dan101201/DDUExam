@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class IndependentAudioPlayer : MonoBehaviour
 {
-    public static GameObject independentAudioObject;
-
     AudioSource audioSource;
     private void Awake()
     {
@@ -20,13 +18,10 @@ public class IndependentAudioPlayer : MonoBehaviour
 
     IEnumerator DestroyWhenDone()
     {
-        if (audioSource.isPlaying)
+        while (audioSource.isPlaying)
         {
             yield return new WaitForFixedUpdate();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

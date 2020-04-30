@@ -151,6 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 91491485}
   - component: {fileID: 91491484}
+  - component: {fileID: 91491486}
   m_Layer: 0
   m_Name: Dungeon Generator
   m_TagString: GameController
@@ -202,6 +203,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &91491486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91491483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248581cdfdfe32345a44a5b8cefe8a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostMortemSoundObject: {fileID: 2918731424359464252, guid: 0813a98860b053d4f94ec73728588914,
+    type: 3}
 --- !u!1 &1031653322
 GameObject:
   m_ObjectHideFlags: 0

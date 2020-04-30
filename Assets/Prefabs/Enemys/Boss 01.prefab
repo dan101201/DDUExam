@@ -1147,7 +1147,7 @@ MonoBehaviour:
   canShoot: 0
   isAttacking: 0
   sound: {fileID: 8300000, guid: 2c5d0ec60a6d0c748b1cc4e956b32838, type: 3}
-  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: e7a85c9f45c5d7c40870a2fcf387f0ce, type: 3}
 --- !u!195 &5581989745229187522
 NavMeshAgent:
   m_ObjectHideFlags: 0

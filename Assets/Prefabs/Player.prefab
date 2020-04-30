@@ -19595,7 +19595,7 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   spreadOffset: 15
   initialSpread: 90
-  audioSource: {fileID: 8300000, guid: 9801a415a2405c44f825d1c49eaaebc9, type: 3}
+  audioClip: {fileID: 8300000, guid: 9801a415a2405c44f825d1c49eaaebc9, type: 3}
 --- !u!136 &513379179242369899
 CapsuleCollider:
   m_ObjectHideFlags: 0

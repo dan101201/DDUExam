@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UniversalSound : MonoBehaviour
 {
-    public static GameObject independentAudioObject;
     public AudioSource audioSource;
     public float fade;
 

@@ -21,17 +21,17 @@ public class Item : MonoBehaviour
 
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();
-            PlayAudio(clip);
+            PlayAudio();
 
             playerC.movementSpeed += movementSpeedUp;
-            playerH.curentHealth += healthUp;
+            playerH.Heal(healthUp);
             playerH.maxHealth += maxHealthUp;
             Destroy(gameObject);
         }
     }
 
-    void PlayAudio(AudioClip audioClip)
+    void PlayAudio()
     {
-
+        Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<ReferenceContainer>().PostMortemSoundObject, transform.position, transform.rotation).GetComponent<IndependentAudioPlayer>().PlaySound(clip);
     }
 }

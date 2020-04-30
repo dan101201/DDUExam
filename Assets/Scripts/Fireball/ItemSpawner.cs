@@ -40,17 +40,13 @@ public class ItemSpawner : MonoBehaviour
         }
 
     }
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio()
     {
         if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioSource;
+        if (source is null) return;
+        source.clip = audioClip;
         source.Play();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

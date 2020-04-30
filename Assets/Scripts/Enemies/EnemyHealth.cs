@@ -47,7 +47,8 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(0.1f);
+        Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<ReferenceContainer>().PostMortemSoundObject, transform.position, transform.rotation).GetComponent<IndependentAudioPlayer>().PlaySound(deathClip);
+        yield return new WaitForEndOfFrame();
         Destroy(gameObject);
     }
 

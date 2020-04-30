@@ -60,7 +60,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
             played = true;
             child.transform.Rotate(0, 0.5f, 0);
              
-            if (bossHealth.name == "Dead")
+            if (bossHealth.name == null)
             {
                 StartCoroutine(Death());
             }
@@ -153,12 +153,12 @@ public class Boss : MonoBehaviour, IBaseEnemy
         StartCoroutine(NextFrame());
     }
 
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
         if (source is null) return;
-        source.clip = audioSource;
+        source.clip = audioClip;
         source.Play();
     }
     IEnumerator NextFrame()

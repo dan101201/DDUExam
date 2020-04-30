@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 10
   Speed: 1
-  audioClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
+  audioClip: {fileID: 0}
 --- !u!54 &4087462046138532520
 Rigidbody:
   m_ObjectHideFlags: 0
