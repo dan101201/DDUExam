@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.CompareTag ("FireBall"))
         {
-            FireBallEffect fireBall = other.GetComponent<FireBallEffect>();
+            FireBall fireBall = other.GetComponent<FireBall>();
             TakeDamage(fireBall.damage);
             PlayAudio(hurtClip);
         }
