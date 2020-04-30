@@ -112,14 +112,13 @@ MonoBehaviour:
   itemPrefab:
   - {fileID: 2212678544778937939, guid: 0acb97b2175c5d044a3199105dc8b7a7, type: 3}
   - {fileID: 2212678544778937939, guid: 261d44d7e3a87ee409b0154c429dd316, type: 3}
-  - {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e, type: 3}
   - {fileID: 2212678544778937939, guid: eb17ecad5775ac14db6210a5950be971, type: 3}
   - {fileID: 2212678544778937939, guid: 4fb0b9cc5e903ad41a705d0ecb50fa47, type: 3}
   - {fileID: 2212678544778937939, guid: beb32922e348b814bbbe2afd349498e7, type: 3}
   - {fileID: 2212678544778937939, guid: 6e91ca06b13f3fc47b4e71bd6721ed03, type: 3}
   - {fileID: 2212678544778937939, guid: 896f8a841185f9544bcb1a894ea126cd, type: 3}
   off: {fileID: 2100000, guid: 2480748cfad9e93498f710e4d8d6ca2b, type: 2}
-  audioSource: {fileID: 8300000, guid: e7a85c9f45c5d7c40870a2fcf387f0ce, type: 3}
+  audioClip: {fileID: 8300000, guid: e7a85c9f45c5d7c40870a2fcf387f0ce, type: 3}
 --- !u!82 &-516293723357144343
 AudioSource:
   m_ObjectHideFlags: 0
