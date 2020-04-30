@@ -19623,11 +19623,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  curentHealth: 0
   slider: {fileID: 0}
   canBeAttacked: 1
   invincibleTime: 1
-  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!114 &5231452624808075746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19764,7 +19763,7 @@ MonoBehaviour:
   staminaConsumption: 1
   staminaRegeneration: 0.5
   cooldown: 1
-  shield: {fileID: 2629578820192595344}
+  shield: {fileID: 1912731163003908, guid: c5febdd93ab44d640b3eb37b768360bb, type: 3}
   shielding: 0
 --- !u!1 &8561899803189323345
 GameObject:
