@@ -37,7 +37,7 @@ public class PlayerShootManager : MonoBehaviour
                 var temp = transform.rotation.eulerAngles;
                 newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(spread/2+angle/2) + angle*i,temp.z);
                 newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * stats.FlySpeed;
-                newShoot.GetComponent<FireBallEffect>().StartShot(stats);
+                newShoot.GetComponent<FireBall>().StartShot(stats);
                 PlayAudio();
             }
         }

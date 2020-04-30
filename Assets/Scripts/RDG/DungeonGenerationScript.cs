@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+
 public class DungeonGenerationScript : MonoBehaviour
 {
     public GameObject[] roomPrefabs;
@@ -46,8 +47,10 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private IEnumerator GenerateDungeon(bool placePlayerOnGenerate)
     {
-        if (seed != 0)
+        if (seed == 0) seed = Random.Range(int.MinValue, int.MaxValue);
         Random.InitState(seed);
+        SavingFunctionality.AddToLog($"[{System.DateTime.Now:yyyy-MM-dd HH:mm:ss}] Seed: {seed}");
+
         rooms.Add(startingRoom);
         for (int i = 0; i < normalRoomsWanted + treasureRoomsWanted;)
         {

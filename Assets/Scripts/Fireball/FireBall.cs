@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBallEffect : MonoBehaviour
+public class FireBall : MonoBehaviour
 {
     public float damage = 0f;
     private float explosionSize = 0f;

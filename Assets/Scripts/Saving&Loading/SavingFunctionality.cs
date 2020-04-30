@@ -7,6 +7,7 @@ public static class SavingFunctionality
 {
     public static string settingsDestination = Application.persistentDataPath + "/settings.bin";
     public static string playerSaveDestination = Application.persistentDataPath + "/save0.bin";
+    public static string logPath = Application.persistentDataPath + "/DungeonGenerationSeedLogging";
     public static byte LatestSlot;
 
     public static PlayerData[] GetSaves()
@@ -127,6 +128,16 @@ public static class SavingFunctionality
 
         LatestSlot = data.LatestSaveSlot;
         return data;
+    }
+	#endregion
+
+	#region Logging
+    public static void AddToLog(string log)
+    {
+        using (StreamWriter sw = new StreamWriter(logPath, true))
+        {
+            sw.WriteLine(log);
+        }
     }
 	#endregion
 }
