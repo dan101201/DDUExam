@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Boss : MonoBehaviour, IBaseEnemy
 {
     public Roomreveal Room { get; set; }
+    public GameObject bossHealth;
     public GameObject shoot;
     public float shootSpeed = 1f;
     public float shootFlySpeed = 10f;
@@ -24,8 +25,8 @@ public class Boss : MonoBehaviour, IBaseEnemy
     float angel;
     float attackTImeLeft = 10;
     int nextAttack = 0;
-    GameObject bossHealth;
     PlayerHealth playerHealth;
+    UniversalSound universalSound;
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -39,81 +40,98 @@ public class Boss : MonoBehaviour, IBaseEnemy
                 child = tempChild;
             }
         }
-        bossHealth = gameObject.transform.GetChild(0).GetChild(gameObject.transform.childCount - 1).gameObject;
     }
 
     public void LateStart()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
+        universalSound = Camera.main.transform.parent.GetComponent<UniversalSound>();
     }
 
-    public AudioClip sound;
+    public AudioClip bossMusic;
+    AudioClip prevMusic;
     bool played = false;
+    bool dead = false;
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Room.playerIsInRoom)
         {
             if (!played)
-            Camera.main.transform.parent.GetComponent<UniversalSound>().FadePlayAudio(sound);
-            played = true;
+            {
+                prevMusic = universalSound.audioSource.clip;
+                universalSound.FadePlayAudio(bossMusic);
+                played = true;
+            }
             child.transform.Rotate(0, 0.5f, 0);
              
-            if (bossHealth.name == null)
+            if (bossHealth == null)
             {
-                StartCoroutine(Death());
-            }
-            if (navMeshAgent.remainingDistance < 0.1f)
-            {
-                if (isAttacking == false)
+                if (!dead)
                 {
-                    nextAttack = Random.Range(1, 4);
-                    Debug.Log(nextAttack);
-                    isAttacking = true;
-                    attackTImeLeft = 10;
+                    StartCoroutine(Death());
+                    dead = true;
                 }
             }
-            if (nextAttack == 1 && isAttacking)
+            else
             {
-                attackTImeLeft -= Time.fixedDeltaTime;
-                shootAmount = 3;
-                offsetAngle = 4f;
-                shootSize = 10f;
-                shootSpeed = 0.2f;
-                Attack();
-                if (attackTImeLeft <= 0)
+                if (navMeshAgent.remainingDistance < 0.1f)
                 {
-                    Move();
-                    isAttacking = false;
+                    if (isAttacking == false)
+                    {
+                        nextAttack = Random.Range(1, 4);
+                        Debug.Log(nextAttack);
+                        isAttacking = true;
+                        attackTImeLeft = 10;
+                    }
                 }
-            }
-            if (nextAttack == 2 && isAttacking)
-            {
-                attackTImeLeft -= Time.fixedDeltaTime;
-                shootAmount = 4;
-                offsetAngle = 30;
-                shootSize = 5;
-                shootSpeed = 0.2f;
-                Attack();
-                if (attackTImeLeft <= 0)
+                if (isAttacking)
                 {
-                    Move();
-                    isAttacking = false;
-                }
-            }
-            if (nextAttack == 3 && isAttacking)
-            {
-                attackTImeLeft -= Time.fixedDeltaTime;
-                shootAmount = 30;
-                offsetAngle = 0f;
-                shootSize = 10f;
-                shootSpeed = 2f;
-                Attack();
-                if (attackTImeLeft <= 0)
-                {
-                    Move();
-                    isAttacking = false;
+                    switch (nextAttack)
+                    {
+                        case 1:
+                            attackTImeLeft -= Time.fixedDeltaTime;
+                            shootAmount = 3;
+                            offsetAngle = 4f;
+                            shootSize = 10f;
+                            shootSpeed = 0.2f;
+                            Attack();
+                            if (attackTImeLeft <= 0)
+                            {
+                                Move();
+                                isAttacking = false;
+                            }
+                            break;
+                        case 2:
+                            attackTImeLeft -= Time.fixedDeltaTime;
+                            shootAmount = 4;
+                            offsetAngle = 30;
+                            shootSize = 5;
+                            shootSpeed = 0.2f;
+                            Attack();
+                            if (attackTImeLeft <= 0)
+                            {
+                                Move();
+                                isAttacking = false;
+                            }
+                            break;
+                        case 3:
+                            attackTImeLeft -= Time.fixedDeltaTime;
+                            shootAmount = 30;
+                            offsetAngle = 0f;
+                            shootSize = 10f;
+                            shootSpeed = 2f;
+                            Attack();
+                            if (attackTImeLeft <= 0)
+                            {
+                                Move();
+                                isAttacking = false;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -153,13 +171,10 @@ public class Boss : MonoBehaviour, IBaseEnemy
         StartCoroutine(NextFrame());
     }
 
-    public AudioClip audioClip;
-    private AudioSource source;
+    public AudioClip attackClip;
     public void PlayAudio() {
-        if (source is null) source = transform.GetComponent<AudioSource>();
-        if (source is null) return;
-        source.clip = audioClip;
-        source.Play();
+
+        Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<ReferenceContainer>().PostMortemSoundObject, transform.position, transform.rotation).GetComponent<IndependentAudioPlayer>().PlaySound(attackClip);
     }
     IEnumerator NextFrame()
     {
@@ -172,6 +187,7 @@ public class Boss : MonoBehaviour, IBaseEnemy
         cam.target = gameObject;
         yield return new WaitForSeconds(1f);
         cam.target = player;
+        universalSound.FadePlayAudio(prevMusic);
         Destroy();
     }
 }

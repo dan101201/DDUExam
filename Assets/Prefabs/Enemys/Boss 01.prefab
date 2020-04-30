@@ -1118,7 +1118,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 20
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &338205267071583067
 MonoBehaviour:
@@ -1132,6 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b1f6c96dcbb0a42bbff1d12e608412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossHealth: {fileID: 1018693538}
   shoot: {fileID: 3114488699329220992, guid: 7b6c343e2b169e6489f9345ef61d482c, type: 3}
   shootSpeed: 0.1
   shootFlySpeed: 10
@@ -1146,8 +1147,8 @@ MonoBehaviour:
   - {fileID: 0}
   canShoot: 0
   isAttacking: 0
-  sound: {fileID: 8300000, guid: 2c5d0ec60a6d0c748b1cc4e956b32838, type: 3}
-  audioClip: {fileID: 8300000, guid: e7a85c9f45c5d7c40870a2fcf387f0ce, type: 3}
+  bossMusic: {fileID: 8300000, guid: 2c5d0ec60a6d0c748b1cc4e956b32838, type: 3}
+  attackClip: {fileID: 0}
 --- !u!195 &5581989745229187522
 NavMeshAgent:
   m_ObjectHideFlags: 0
