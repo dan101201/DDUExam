@@ -7,7 +7,7 @@ public static class SavingFunctionality
 {
     public static string settingsDestination = Application.persistentDataPath + "/settings.bin";
     public static string playerSaveDestination = Application.persistentDataPath + "/save0.bin";
-    public static string logPath = Application.persistentDataPath + "/DungeonGenerationSeedLogging";
+    public static string logPath = Application.persistentDataPath + "/DebugLogging.txt";
     public static byte LatestSlot;
 
     public static PlayerData[] GetSaves()
