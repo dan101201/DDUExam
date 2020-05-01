@@ -16,6 +16,7 @@ TagManager:
   - Player Spawner
   - Item
   - Door Cube
+  - Map
   layers:
   - Default
   - TransparentFX

@@ -12,5 +12,6 @@ public class PlayerSpawner : MonoBehaviour
         GameObject newCamara = Instantiate(camara, new Vector3(0, 7.5f, -1.8f), new Quaternion(72, 0, 0, 0));
         DontDestroyOnLoad(newPlay);
         DontDestroyOnLoad(newCamara);
+        GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().StartMap();
     }
 }

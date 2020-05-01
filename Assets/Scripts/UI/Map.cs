@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
     private GameObject camera;
     private GameObject mainCamera;
 
-    private void Awake()
+    public void StartMap()
     {
         camera = transform.GetChild(0).gameObject;
         camera.SetActive(false);
