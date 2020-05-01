@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1221915222195300698}
   - component: {fileID: -7665528619394564371}
   m_Layer: 0
-  m_Name: Fire rate up
+  m_Name: Rapid fire
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,11 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930de2b4bcf6cc54e84c49bfdbc19c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadSpeed: 1.5
-  FlySpeed: 1
+  ReloadSpeed: 4
+  FlySpeed: 2
   TimeAlive: 1
   ExplosionSize: 0
-  fireBallSize: 1
+  fireBallSize: 0.5
   damage: 1
   Accuracy: 1
   Shots: 0

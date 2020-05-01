@@ -19648,7 +19648,7 @@ MonoBehaviour:
   Accuracy: 100
   Shots: 1
   angleOffset: 0
-  deathOffset: 0
+  deathOffset: 0.2
   color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!82 &4496584430034637484
 AudioSource:
