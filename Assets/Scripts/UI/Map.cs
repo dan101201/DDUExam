@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    private Vector3 offset;
-    private Vector3 oldHit;
-    private Vector3 initialOffset;
-    private bool dragging;
-    public float speed;
+    public float speed = 2;
+    public float zoomSpeed = 2;
+    public KeyCode mapKey;
+    private bool mapIsOpen = false;
+    private GameObject camera;
+    private GameObject mainCamera;
+
+    private void Awake()
+    {
+        camera = transform.GetChild(0).gameObject;
+        camera.SetActive(false);
+        mainCamera = Camera.main.gameObject;
+    }
 
     void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit = new RaycastHit();
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetKeyDown(mapKey))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                dragging = true;
-                initialOffset = hit.point - hit.transform.position;
-            } 
-            else if (Input.GetMouseButtonUp(0))
-            {
-                dragging = false;
-            }
-            else if (dragging)
-            {
-                hit.transform.position = hit.point - initialOffset;
-            }
+            Debug.Log("boom");
+            mapIsOpen = !mapIsOpen;
+            mainCamera.SetActive(!mapIsOpen);
+            camera.SetActive(mapIsOpen);
         }
-        
+        if (mapIsOpen)
+        {
+            transform.Translate(Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * speed);
+
+        }
     }
 }
