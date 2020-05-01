@@ -7,6 +7,7 @@ public class Roomreveal : MonoBehaviour
     public GameObject roof;
     public bool playerIsInRoom;
     public List<GameObject> enemies = new List<GameObject>();
+    public GameObject mapSprite;
 
     int colliderCount;
 
@@ -17,6 +18,7 @@ public class Roomreveal : MonoBehaviour
             playerIsInRoom = true;
             roof.SetActive(false);
             colliderCount++;
+            mapSprite.SetActive(true);
         }
     }
     void OnTriggerExit(Collider col)
