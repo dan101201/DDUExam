@@ -76,11 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930de2b4bcf6cc54e84c49bfdbc19c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadSpeed: 4
+  ReloadSpeed: 2
   FlySpeed: 2
   TimeAlive: 1
   ExplosionSize: 0
-  fireBallSize: 0.5
+  fireBallSize: 1
   damage: 1
   Accuracy: 1
   Shots: 0
