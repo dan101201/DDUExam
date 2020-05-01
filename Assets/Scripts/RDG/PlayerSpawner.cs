@@ -9,9 +9,9 @@ public class PlayerSpawner : MonoBehaviour
     public void SpawnPlayer()
     {
         GameObject newPlay = Instantiate(player, new Vector3(0, 0.605f, 0), transform.rotation);
-        GameObject newCamara = Instantiate(camara, new Vector3(0, 7.5f, -1.8f), new Quaternion(72, 0, 0, 0));
+        GameObject newCamara = Instantiate(camara, new Vector3(0, 7.5f, -1.8f), new Quaternion(72, 0, 0, 0)); 
+        GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().StartMap();
         DontDestroyOnLoad(newPlay);
         DontDestroyOnLoad(newCamara);
-        GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().StartMap();
     }
 }

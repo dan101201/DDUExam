@@ -29,7 +29,7 @@ public class Map : MonoBehaviour
         }
         if (mapIsOpen)
         {
-            transform.Translate(Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * speed);
+            transform.Translate(Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0)) * speed);
 
         }
     }
