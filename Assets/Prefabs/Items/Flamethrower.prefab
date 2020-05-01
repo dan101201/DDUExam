@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReloadSpeed: 6
   FlySpeed: 0.5
-  TimeAlive: 0.2
+  TimeAlive: 1
   ExplosionSize: 0
   fireBallSize: 1
   damage: 1
