@@ -223,7 +223,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!135 &2055082340439761771
 SphereCollider:
@@ -233,7 +233,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8044822660741164355}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.05
@@ -296,10 +296,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   curentHealth: 0
-  healthDropChance: 0.5
+  healthDropChance: 0.25
   healthDrop: {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e,
     type: 3}
-  hurtClip: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
   deathClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
 --- !u!82 &8070888629855015224
 AudioSource:
