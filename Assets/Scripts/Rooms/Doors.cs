@@ -20,7 +20,6 @@ public class Doors : MonoBehaviour
         
         if (other.CompareTag("Door") && generation.DoneGenerating)
         {
-
             arrow.SetActive(true);
             Destroy(other.gameObject);
         }

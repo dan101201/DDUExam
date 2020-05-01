@@ -6,7 +6,6 @@ public class Cullas : MonoBehaviour
 {
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
         GetComponent<BoxCollider>().isTrigger = false;
     }
 }
