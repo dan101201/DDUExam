@@ -182,9 +182,9 @@ MonoBehaviour:
   bossRoom: {fileID: 7981985362084885923, guid: b8ddc4c68bd4ee443813b70a2fb8d73e,
     type: 3}
   startingRoom: {fileID: 29798443}
-  minRoomsBeforeTreasure: 2
-  normalRoomsWanted: 2
-  treasureRoomsWanted: 2
+  minRoomsBeforeTreasure: 3
+  normalRoomsWanted: 15
+  treasureRoomsWanted: 5
   seed: 0
   treasureRoomsPlaced: 0
   normalRoomsPlaced: 0
