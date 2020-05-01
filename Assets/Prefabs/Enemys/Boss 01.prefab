@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 4348944769208409639}
   - component: {fileID: 4777652459231967726}
   - component: {fileID: 794322412984313822}
+  - component: {fileID: 2478749982196606410}
   m_Layer: 14
   m_Name: Boss_sheald_02
   m_TagString: Enemy
@@ -371,6 +372,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2478749982196606410
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305970253628379883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
 --- !u!1 &2284328254317637861
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +399,7 @@ GameObject:
   - component: {fileID: 781278101520659427}
   - component: {fileID: 38197765490497793}
   - component: {fileID: 5097649486986073814}
+  - component: {fileID: 1062857926277282865}
   m_Layer: 14
   m_Name: Boss_sheald_01
   m_TagString: Enemy
@@ -580,6 +595,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1062857926277282865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2284328254317637861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
 --- !u!1 &2475191295205181331
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +622,7 @@ GameObject:
   - component: {fileID: 2172842665758751936}
   - component: {fileID: 2489956759514260858}
   - component: {fileID: 1904179221290910228}
+  - component: {fileID: 2942117695487817002}
   m_Layer: 14
   m_Name: Boss_sheald_03
   m_TagString: Enemy
@@ -789,6 +818,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2942117695487817002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475191295205181331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
 --- !u!1 &3132461554503334327
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +845,7 @@ GameObject:
   - component: {fileID: 9154309993101351208}
   - component: {fileID: 3335283283218852641}
   - component: {fileID: 8077469754865982856}
+  - component: {fileID: 2095214449471863545}
   m_Layer: 14
   m_Name: Boss_sheald_06
   m_TagString: Enemy
@@ -998,6 +1041,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2095214449471863545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3132461554503334327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
 --- !u!1 &3983851953332250037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1460,7 @@ GameObject:
   - component: {fileID: 5831195538247962705}
   - component: {fileID: 3511870071245493658}
   - component: {fileID: 181449196940285388}
+  - component: {fileID: 3335067859256705402}
   m_Layer: 14
   m_Name: Boss_sheald_04
   m_TagString: Enemy
@@ -1599,6 +1656,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &3335067859256705402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442950096121223239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
 --- !u!1 &8103267355345040377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,6 +1683,7 @@ GameObject:
   - component: {fileID: 2519827245349573202}
   - component: {fileID: 4943288028948798686}
   - component: {fileID: 2522012913013842440}
+  - component: {fileID: 4614641181268462330}
   m_Layer: 14
   m_Name: Boss_sheald_05
   m_TagString: Enemy
@@ -1808,3 +1879,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &4614641181268462330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8103267355345040377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2739208, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 1.405182}
