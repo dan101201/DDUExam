@@ -81,7 +81,7 @@ MonoBehaviour:
   TimeAlive: 1
   ExplosionSize: 1
   fireBallSize: 1
-  damage: 1
+  damage: 2
   Accuracy: 1
   Shots: 0
   angleOffset: 0

@@ -25,7 +25,7 @@ public class PlayerShootManager : MonoBehaviour
     {
         
         canShoot -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot <= 0f)
+        if (Input.GetKey(KeyCode.Mouse0) && canShoot <= 0f)
         {
             canShoot = stats.ReloadSpeed;
             float spread = initialSpread+spreadOffset*stats.Shots;

@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4087462046138532520}
   - component: {fileID: 1699902723524556548}
   - component: {fileID: 3495747233689917676}
-  - component: {fileID: -6970240650118645203}
   - component: {fileID: 8020993790098218080}
   m_Layer: 14
   m_Name: Enemy 02
@@ -173,20 +172,6 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &-6970240650118645203
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319330744215050509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1
-  m_Height: 4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &8020993790098218080
 AudioSource:
   m_ObjectHideFlags: 0
