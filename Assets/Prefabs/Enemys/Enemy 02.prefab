@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319330744215050509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.513, z: -0.19}
+  m_LocalPosition: {x: -1.12, y: 2.001, z: -0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1196939669115889252}
@@ -94,7 +94,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319330744215050509}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.8
   m_Height: 4
@@ -145,10 +145,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   curentHealth: 0
-  healthDropChance: 0.75
+  healthDropChance: 0.25
   healthDrop: {fileID: 2212678544778937939, guid: 622adbde86b06c3448581532df17614e,
     type: 3}
-  hurtClip: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
   deathClip: {fileID: 8300000, guid: 463367628206f7e4d89ae3f3a0045443, type: 3}
 --- !u!195 &3495747233689917676
 NavMeshAgent:
