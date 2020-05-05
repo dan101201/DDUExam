@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 5502498864514972525}
   - component: {fileID: 1071805693139473724}
   - component: {fileID: 6933206764974442756}
-  - component: {fileID: 645919339222371174}
-  m_Layer: 0
+  - component: {fileID: 7513800518621751576}
+  - component: {fileID: 6298790687658432206}
+  m_Layer: 18
   m_Name: Cullas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5502498864514972525
 Transform:
   m_ObjectHideFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1215125237942793805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -5.5, z: 0}
-  m_LocalScale: {x: 6, y: 10, z: 0.2}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215125237942793805}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 962209921104072034, guid: 2cdcc5c7697c24e47a88b6a6ae0841fc, type: 3}
 --- !u!23 &6933206764974442756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 15247304c4b1f1442a2c4c189de838d3, type: 2}
+  - {fileID: 5561349426305759274, guid: 10adbd81432c9e841b1785f3ea6667f5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &645919339222371174
+--- !u!65 &7513800518621751576
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,8 +89,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215125237942793805}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 200, y: 399.5239, z: 120.370186}
+  m_Center: {x: 0, y: 0, z: -46.9978}
+--- !u!114 &6298790687658432206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215125237942793805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8483895527798da4586a933fc2c0e342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

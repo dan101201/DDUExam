@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (other.CompareTag ("FireBall"))
         {
-            FireBallEffect fireBall = other.GetComponent<FireBallEffect>();
+            FireBall fireBall = other.GetComponent<FireBall>();
             TakeDamage(fireBall.damage);
             PlayAudio(hurtClip);
         }
@@ -47,12 +47,18 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(0.1f);
+        Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<ReferenceContainer>().PostMortemSoundObject, transform.position, transform.rotation).GetComponent<IndependentAudioPlayer>().PlaySound(deathClip);
+        yield return new WaitForEndOfFrame();
         Destroy(gameObject);
     }
 
     void DropHealth()
     {
+        while (healthDropChance >= 1)
+        {
+            Instantiate(healthDrop, transform.position, new Quaternion(0, 0, 0, 0));
+            healthDropChance--;
+        }
         if (Random.value <= healthDropChance)
         {
             Instantiate(healthDrop, transform.position, new Quaternion(0, 0, 0, 0));

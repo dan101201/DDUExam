@@ -8,18 +8,20 @@ public class IndependentAudioPlayer : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.clip = audioClip;
         StartCoroutine(DestroyWhenDone());
     }
 
     IEnumerator DestroyWhenDone()
     {
-        if (audioSource.isPlaying)
+        while (audioSource.isPlaying)
         {
             yield return new WaitForFixedUpdate();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

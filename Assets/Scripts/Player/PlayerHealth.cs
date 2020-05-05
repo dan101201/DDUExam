@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,24 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
-    public float curentHealth;
+
+    private float currentHealth;
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+        set
+        {
+            if (value < 0f)
+            {
+                TakeDamage(value);
+            }
+            else if (value > 0f)
+            {
+                Heal(value);
+            }
+        }
+    }
+
     public Slider slider;
     public bool canBeAttacked = true;
     public float invincibleTime = 2f;
@@ -16,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         slider = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
-        curentHealth = maxHealth;
+        currentHealth = maxHealth;
         timer = invincibleTime;
         playerMat = gameObject.GetComponent<MeshRenderer>().material;
     }
@@ -30,16 +48,20 @@ public class PlayerHealth : MonoBehaviour
         if (timer > invincibleTime)
         {
             timer = 0;
-            curentHealth -= damage;
-            slider.value = curentHealth;
+            currentHealth -= damage;
+            slider.value = currentHealth;
             PlayAudio();
             StartCoroutine(TurnPlayerRed());
-            if (curentHealth <= 0)
+            if (currentHealth <= 0)
             {
                 Destroy(gameObject);
-
             }
         }
+    }
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        slider.value = currentHealth;
     }
 
     private IEnumerator TurnPlayerRed()
@@ -51,11 +73,12 @@ public class PlayerHealth : MonoBehaviour
         yield return null;
     }
 
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioSource;
+        if (source is null) return;
+        source.clip = audioClip;
         source.Play();
     }
 }

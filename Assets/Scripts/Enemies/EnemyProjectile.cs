@@ -45,7 +45,7 @@ public class EnemyProjectile : MonoBehaviour
             playerHealth.TakeDamage(damage);
         }
 
-        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Enemy") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
+        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Enemy") && !other.CompareTag("Room") && !other.CompareTag("Spikes") && !other.CompareTag("FireBall") && !other.CompareTag("Item") && !other.CompareTag("Door Cube"))
         {
             Explode();
             Destroy();

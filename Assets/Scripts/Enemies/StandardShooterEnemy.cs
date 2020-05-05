@@ -79,8 +79,10 @@ public class StandardShooterEnemy : MonoBehaviour, IBaseEnemy
 
     public AudioClip audioClip;
     private AudioSource source;
-    public void PlayAudio() {
+    public void PlayAudio()
+    {
         if (source is null) source = transform.GetComponent<AudioSource>();
+        if (source is null) return;
         source.clip = audioClip;
         source.Play();
     }

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 248581cdfdfe32345a44a5b8cefe8a8c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PostMortemSoundObject: {fileID: 2918731424359464252, guid: 0813a98860b053d4f94ec73728588914,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

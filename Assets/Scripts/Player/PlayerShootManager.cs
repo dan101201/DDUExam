@@ -25,7 +25,7 @@ public class PlayerShootManager : MonoBehaviour
     {
         
         canShoot -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot <= 0f)
+        if (Input.GetKey(KeyCode.Mouse0) && canShoot <= 0f)
         {
             canShoot = stats.ReloadSpeed;
             float spread = initialSpread+spreadOffset*stats.Shots;
@@ -37,7 +37,7 @@ public class PlayerShootManager : MonoBehaviour
                 var temp = transform.rotation.eulerAngles;
                 newShoot.transform.rotation = Quaternion.Euler(temp.x,temp.y-(spread/2+angle/2) + angle*i,temp.z);
                 newShoot.GetComponent<Rigidbody>().velocity = newShoot.transform.forward * stats.FlySpeed;
-                newShoot.GetComponent<FireBallEffect>().StartShot(stats);
+                newShoot.GetComponent<FireBall>().StartShot(stats);
                 PlayAudio();
             }
         }
@@ -45,20 +45,14 @@ public class PlayerShootManager : MonoBehaviour
         
     }
 
-    public AudioClip audioSource;
+    public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {
         if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioSource;
+        if (source is null) return;
+        source.clip = audioClip;
         source.Play();
     }
-
-    public void PlayAudio(AudioClip clip) {
-        if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = clip;
-        source.Play();
-    }
-
 
     public void AddStats(FireballStats modifier) {
         stats.FlySpeed *= modifier.FlySpeed;

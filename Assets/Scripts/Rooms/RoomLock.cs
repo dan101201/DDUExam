@@ -31,7 +31,7 @@ public class RoomLock : MonoBehaviour
 
         if (!open)
         {
-            if (parentRoom.playerIsInRoom && parentRoom.enemies.Count == deadCount)
+            if (!parentRoom.playerIsInRoom || parentRoom.enemies.Count == deadCount)
             {
                 open = true;
                 OpenCullases();
@@ -48,6 +48,7 @@ public class RoomLock : MonoBehaviour
     {
         for (int i = 0; i < cullases.Length; i++)
         {
+            cullases[i].gameObject.SetActive(true);
             cullases[i].localPosition = new Vector3(cullases[i].localPosition.x, 2.4f, cullases[i].localPosition.z);
         }
     }
@@ -57,6 +58,7 @@ public class RoomLock : MonoBehaviour
         for (int i = 0; i < cullases.Length; i++)
         {
             cullases[i].localPosition = new Vector3(cullases[i].localPosition.x, -5.5f, cullases[i].localPosition.z);
+            cullases[i].gameObject.SetActive(false);
         }
     }
 }

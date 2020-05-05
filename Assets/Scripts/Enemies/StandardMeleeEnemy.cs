@@ -20,6 +20,7 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
         if (other.CompareTag("Player") && attackTimer >= Speed)
         {
             attackTimer = 0;
+            PlayAudio();
             playerHealth.TakeDamage(Damage);
         }
     }
@@ -68,8 +69,6 @@ public class StandardMeleeEnemy : MonoBehaviour, IBaseEnemy
     private AudioSource source;
     public void PlayAudio()
     {
-        if (source is null) source = transform.GetComponent<AudioSource>();
-        source.clip = audioClip;
-        source.Play();
+        Instantiate(GameObject.FindGameObjectWithTag("GameController").GetComponent<ReferenceContainer>().PostMortemSoundObject, transform.position, transform.rotation).GetComponent<IndependentAudioPlayer>().PlaySound(audioClip);
     }
 }

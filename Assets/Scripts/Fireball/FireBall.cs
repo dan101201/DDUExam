@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBallEffect : MonoBehaviour
+public class FireBall : MonoBehaviour
 {
     public float damage = 0f;
     private float explosionSize = 0f;
@@ -23,10 +23,10 @@ public class FireBallEffect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes"))
+        if (!other.CompareTag("EnemyProjectile") && !other.CompareTag("Player") && !other.CompareTag("Room") && !other.CompareTag("Spikes") && !other.CompareTag("Item") && !other.CompareTag("Door Cube"))
         {
             Explode();
-            Destroy(gameObject,deathOffset);
+            Destroy(gameObject, deathOffset);
         }
     }
     void Explode()
@@ -37,9 +37,4 @@ public class FireBallEffect : MonoBehaviour
             Destroy(explosionEffect, 5f);
         }
     }
-    void Destroy()
-    {
-        Destroy(gameObject);
-    }
-
 }
