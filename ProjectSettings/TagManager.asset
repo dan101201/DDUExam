@@ -17,6 +17,7 @@ TagManager:
   - Item
   - Door Cube
   - Map
+  - PickUpText
   layers:
   - Default
   - TransparentFX
