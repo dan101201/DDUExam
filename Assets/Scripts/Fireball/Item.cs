@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class Item : MonoBehaviour
     public float healthUp;
     public float maxHealthUp;
     public AudioClip clip;
+    public Text upgradeText;
+    public float PickUpTimer;
+    private void Awake() {
+        upgradeText = GameObject.FindGameObjectWithTag("PickUpText").GetComponent<Text>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,7 +25,11 @@ public class Item : MonoBehaviour
             {
                 player.AddStats(stats);
             }
-
+            if (gameObject.name != "Health") {
+                upgradeText.gameObject.SetActive(true);
+                upgradeText.text =  $@"You have picked up {gameObject.name}";
+                StartCoroutine("DisableTextObject");
+            }
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();
             PlayAudio();
@@ -28,6 +39,12 @@ public class Item : MonoBehaviour
             playerH.maxHealth += maxHealthUp;
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator DisableTextObject() {
+        yield return new WaitForSeconds(PickUpTimer);
+        upgradeText.gameObject.SetActive(false);
+        yield return null;
     }
 
     void PlayAudio()

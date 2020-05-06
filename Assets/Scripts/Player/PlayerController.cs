@@ -39,10 +39,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         playerRigidbody.velocity = Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * movementSpeed;
-    }
 
-    void Update()
-    {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(camRay, out RaycastHit hitPlacement, 100f, aimingLayerMask))
@@ -52,34 +49,8 @@ public class PlayerController : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
             playerRigidbody.MoveRotation(newRotation);
         }
-        //Debug.Log(playerRigidbody.velocity);
-
-        /*if (PlayerInput.currentControlScheme == "Keyboard&Mouse")
-        {
-            Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitPlacement;
-
-            if (Physics.Raycast(camRay, out hitPlacement, 100f, aimingLayerMask))
-            {
-                Vector3 playerToMouse = hitPlacement.point - transform.position;
-                playerToMouse.y = 0f;
-                
-            }
-
-            Debug.Log("MouseKeyboard");
-        }
-        else if (PlayerInput.currentControlScheme == "Gamepad")
-        {
-            Quaternion newRotation = Quaternion.LookRotation(PlayerInput);
-            playerRigidbody.MoveRotation(newRotation);
-            Debug.Log("Controller");
-        }
-        else
-        {
-            Debug.Log("No Input");
-        }*/
     }
-
+    
     enum EInputState
     {
         MouseKeyboard,
