@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public bool canBeAttacked = true;
     public float invincibleTime = 2f;
+    public GameObject blackUI;
     float timer;
     Material playerMat;
 
@@ -37,6 +38,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         timer = invincibleTime;
         playerMat = gameObject.GetComponent<MeshRenderer>().material;
+        blackUI = GameObject.FindGameObjectWithTag("BlackScreen");
+        blackUI.SetActive(false);
     }
 
     void Update()
@@ -54,6 +57,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(TurnPlayerRed());
             if (currentHealth <= 0)
             {
+                StartCoroutine("FadeToBlack");
                 Destroy(gameObject);
             }
         }
@@ -73,7 +77,6 @@ public class PlayerHealth : MonoBehaviour
         yield return null;
     }
 
-    public GameObject blackUI;
 
     private IEnumerator FadeToBlack() {
         var temp = blackUI.GetComponent<Image>();

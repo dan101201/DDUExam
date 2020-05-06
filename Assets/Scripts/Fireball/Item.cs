@@ -26,7 +26,7 @@ public class Item : MonoBehaviour
                 player.AddStats(stats);
             }
             if (gameObject.name != "Health") {
-                StartCoroutine("DisableTextObject");
+                StartCoroutine("PickUpObject");
             }
             PlayerController playerC = other.GetComponent<PlayerController>();
             PlayerHealth playerH = other.GetComponent<PlayerHealth>();

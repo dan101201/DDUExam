@@ -44,7 +44,7 @@ public class ItemSpawner : MonoBehaviour
             Debug.Log(pickedItem);
             gameObject.GetComponent<Renderer>().material = off;
             PlayAudio();
-            Destroy(child);  
+            Destroy(child);
         }
     }
 
