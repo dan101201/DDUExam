@@ -34,6 +34,18 @@ public class ItemSpawner : MonoBehaviour
             child.transform.Rotate(0.5f, 0.5f, 0.5f);
         } 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && hasItem)
+        {
+            hasItem = false;
+            GameObject pickedItem = itemPrefab[Random.Range(0, itemPrefab.Length)];
+            Instantiate(pickedItem, other. transform.position, transform.rotation);
+            Debug.Log(pickedItem);
+            gameObject.GetComponent<Renderer>().material = off;
+            PlayAudio();
+            Destroy(child);  
+        }
 
     public AudioClip audioClip;
     private AudioSource source;
