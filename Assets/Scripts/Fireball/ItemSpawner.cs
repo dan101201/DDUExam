@@ -46,6 +46,7 @@ public class ItemSpawner : MonoBehaviour
             PlayAudio();
             Destroy(child);  
         }
+    }
 
     public AudioClip audioClip;
     private AudioSource source;
