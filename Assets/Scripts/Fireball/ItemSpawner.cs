@@ -11,7 +11,7 @@ public class ItemSpawner : MonoBehaviour
     DungeonGenerationScript generation;
     private void Start()
     {
-        generation = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DungeonGenerationScript>();
+        generation = GameObject.FindGameObjectWithTag("GameController").GetComponent<DungeonGenerationScript>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
