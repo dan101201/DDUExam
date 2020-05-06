@@ -15,7 +15,7 @@ public class Roomreveal : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            playerIsInRoom = true;
+            StartCoroutine("LateActivateEnemies");
             roof.SetActive(false);
             colliderCount++;
             mapSprite.SetActive(true);
@@ -32,6 +32,12 @@ public class Roomreveal : MonoBehaviour
                 roof.SetActive(true);
             }
         }
+    }
+
+    IEnumerator LateActivateEnemies() {
+        yield return new WaitForSeconds(2f);
+        playerIsInRoom = true;
+        yield return null;
     }
 
     public void CheckInEnemy(GameObject enemy)

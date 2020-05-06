@@ -73,6 +73,18 @@ public class PlayerHealth : MonoBehaviour
         yield return null;
     }
 
+    public GameObject blackUI;
+
+    private IEnumerator FadeToBlack() {
+        var temp = blackUI.GetComponent<Image>();
+        blackUI.SetActive(true);
+        while (temp.color.a < 255) {
+            yield return new WaitForSeconds(0.05f);
+            temp.color = new Color(temp.color.r, temp.color.g, temp.color.b, temp.color.a + 1);
+        }
+        yield return null;
+    }
+
     public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio() {

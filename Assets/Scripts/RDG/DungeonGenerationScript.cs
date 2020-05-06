@@ -36,11 +36,14 @@ public class DungeonGenerationScript : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        Generate();   
+    }
+
+    public void Generate() {
         Generate(GameObject.FindGameObjectWithTag("Player") == null);
     }
 
-    public void Generate(bool placePlayerOnGenerate)
+    private void Generate(bool placePlayerOnGenerate)
     {
         StartCoroutine(GenerateDungeon(placePlayerOnGenerate));
     }
@@ -321,5 +324,11 @@ public class DungeonGenerationScript : MonoBehaviour
         }
     }
 
-
+    public void RemoveDungeon() {
+        foreach (var room in rooms)
+        {
+            if (room != startingRoom)
+                Destroy(room);
+        }
+    }
 }

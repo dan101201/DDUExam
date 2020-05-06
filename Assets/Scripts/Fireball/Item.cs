@@ -26,8 +26,6 @@ public class Item : MonoBehaviour
                 player.AddStats(stats);
             }
             if (gameObject.name != "Health") {
-                upgradeText.gameObject.SetActive(true);
-                upgradeText.text =  $@"You have picked up {gameObject.name}";
                 StartCoroutine("DisableTextObject");
             }
             PlayerController playerC = other.GetComponent<PlayerController>();
@@ -41,9 +39,10 @@ public class Item : MonoBehaviour
         }
     }
 
-    IEnumerator DisableTextObject() {
+    IEnumerator PickUpObject() {
+        upgradeText.text =  $@"You have picked up {gameObject.name}";
         yield return new WaitForSeconds(PickUpTimer);
-        upgradeText.gameObject.SetActive(false);
+        upgradeText.text = "";
         yield return null;
     }
 

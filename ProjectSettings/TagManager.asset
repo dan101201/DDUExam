@@ -18,6 +18,7 @@ TagManager:
   - Door Cube
   - Map
   - PickUpText
+  - BlackScreen
   layers:
   - Default
   - TransparentFX

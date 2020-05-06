@@ -8,8 +8,10 @@ public class ItemSpawner : MonoBehaviour
     public Material off;
     bool hasItem = true;
     GameObject child;
+    DungeonGenerationScript generation;
     private void Start()
     {
+        generation = GameObject.FindGameObjectWithTag("GameManager").GetComponent<DungeonGenerationScript>();
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
             GameObject tempChild = gameObject.transform.GetChild(i).gameObject;
@@ -19,27 +21,20 @@ public class ItemSpawner : MonoBehaviour
             }
         }
     }
+    bool once = false;
+    
     private void FixedUpdate()
     {
+        if (!once && generation.DoneGenerating) {
+            Instantiate(itemPrefab[Random.Range(0,itemPrefab.Length)]);
+            once = true;
+        }
         if (child != null)
         {
             child.transform.Rotate(0.5f, 0.5f, 0.5f);
-        }
+        } 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && hasItem)
-        {
-            GameObject pickedItem = itemPrefab[Random.Range(0, itemPrefab.Length)];
-            Instantiate(pickedItem, other. transform.position, transform.rotation);
-            Debug.Log(pickedItem);
-            gameObject.GetComponent<Renderer>().material = off;
-            hasItem = false;
-            PlayAudio();
-            Destroy(child);  
-        }
 
-    }
     public AudioClip audioClip;
     private AudioSource source;
     public void PlayAudio()
