@@ -30,11 +30,11 @@ public class ItemSpawner : MonoBehaviour
     {
         if (other.CompareTag("Player") && hasItem)
         {
+            hasItem = false;
             GameObject pickedItem = itemPrefab[Random.Range(0, itemPrefab.Length)];
             Instantiate(pickedItem, other. transform.position, transform.rotation);
             Debug.Log(pickedItem);
             gameObject.GetComponent<Renderer>().material = off;
-            hasItem = false;
             PlayAudio();
             Destroy(child);  
         }
