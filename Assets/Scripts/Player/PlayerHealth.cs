@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(TurnPlayerRed());
             if (currentHealth <= 0)
             {
-                StartCoroutine("FadeToBlack");
+                StartCoroutine(FadeToBlack());
                 Destroy(gameObject);
             }
         }

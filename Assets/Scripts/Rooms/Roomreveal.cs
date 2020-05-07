@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class Roomreveal : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            StartCoroutine("LateActivateEnemies");
+            StartCoroutine(LateActivateEnemies());
             roof.SetActive(false);
             colliderCount++;
             mapSprite.SetActive(true);
