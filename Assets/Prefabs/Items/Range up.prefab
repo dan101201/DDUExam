@@ -64,6 +64,9 @@ MonoBehaviour:
   healthUp: 0
   maxHealthUp: 0
   clip: {fileID: 8300000, guid: e7a85c9f45c5d7c40870a2fcf387f0ce, type: 3}
+  upgradeText: {fileID: 0}
+  PickUpTimer: 0
+  Name: Range Up
 --- !u!114 &1221915222195300698
 MonoBehaviour:
   m_ObjectHideFlags: 0

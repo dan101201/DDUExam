@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
     public AudioClip clip;
     public Text upgradeText;
     public float PickUpTimer;
+    public string Name;
     private void Awake() {
         upgradeText = GameObject.FindGameObjectWithTag("PickUpText").GetComponent<Text>();
     }
@@ -25,7 +26,7 @@ public class Item : MonoBehaviour
             {
                 player.AddStats(stats);
             }
-            if (gameObject.name != "Health") {
+            if (Name != "Health") {
                 StartCoroutine(PickUpObject());
             }
             PlayerController playerC = other.GetComponent<PlayerController>();
@@ -40,7 +41,7 @@ public class Item : MonoBehaviour
     }
 
     IEnumerator PickUpObject() {
-        upgradeText.text =  $@"You have picked up {gameObject.name}";
+        upgradeText.text =  $@"You have picked up {Name}";
         yield return new WaitForSeconds(PickUpTimer);
         upgradeText.text = "";
         yield return null;
